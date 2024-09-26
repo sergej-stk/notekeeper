@@ -8,7 +8,7 @@
 
 This Java Spring Boot web interface allows users to create, retrieve, and edit notes. It provides a simple and efficient solution for managing personal or shared notes.
 
-Quickstart:
+## Quickstart:
 ```CMD
 git clone https://github.com/sergej-stk/notekeeper.git
 ````
