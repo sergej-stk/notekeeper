@@ -25,4 +25,9 @@ public class NoteService {
     {
         return note;
     }
+
+    public boolean delete(UUID id)
+    {
+        return true;
+    }
 }
