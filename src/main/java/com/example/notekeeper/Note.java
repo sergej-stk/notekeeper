@@ -1,11 +1,10 @@
 package com.example.notekeeper;
 
 import java.sql.Timestamp;
-import java.util.UUID;
 
 public class Note {
     
-    private final UUID id = new UUID(0L, 0L);
+    private Integer id = -1;
     public String headline = "";
     public String text = "";
     private final Timestamp timestamp;
@@ -14,7 +13,7 @@ public class Note {
         this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
-    public UUID getId() {
+    public Integer getId() {
         return this.id;
     }
 
