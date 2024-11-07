@@ -3,19 +3,26 @@ package com.example.notekeeper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 @SpringBootTest
 class NotekeeperApplicationTests {
 
-	private NoteService noteService = new NoteService();
-
 	@Test
 	void testAddNote() {
+		NoteController noteController = new NoteController(new NoteService());
+
 		Note note = new Note();
-		
-		noteService.post(note);
+		note.headline = "testHeadline";
+		note.text = "testText";
 
-		assertEquals(1, noteService.getAll().size());
+		noteController.post(note); 
+
+		ResponseEntity<Note> response = noteController.get(note.getId());
+
+		Note body = response.getBody();
+		assertEquals(200, response.getStatusCode().value());
+		assertEquals("testHeadline", body.headline);
+		assertEquals("testText", body.text);
 	}
-
 }

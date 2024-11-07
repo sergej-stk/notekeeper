@@ -4,13 +4,18 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 public class Note {
-    public UUID id = new UUID(0L, 0L);
+    
+    private final UUID id = new UUID(0L, 0L);
     public String headline = "";
     public String text = "";
-    public Timestamp timestamp;
+    private final Timestamp timestamp;
 
     public Note() {
         this.timestamp = new Timestamp(System.currentTimeMillis());
+    }
+
+    public UUID getId() {
+        return this.id;
     }
 
     @Override

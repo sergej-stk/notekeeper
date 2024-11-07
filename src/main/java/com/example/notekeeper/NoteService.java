@@ -12,8 +12,16 @@ public class NoteService {
 
     public Note get(UUID id)
     {
-        Note note = notelist.stream().filter(element -> element.id == id).toList().get(0);
-        return note;            
+        Note foundNote = null;
+
+        for (Note note : notelist) {
+            if (note.getId() == id) {
+                foundNote = note;
+                break;
+            }
+        }
+
+        return foundNote;
     }
 
     public List<Note> getAll()
@@ -34,7 +42,7 @@ public class NoteService {
         if (note == null) {
             return false;
         }
-        
+
         notelist.remove(notelist.indexOf(note));
         return true;
     }

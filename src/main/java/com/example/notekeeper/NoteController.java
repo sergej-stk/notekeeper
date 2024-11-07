@@ -27,7 +27,7 @@ public class NoteController {
     @GetMapping("/{id}")
     public ResponseEntity<Note> get(@PathParam("id") UUID id) {
         Note result = service.get(id);
-        return result == null ? new ResponseEntity<>(result, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return result == null ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping
@@ -38,12 +38,17 @@ public class NoteController {
     @PostMapping
     public ResponseEntity<Note> post(@RequestBody Note note) {
         Note result = service.post(note);
-        return result == null ? new ResponseEntity<>(result, HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return result == null ? new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR) : new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/id")
-    public void delete(@PathParam("id") UUID id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathParam("id") UUID id) {
+        boolean success = service.delete(id);
 
+        if (success) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
 }
