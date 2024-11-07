@@ -16,7 +16,7 @@ import jakarta.websocket.server.PathParam;
 
 
 @RestController
-@RequestMapping("/v1/notes")
+@RequestMapping("/v3/notes")
 public class NoteController {
     private final NoteService service;
 
