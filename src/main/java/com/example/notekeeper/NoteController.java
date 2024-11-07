@@ -46,8 +46,8 @@ public class NoteController {
 
     @PutMapping
     public ResponseEntity<Note> put(@PathVariable Integer id, @RequestBody Note note) {
-        Note result = service.post(note);
-        return result == null ? new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR) : new ResponseEntity<>(result, HttpStatus.CREATED);
+        Note result = service.put(id, note);
+        return result == null ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
