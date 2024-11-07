@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class NoteService {
+    List<Note> notelist = new ArrayList<>();
+    
     public Note get(UUID id)
     {
         return new Note();            
@@ -15,7 +17,7 @@ public class NoteService {
 
     public List<Note> getAll()
     {
-        List<Note> notelist = new ArrayList<>();
+
         notelist.add(new Note());
 
         return notelist;
