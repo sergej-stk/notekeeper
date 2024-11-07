@@ -16,7 +16,7 @@ import jakarta.websocket.server.PathParam;
 
 
 @RestController
-@RequestMapping("/v1/notes")
+@RequestMapping("/v3/notes")
 public class NoteController {
     private final NoteService service;
 
@@ -27,11 +27,7 @@ public class NoteController {
     @GetMapping("/{id}")
     public ResponseEntity<Note> get(@PathParam("id") UUID id) {
         Note result = service.get(id);
-
-        if(result == null)
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return result == null ? new ResponseEntity<>(result, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping
@@ -42,16 +38,11 @@ public class NoteController {
     @PostMapping
     public ResponseEntity<Note> post(@RequestBody Note note) {
         Note result = service.post(note);
-
-        if(result == null)
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        else
-            return new ResponseEntity<>(result, HttpStatus.CREATED);
+        return result == null ? new ResponseEntity<>(result, HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @DeleteMapping("/id")
-    public void delete(@PathParam("id") UUID id)
-    {
+    public void delete(@PathParam("id") UUID id) {
 
     }
 
