@@ -8,28 +8,34 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class NoteService {
-    List<Note> notelist = new ArrayList<>();
-    
+    private List<Note> notelist = new ArrayList<>();
+
     public Note get(UUID id)
     {
-        return new Note();            
+        Note note = notelist.stream().filter(element -> element.id == id).toList().get(0);
+        return note;            
     }
 
     public List<Note> getAll()
     {
-
-        notelist.add(new Note());
-
         return notelist;
     }
 
     public Note post(Note note)
     {
+        notelist.add(note);
         return note;
     }
 
     public boolean delete(UUID id)
     {
+        Note note = this.get(id);
+
+        if (note == null) {
+            return false;
+        }
+        
+        notelist.remove(notelist.indexOf(note));
         return true;
     }
 }
