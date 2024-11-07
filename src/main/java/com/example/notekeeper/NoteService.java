@@ -42,6 +42,7 @@ public class NoteService {
 
     public Note post(Note note)
     {
+        note.setId(notelist.size());
         notelist.add(note);
         return note;
     }

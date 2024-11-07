@@ -25,6 +25,9 @@ class NotekeeperApplicationTests {
 
 		ResponseEntity<Note> postResponse = noteController.post(note); 
 
+		assertEquals(0, postResponse.getBody().getId());
+		System.out.println("note id = 0 -> check");
+
 		ResponseEntity<Note> response = noteController.getOne(note.getId());
 
 		Note body = response.getBody();
