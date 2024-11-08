@@ -53,8 +53,8 @@ public class NoteController {
     }
 
     @GetMapping("/find")
-    public String getMethodName(@RequestParam("search") String search) {
-        return new String();
+    public List<Note> getMethodName(@RequestParam("search") String search) {
+        return service.find(search);
     }
     
 
