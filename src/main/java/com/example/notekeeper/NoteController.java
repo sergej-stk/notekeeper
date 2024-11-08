@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.notekeeper.requests.PostRequestBody;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 
 @RestController
 @RequestMapping("/v3/notes")
@@ -49,6 +51,12 @@ public class NoteController {
         Note result = service.getOne(id);
         return result == null ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @GetMapping("/find")
+    public String getMethodName(@RequestParam("search") String search) {
+        return new String();
+    }
+    
 
     @PostMapping
     public void post(@RequestBody PostRequestBody note, HttpServletRequest request, HttpServletResponse response) {
