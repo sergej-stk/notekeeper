@@ -2,32 +2,60 @@ package com.example.notekeeper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class NoteService {
-    public Note get(UUID id)
+    private final List<Note> notelist = new ArrayList<>();
+
+    public Note getOne(Integer id)
     {
-        return new Note();            
+        Note foundNote = null;
+
+        for (Note note : notelist) {
+            if (Objects.equals(note.getId(), id)) {
+                foundNote = note;
+                break;
+            }
+        }
+
+        return foundNote;
     }
 
     public List<Note> getAll()
     {
-        List<Note> notelist = new ArrayList<>();
-        notelist.add(new Note());
-
         return notelist;
+    }
+
+    public Note put(Integer id, Note node) {
+        Note foundNote = this.getOne(id);
+
+        if (foundNote == null) {
+            return null;
+        }
+        foundNote.headline = node.headline;
+        foundNote.text = node.text;
+        return foundNote;
     }
 
     public Note post(Note note)
     {
+        note.setId(notelist.size());
+        notelist.add(note);
         return note;
     }
 
-    public boolean delete(UUID id)
+    public boolean delete(Integer id)
     {
+        Note note = this.getOne(id);
+
+        if (note == null) {
+            return false;
+        }
+
+        notelist.remove(notelist.indexOf(note));
         return true;
     }
 }
