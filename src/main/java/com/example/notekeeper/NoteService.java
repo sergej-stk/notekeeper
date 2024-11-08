@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class NoteService {
     private final List<Note> notelist = new ArrayList<>();
 
-    public Note getOne(Integer id)
+    public Note getOne(int id)
     {
         Note foundNote = null;
 
@@ -29,7 +29,7 @@ public class NoteService {
         return notelist;
     }
 
-    public Note put(Integer id, Note node) {
+    public Note put(int id, Note node) {
         Note foundNote = this.getOne(id);
 
         if (foundNote == null) {
@@ -42,7 +42,9 @@ public class NoteService {
 
     public Note post(Note note)
     {
-        note.setId(notelist.size());
+        if (note.getId() == -1) {
+            note.setId(notelist.size());
+        }
         notelist.add(note);
         return note;
     }
