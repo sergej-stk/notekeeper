@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.notekeeper.requests.PostRequestBody;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 @SpringBootTest
 class NotekeeperApplicationTests {
 
@@ -26,7 +29,7 @@ class NotekeeperApplicationTests {
 		note.headline = "testHeadline";
 		note.text = "testText";
 
-		ResponseEntity<Note> postResponse = noteController.post(note); 
+		ResponseEntity<Note> postResponse = noteController.post(note, new HttpServletRequest(), new HttpServletResponse()); 
 
 		assertEquals(0, postResponse.getBody().getId());
 		System.out.println("note id = 0 -> check");

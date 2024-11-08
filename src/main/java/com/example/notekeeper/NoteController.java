@@ -60,7 +60,7 @@ public class NoteController {
         //return result == null ? new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR) : new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Note> put(@PathVariable int id, @RequestBody PostRequestBody note) {
         Note result = service.put(id, Note.noteFromBody(note));
         return result == null ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(result, HttpStatus.CREATED);

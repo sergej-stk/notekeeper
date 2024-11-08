@@ -49,6 +49,18 @@ public class NoteService {
         return note;
     }
 
+    public List<Note> find(String text) {
+        List<Note> founded = new ArrayList<Note>();
+
+        for (Note searchNote : notelist) {
+            if (searchNote.text.contains(text)) {
+                founded.add(searchNote);
+            }
+        }
+
+        return founded;
+    } 
+
     public boolean delete(Integer id)
     {
         Note note = this.getOne(id);
