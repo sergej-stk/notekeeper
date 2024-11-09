@@ -3,6 +3,8 @@ package com.example.notekeeper;
 import java.sql.Timestamp;
 
 import com.example.notekeeper.requests.PostRequestBody;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Note {
     
@@ -25,13 +27,12 @@ public class Note {
 
     @Override
     public String toString() {
-        return 
-            "Note{" + 
-            "id=" + id +
-            ", headline='" + headline + '\'' +
-            ", text='" + text + '\'' + 
-            ", timestamp=" + timestamp.toString() +
-            "}";
+        try {
+            ObjectMapper om = new ObjectMapper();
+            return om.writeValueAsString(this);
+        } catch (JsonProcessingException ex) {
+            return null;
+        }
     }
 
     public static Note noteFromBody(PostRequestBody body) {

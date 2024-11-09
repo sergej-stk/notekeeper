@@ -1,9 +1,28 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import NoteElement from "./components/NoteElement.vue";
 import { Note } from "./types";
+import { addNote, loadAllNotes } from "./middleware/NotesManager";
 
 const notes = ref<Note[]>([]);
+
+const text = ref("");
+
+onMounted(async () => {
+  const allNotes = await loadAllNotes();
+  if (allNotes === null) {
+    return;
+  }
+  notes.value = allNotes;
+});
+
+async function performSave() {
+  const note = await addNote({ text: text.value });
+  if (note === null) {
+    return;
+  }
+  notes.value.push(note);
+}
 </script>
 
 <template>
@@ -12,9 +31,12 @@ const notes = ref<Note[]>([]);
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />-->
-  <div></div>
+  <div>
+    <input type="text" v-model="text" />
+    <input @click="performSave" type="submit" />
+  </div>
   <br />
-  <div v-for="note of notes" :key="note.id">
+  <div v-for="note of notes" :key="note.id" class="element">
     <NoteElement :note="note" />
   </div>
 </template>
@@ -26,6 +48,11 @@ const notes = ref<Note[]>([]);
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.element {
+  border: 1px solid black;
+  margin-bottom: 5px;
 }
 
 nav {

@@ -1,1 +1,1 @@
-export const endpoint = "http://localhost:8080/v3/notes";
+export const endpoint = "http://localhost:4017/v3/notes";

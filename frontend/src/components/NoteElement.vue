@@ -8,7 +8,7 @@ const props = defineProps<{
 }>();
 </script>
 <template>
-  <div style="display: flex; flex-flow: row">
+  <div style="display: flex; flex-flow: column">
     <div>{{ props.note.id }}</div>
     <div>{{ props.note.text }}</div>
     <div>{{ props.note.timestamp }}</div>
