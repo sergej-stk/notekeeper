@@ -2,22 +2,24 @@ package com.example.notekeeper;
 
 import java.sql.Timestamp;
 
+import com.example.notekeeper.requests.PostRequestBody;
+
 public class Note {
     
-    private Integer id = -1;
+    public int id = -1;
     public String headline = "";
     public String text = "";
-    private final Timestamp timestamp;
+    public final Timestamp timestamp;
 
     public Note() {
         this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public int getId() {
         return this.id;
     }
 
@@ -25,10 +27,17 @@ public class Note {
     public String toString() {
         return 
             "Note{" + 
-            "id=" + id.toString() +
+            "id=" + id +
             ", headline='" + headline + '\'' +
             ", text='" + text + '\'' + 
-            ", timestamp=" + timestamp.toString()    +
-            "}"; 
+            ", timestamp=" + timestamp.toString() +
+            "}";
+    }
+
+    public static Note noteFromBody(PostRequestBody body) {
+        Note note = new Note();
+        note.headline = "body.headline";
+        note.text = body.text;
+        return note;
     }
 }
