@@ -15,6 +15,19 @@ onMounted(async () => {
   socket.on("addNote", (note: Note) => {
     notes.value.push(note);
   });
+  socket.on("removeNote", (id: number) => {
+    notes.value = notes.value.filter((note) => note.id !== id);
+  });
+  socket.on("editNote", (note: Note) => {
+    const foundNote = notes.value.find(
+      (searchNote: Note) => searchNote.id === note.id
+    );
+    if (foundNote === undefined) {
+      return;
+    }
+    foundNote.text = note.text;
+    foundNote.timestamp = note.timestamp;
+  });
   const allNotes = await loadAllNotes();
   if (allNotes === null) {
     return;
@@ -36,7 +49,6 @@ async function performSave() {
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />-->
-  <div v-if="text === 'Hier steht hallo'">Hier steht hallo</div>
   <div>
     <input type="text" v-model="text" />
     <input @click="performSave" type="submit" />
