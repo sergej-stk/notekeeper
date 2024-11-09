@@ -3,12 +3,10 @@
 import { Note } from "@/types";
 import { defineProps } from "vue";
 
-const props = defineProps<{
-  note: Note;
-}>();
+const props = defineProps<{ note: Note }>();
 </script>
 <template>
-  <div style="display: flex; flex-flow: column">
+  <div>
     <div>{{ props.note.id }}</div>
     <div>{{ props.note.text }}</div>
     <div>{{ props.note.timestamp }}</div>

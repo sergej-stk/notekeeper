@@ -3,12 +3,18 @@ import { onMounted, ref } from "vue";
 import NoteElement from "./components/NoteElement.vue";
 import { Note } from "./types";
 import { addNote, loadAllNotes } from "./middleware/NotesManager";
+import { io } from "socket.io-client";
 
 const notes = ref<Note[]>([]);
 
 const text = ref("");
 
 onMounted(async () => {
+  const socket = io("ws://localhost:8086/notes");
+
+  socket.on("addNote", (note: Note) => {
+    notes.value.push(note);
+  });
   const allNotes = await loadAllNotes();
   if (allNotes === null) {
     return;
@@ -21,7 +27,6 @@ async function performSave() {
   if (note === null) {
     return;
   }
-  notes.value.push(note);
 }
 </script>
 
@@ -31,6 +36,7 @@ async function performSave() {
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />-->
+  <div v-if="text === 'Hier steht hallo'">Hier steht hallo</div>
   <div>
     <input type="text" v-model="text" />
     <input @click="performSave" type="submit" />
