@@ -9,7 +9,7 @@ const notes = ref<Note[]>([]);
 
 const text = ref("");
 
-const dialog = ref(true);
+const dialog = ref(false);
 
 onMounted(async () => {
   const socket = io("ws://localhost:8086/notes");
@@ -61,7 +61,7 @@ async function performSave() {
   </div>
   <v-dialog v-model="dialog">
     <v-card>
-      <v-card-title>asd</v-card-title>
+      <v-card-title>Title</v-card-title>
     </v-card>
   </v-dialog>
 </template>
