@@ -2,33 +2,43 @@ package com.example.notekeeper;
 
 import java.sql.Timestamp;
 
+import com.example.notekeeper.requests.PostRequestBody;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Note {
     
-    private Integer id = -1;
+    public int id = -1;
     public String headline = "";
     public String text = "";
-    private final Timestamp timestamp;
+    public final Timestamp timestamp;
 
     public Note() {
         this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public int getId() {
         return this.id;
     }
 
     @Override
     public String toString() {
-        return 
-            "Note{" + 
-            "id=" + id.toString() +
-            ", headline='" + headline + '\'' +
-            ", text='" + text + '\'' + 
-            ", timestamp=" + timestamp.toString()    +
-            "}"; 
+        try {
+            ObjectMapper om = new ObjectMapper();
+            return om.writeValueAsString(this);
+        } catch (JsonProcessingException ex) {
+            return null;
+        }
+    }
+
+    public static Note noteFromBody(PostRequestBody body) {
+        Note note = new Note();
+        note.headline = "body.headline";
+        note.text = body.text;
+        return note;
     }
 }
