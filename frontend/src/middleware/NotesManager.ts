@@ -31,8 +31,23 @@ export async function addNote(note: AddNoteRequest): Promise<Note | null> {
   return axiosResponse.data;
 }
 export async function updateNote(note: Note): Promise<Note | null> {
-  return null;
+  const axiosResponse: AxiosResponse = await axios.put(
+    endpoint + "/" + note.id,
+    note
+  );
+
+  if (axiosResponse.status !== 200) {
+    return null;
+  }
+
+  return axiosResponse.data;
 }
 export async function removeNote(id: number): Promise<boolean> {
-  return false;
+  const axiosResponse: AxiosResponse = await axios.delete(endpoint + "/" + id);
+
+  if (axiosResponse.status !== 200) {
+    return false;
+  }
+
+  return true;
 }
