@@ -77,7 +77,7 @@ const hasChanges = computed(() => {
 
 const items = computed(() => {
   // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-  const reversed = notes.value.reverse();
+  const reversed = notes.value.slice().reverse();
   return reversed;
 });
 </script>
