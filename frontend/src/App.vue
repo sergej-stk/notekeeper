@@ -4,11 +4,8 @@ import NoteElement from "./components/NoteElement.vue";
 import { Note } from "./types";
 import { addNote, loadAllNotes } from "./middleware/NotesManager";
 import { io } from "socket.io-client";
-//import { useTheme } from "vuetify";
 import { useMainStore } from "./store/mainStore";
 import LoginDialog from "./components/dialogs/LoginDialog.vue";
-
-//const theme = useTheme();
 
 const notes = ref<Note[]>([]);
 
@@ -60,7 +57,6 @@ async function performSave() {
 }
 
 function toggleTheme() {
-  //theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
   mainStore.theme = mainStore.theme === "dark" ? "light" : "dark";
 }
 
