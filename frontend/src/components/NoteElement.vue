@@ -102,10 +102,12 @@ const hasChanges = computed(() => {
         <v-icon icon="mdi-close" v-else @click="performRemove" />
       </div>
     </div>
-    <div ref="editRef" :contenteditable="editing" @keydown="handleKeydown">
-      {{ props.note.text }}
-    </div>
-    <div>{{}}</div>
+    <div
+      ref="editRef"
+      :contenteditable="editing"
+      @keydown="handleKeydown"
+      v-html="props.note.text.replace(/\n/g, '<br />')"
+    ></div>
   </v-list-item>
   <confirm-dialog ref="confirmDialog" />
 </template>
