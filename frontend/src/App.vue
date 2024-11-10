@@ -4,12 +4,13 @@ import NoteElement from "./components/NoteElement.vue";
 import { Note } from "./types";
 import { addNote, loadAllNotes } from "./middleware/NotesManager";
 import { io } from "socket.io-client";
+import ConfirmDialog from "./components/dialogs/ConfirmDialog.vue";
 
 const notes = ref<Note[]>([]);
 
 const text = ref("");
 
-const dialog = ref(false);
+const confirmDialog = ref<typeof ConfirmDialog | null>(null);
 
 onMounted(async () => {
   const socket = io("ws://localhost:8086/notes");
@@ -59,11 +60,7 @@ async function performSave() {
   <div v-for="note of notes" :key="note.id" class="element">
     <NoteElement :note="note" />
   </div>
-  <v-dialog v-model="dialog">
-    <v-card>
-      <v-card-title>Title</v-card-title>
-    </v-card>
-  </v-dialog>
+  <ConfirmDialog ref="confirmDialog" />
 </template>
 
 <style lang="scss">
