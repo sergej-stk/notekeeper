@@ -43,6 +43,7 @@ onMounted(async () => {
 async function performSave() {
   sendLoading.value = true;
   const note = await addNote({ text: text.value });
+  text.value = "";
   setTimeout(() => {
     sendLoading.value = false;
   }, 1000);
