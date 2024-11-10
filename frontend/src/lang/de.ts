@@ -1,6 +1,6 @@
 export default {
   general: {
-    yes: "Jsa",
+    yes: "Ja",
     no: "Nein",
   },
 };
