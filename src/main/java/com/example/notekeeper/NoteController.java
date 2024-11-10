@@ -3,6 +3,9 @@ package com.example.notekeeper;
 import java.io.IOException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,6 +18,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.corundumstudio.socketio.HandshakeData;
+import com.corundumstudio.socketio.SocketIONamespace;
+import com.corundumstudio.socketio.SocketIOServer;
+import com.corundumstudio.socketio.listener.ConnectListener;
+import com.corundumstudio.socketio.listener.DataListener;
+import com.corundumstudio.socketio.listener.DisconnectListener;
 import com.example.notekeeper.requests.PostRequestBody;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,10 +34,15 @@ import jakarta.servlet.http.HttpServletResponse;
 public class NoteController {
     private final NoteService service;
 
-    public NoteController(NoteService service) {
-        this.service = service;
+    private static final Logger log = LoggerFactory.getLogger(NoteController.class);
 
-        Note note = new Note();
+    private final SocketIONamespace namespace;
+
+    @Autowired
+    public NoteController(NoteService service, SocketIOServer server) {
+        this.service = service;
+        
+        Note note = new Note(); 
         note.headline = "head";
         note.text = "text";
         
@@ -39,6 +53,33 @@ public class NoteController {
         note.text = "text";
         
         this.service.post(note);
+
+        this.namespace = server.addNamespace("/notes");
+        this.namespace.addConnectListener(onConnected());
+        this.namespace.addDisconnectListener(onDisconnected());
+        this.namespace.addEventListener("addNote", PostRequestBody.class, onChatReceived());   
+        server.start();     
+    }
+
+    private DataListener<PostRequestBody> onChatReceived() {
+        return (client, data, ackSender) -> {
+            log.debug("Client[{}] - Received chat message '{}'", client.getSessionId().toString(), data);
+            namespace.getBroadcastOperations().sendEvent("chat", data);
+        };
+    }
+
+    private ConnectListener onConnected() {
+        return client -> {
+            HandshakeData handshakeData = client.getHandshakeData();
+            log.debug("Client[{}] - Connected to chat module through '{}'", client.getSessionId().toString(), handshakeData.getUrl());
+            client.sendEvent("chat", "welcome");
+        };
+    }
+
+    private DisconnectListener onDisconnected() {
+        return client -> {
+            log.debug("Client[{}] - Disconnected from chat module.", client.getSessionId().toString());
+        };
     }
 
     @GetMapping
@@ -61,6 +102,7 @@ public class NoteController {
             System.out.println("post data+: " + note.toString());
             Note result = service.post(Note.noteFromBody(note));
             String requestUrl = request.getRequestURL().toString();
+            this.namespace.getBroadcastOperations().sendEvent("addNote", result);
             response.setHeader("location", requestUrl + "/" + result.id);
             response.setStatus(201);
             response.getWriter().write(result.toString());

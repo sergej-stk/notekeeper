@@ -3,12 +3,34 @@ import { onMounted, ref } from "vue";
 import NoteElement from "./components/NoteElement.vue";
 import { Note } from "./types";
 import { addNote, loadAllNotes } from "./middleware/NotesManager";
+import { io } from "socket.io-client";
+import ConfirmDialog from "./components/dialogs/ConfirmDialog.vue";
 
 const notes = ref<Note[]>([]);
 
 const text = ref("");
 
+const confirmDialog = ref<typeof ConfirmDialog | null>(null);
+
 onMounted(async () => {
+  const socket = io("ws://localhost:8086/notes");
+
+  socket.on("addNote", (note: Note) => {
+    notes.value.push(note);
+  });
+  socket.on("removeNote", (id: number) => {
+    notes.value = notes.value.filter((note) => note.id !== id);
+  });
+  socket.on("editNote", (note: Note) => {
+    const foundNote = notes.value.find(
+      (searchNote: Note) => searchNote.id === note.id
+    );
+    if (foundNote === undefined) {
+      return;
+    }
+    foundNote.text = note.text;
+    foundNote.timestamp = note.timestamp;
+  });
   const allNotes = await loadAllNotes();
   if (allNotes === null) {
     return;
@@ -21,7 +43,6 @@ async function performSave() {
   if (note === null) {
     return;
   }
-  notes.value.push(note);
 }
 </script>
 
@@ -39,6 +60,7 @@ async function performSave() {
   <div v-for="note of notes" :key="note.id" class="element">
     <NoteElement :note="note" />
   </div>
+  <ConfirmDialog ref="confirmDialog" />
 </template>
 
 <style lang="scss">
