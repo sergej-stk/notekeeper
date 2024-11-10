@@ -112,10 +112,11 @@ public class NoteController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @CrossOrigin
     public ResponseEntity<Note> put(@PathVariable int id, @RequestBody PostRequestBody note) {
         Note result = service.put(id, Note.noteFromBody(note));
+        this.namespace.getBroadcastOperations().sendEvent("editNote", result);
         return result == null ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
@@ -125,6 +126,7 @@ public class NoteController {
         boolean success = service.delete(id);
 
         if (success) {
+            this.namespace.getBroadcastOperations().sendEvent("removeNote", id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
