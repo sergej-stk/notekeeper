@@ -4,6 +4,11 @@ export type Note = {
   timestamp: number;
 };
 
+export type User = {
+  id: number;
+  username: string;
+};
+
 export type AddNoteRequest = {
   text: string;
 };

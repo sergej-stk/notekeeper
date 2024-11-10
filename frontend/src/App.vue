@@ -4,15 +4,21 @@ import NoteElement from "./components/NoteElement.vue";
 import { Note } from "./types";
 import { addNote, loadAllNotes } from "./middleware/NotesManager";
 import { io } from "socket.io-client";
-import { useTheme } from "vuetify";
+//import { useTheme } from "vuetify";
+import { useMainStore } from "./store/mainStore";
+import LoginDialog from "./components/dialogs/LoginDialog.vue";
 
-const theme = useTheme();
+//const theme = useTheme();
 
 const notes = ref<Note[]>([]);
 
 const text = ref("");
 
 const sendLoading = ref(false);
+
+const mainStore = useMainStore();
+
+const loginDialog = ref<typeof LoginDialog | null>(null);
 
 onMounted(async () => {
   const socket = io("ws://localhost:8086/notes");
@@ -54,11 +60,25 @@ async function performSave() {
 }
 
 function toggleTheme() {
-  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+  //theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+  mainStore.theme = mainStore.theme === "dark" ? "light" : "dark";
+}
+
+async function performLogin() {
+  if (loginDialog.value === null) {
+    return;
+  }
+  loginDialog.value.open();
 }
 
 const hasChanges = computed(() => {
   return text.value !== "";
+});
+
+const items = computed(() => {
+  // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+  const reversed = notes.value.reverse();
+  return reversed;
 });
 </script>
 
@@ -68,7 +88,7 @@ const hasChanges = computed(() => {
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />-->
-  <v-app>
+  <v-app :theme="mainStore.theme">
     <v-app-bar :elevation="2">
       <v-app-bar-title>Application Bar</v-app-bar-title>
       <template v-slot:append>
@@ -77,8 +97,14 @@ const hasChanges = computed(() => {
           <v-icon icon="mdi-account"></v-icon>
           <v-menu activator="parent">
             <v-list>
-              <v-list-item>{{ $t("general.login") }}</v-list-item>
-              <v-list-item>{{ $t("general.logout") }}</v-list-item>
+              <v-list-item
+                v-if="mainStore.user === undefined"
+                @click="performLogin"
+                >{{ $t("general.login") }}</v-list-item
+              >
+              <v-list-item v-else @click="mainStore.user = undefined">{{
+                $t("general.logout")
+              }}</v-list-item>
             </v-list>
           </v-menu>
         </v-btn>
@@ -104,24 +130,29 @@ const hasChanges = computed(() => {
                 ></v-card-actions
               >
             </v-card>
-
-            <div v-for="note of notes" :key="note.id" class="element">
-              <NoteElement :note="note" />
-            </div>
+            <v-list>
+              <NoteElement
+                :note="note"
+                v-for="note of items"
+                :key="note.id"
+                class="element"
+              />
+            </v-list>
           </div>
         </v-layout>
       </v-container>
     </v-main>
   </v-app>
+  <LoginDialog ref="loginDialog" />
 </template>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  //font-family: Avenir, Helvetica, Arial, sans-serif;
+  //-webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  //text-align: center;
+  //color: #2c3e50;
 }
 
 .element {

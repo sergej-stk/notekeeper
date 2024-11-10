@@ -31,7 +31,6 @@ function handleKeydown() {
     if (editRef.value === null) {
       return;
     }
-    console.log(editRef.value.innerText);
     editValue.value = editRef.value.innerText;
   });
 }
@@ -81,7 +80,10 @@ const hasChanges = computed(() => {
 });
 </script>
 <template>
-  <div>
+  <v-list-item class="mb-2">
+    <v-list-item-title
+      >Anaonym {{ $d(props.note.timestamp, "long") }}</v-list-item-title
+    >
     <div class="d-flex flex-row justify-space-between">
       <div>{{ props.note.id }}</div>
       <div class="d-flex flex-row">
@@ -103,8 +105,8 @@ const hasChanges = computed(() => {
     <div ref="editRef" :contenteditable="editing" @keydown="handleKeydown">
       {{ props.note.text }}
     </div>
-    <div>{{ $d(props.note.timestamp, "long") }}</div>
-  </div>
+    <div>{{}}</div>
+  </v-list-item>
   <confirm-dialog ref="confirmDialog" />
 </template>
 <style lang="scss" scoped>
