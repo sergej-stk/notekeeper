@@ -39,8 +39,10 @@ defineExpose<{ open: typeof open }>({ open });
       <v-card-title>{{ title }}</v-card-title>
       <v-card-text>{{ text }}</v-card-text>
       <v-card-actions class="d-flex flex-row justify-space-between">
-        <v-btn @click="resolve(true)">Ja</v-btn
-        ><v-btn @click="resolve(false)">Nein</v-btn></v-card-actions
+        <v-btn @click="resolve(true)">{{ $t("general.yes") }}</v-btn
+        ><v-btn @click="resolve(false)">{{
+          $t("general.no")
+        }}</v-btn></v-card-actions
       >
     </v-card>
   </v-dialog>
