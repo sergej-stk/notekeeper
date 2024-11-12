@@ -18,7 +18,7 @@ const mainStore = useMainStore();
 const loginDialog = ref<typeof LoginDialog | null>(null);
 
 onMounted(async () => {
-  const socket = io("ws://localhost:8086/notes");
+  const socket = io("ws://192.168.129.11:8086/notes");
 
   socket.on("addNote", (note: Note) => {
     notes.value.push(note);

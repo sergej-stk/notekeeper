@@ -3,6 +3,8 @@ export default {
     yes: "Ja",
     no: "Nein",
     abort: "Abbrechen",
+    login: "Anmelden",
+    logout: "Ausloggen"
   },
   loginDialog: {
     login: "Anmelden",
