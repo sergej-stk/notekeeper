@@ -8,7 +8,41 @@
 
 This Java Spring Boot web interface allows users to create, retrieve, and edit notes. It provides a simple and efficient solution for managing personal or shared notes.
 
-## Quickstart:
+# Install Maven (Linux):
+```CMD
+sudo apt install maven
+````
+
+# Install Nodejs (Linux):
+```CMD
+sudo apt install nodejs
+````
+
+## Clone Repository:
 ```CMD
 git clone https://github.com/sergej-stk/notekeeper.git
+````
+
+## Install Maven dependencies:
+```CMD
+cd notekeeper
+mvn install
+````
+
+## Compile jar file:
+```CMD
+cd notekeeper
+mvn package
+````
+
+## Install Nodejs dependencies:
+```CMD
+cd notekeeper/frontend
+npm install
+````
+
+## Compile vuejs:
+```CMD
+cd notekeeper/frontend
+npm run build
 ````
