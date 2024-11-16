@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/sergej-stk/notekeeper/compare/v0.1.1...v0.1.2) (2024-11-16)
+
+
+### Bug Fixes
+
+* dont checkout again ([f009339](https://github.com/sergej-stk/notekeeper/commit/f00933902697c00796ea4c16d65f290828d8ddbd))
+
+
+
 ## [0.1.1](https://github.com/sergej-stk/notekeeper/compare/v0.1.0...v0.1.1) (2024-11-16)
 
 
