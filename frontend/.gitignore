@@ -22,5 +22,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-# use yarn!
-package-lock.json
+# using npm
+yarn.lock
