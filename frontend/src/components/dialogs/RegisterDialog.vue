@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { login } from "@/middleware/UserManager";
-import { useMainStore } from "@/store/mainStore";
-import { User } from "@/types";
+import { register } from "@/middleware/UserManager";
 import { ref, defineExpose, computed } from "vue";
 
 type Return = {
@@ -9,13 +7,12 @@ type Return = {
 };
 
 const username = ref("");
+const fullName = ref("");
 const password = ref("");
 
 const loginError = ref(false);
 
 const resolver = ref<(value: Return) => void>();
-
-const mainStore = useMainStore();
 
 async function open(): Promise<Return> {
   dialog.value = true;
@@ -36,16 +33,12 @@ function resolve(accept: boolean) {
 }
 
 async function performLogin() {
-  const success = await login(username.value, password.value);
+  const success = register(username.value, password.value, fullName.value);
 
-  if (success === null) {
+  if (!success) {
     loginError.value = true;
     return;
   }
-
-  console.log("set");
-  mainStore.setToken(success);
-
   resolve(true);
 }
 
@@ -70,6 +63,11 @@ defineExpose<{ open: typeof open }>({ open });
           type="username"
           v-model="username"
           :placeholder="$t('loginDialog.username')"
+        />
+        <v-text-field
+          type="username"
+          v-model="fullName"
+          :placeholder="$t('loginDialog.fullName')"
         />
         <v-text-field
           type="password"

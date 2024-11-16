@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import NoteElement from "./components/NoteElement.vue";
 import { Note } from "./types";
 import { addNote, loadAllNotes } from "./middleware/NotesManager";
 import { io } from "socket.io-client";
 import { useMainStore } from "./store/mainStore";
 import LoginDialog from "./components/dialogs/LoginDialog.vue";
+import RegisterDialog from "./components/dialogs/RegisterDialog.vue";
 
 const notes = ref<Note[]>([]);
 
@@ -16,6 +17,8 @@ const sendLoading = ref(false);
 const mainStore = useMainStore();
 
 const loginDialog = ref<typeof LoginDialog | null>(null);
+
+const registerDialog = ref<typeof RegisterDialog | null>(null);
 
 onMounted(async () => {
   const socket = io("ws://localhost:8086/notes");
@@ -67,6 +70,13 @@ async function performLogin() {
   loginDialog.value.open();
 }
 
+async function performRegister() {
+  if (registerDialog.value === null) {
+    return;
+  }
+  registerDialog.value.open();
+}
+
 const hasChanges = computed(() => {
   return text.value !== "";
 });
@@ -93,12 +103,16 @@ const items = computed(() => {
           <v-icon icon="mdi-account"></v-icon>
           <v-menu activator="parent">
             <v-list>
-              <v-list-item
-                v-if="mainStore.user === undefined"
-                @click="performLogin"
-                >{{ $t("general.login") }}</v-list-item
-              >
-              <v-list-item v-else @click="mainStore.user = undefined">{{
+              <div v-if="mainStore.user === null">
+                <v-list-item @click="performLogin">{{
+                  $t("general.login")
+                }}</v-list-item>
+                <v-list-item @click="performRegister">{{
+                  $t("general.register")
+                }}</v-list-item>
+              </div>
+
+              <v-list-item v-else @click="mainStore.user = null">{{
                 $t("general.logout")
               }}</v-list-item>
             </v-list>
@@ -138,8 +152,9 @@ const items = computed(() => {
         </v-layout>
       </v-container>
     </v-main>
+    <LoginDialog ref="loginDialog" />
+    <RegisterDialog ref="registerDialog" />
   </v-app>
-  <LoginDialog ref="loginDialog" />
 </template>
 
 <style lang="scss">
