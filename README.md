@@ -1,48 +1,84 @@
-# Notekeeper - Note webservice 
-<div align="left">
-  <img alt="Top Language" src="https://img.shields.io/github/languages/top/sergej-stk/notekeeper">
-  <img alt="License" src="https://img.shields.io/github/license/sergej-stk/notekeeper?style=flat-square&color=blue">
-  <img alt="Download" src="https://img.shields.io/github/downloads/sergej-stk/notekeeper/total">
-  <img alt="Java CLI" src="https://img.shields.io/github/actions/workflow/status/sergej-stk/notekeeper/main.yml?branch=main">
-</div>
+# Notekeeper - Webservice
 
-This Java Spring Boot web interface allows users to create, retrieve, and edit notes. It provides a simple and efficient solution for managing personal or shared notes.
+![License](https://img.shields.io/github/license/sergej-stk/notekeeper?style=flat-square&color=green")
+![build](https://img.shields.io/github/actions/workflow/status/sergej-stk/notekeeper/main.yml?branch=main")
+![language](https://img.shields.io/github/languages/top/sergej-stk/notekeeper)
 
-# Install Maven (Linux):
+NoteKeeper is a SpringBoot REST API designed for managing notes. It provides endpoints for creating, editing, deleting, and retrieving notes. The project also includes a Vue.js-based frontend, offering a user-friendly interface to interact with the API.
+
+![Frontend](/res-readme/Frontend.png)
+
+## API Reference
+
+#### Get all items
+
+```http
+  GET /v3/notes
+```
+
+#### Get item
+
+```http
+  GET /v3/notes/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `integer` | **Required**. Id of item to fetch |
+
+#### Delete item
+
+```http
+  GET /v3/notes/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `integer` | **Required**. Id of item to delete |
+
+## Run Locally (Linux)
+
+Install Maven
+
 ```CMD
 sudo apt install maven
 ````
 
-# Install Nodejs (Linux):
+Install Nodejs (Linux):
 ```CMD
 sudo apt install nodejs
 ````
 
-## Clone Repository:
+Clone Repository:
 ```CMD
 git clone https://github.com/sergej-stk/notekeeper.git
 ````
 
-## Install Maven dependencies:
+Install Maven dependencies:
 ```CMD
 cd notekeeper
 mvn install
 ````
 
-## Compile jar file:
+Compile jar file:
 ```CMD
 cd notekeeper
 mvn package
 ````
 
-## Install Nodejs dependencies:
+Install Nodejs dependencies:
 ```CMD
 cd notekeeper/frontend
 npm install
 ````
 
-## Compile vuejs:
+Compile vuejs:
 ```CMD
 cd notekeeper/frontend
 npm run build
 ````
+
+
+## Authors
+- [@sergej-stk](https://github.com/sergej-stk)
+- [@kissmannchristoph](https://github.com/kissmannchristoph)
