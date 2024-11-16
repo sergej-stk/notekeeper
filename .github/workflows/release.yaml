@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    if: startsWith(github.ref, 'refs/tags/')
     steps:
       # Checkout the code from your repository
       - name: Check out repository
@@ -52,17 +52,6 @@ jobs:
       - name: Build changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v5
-        with:
-          configurationJson: |
-           {
-             "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
-             "categories": [
-               {
-                   "title": "## 💬 Other",
-                   "labels": ["other"]
-               }
-             ]
-           }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
