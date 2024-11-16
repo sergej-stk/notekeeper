@@ -14,6 +14,7 @@ async function open(_title: string, _text: string): Promise<Return> {
   title.value = _title;
   text.value = _text;
   dialog.value = true;
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return await new Promise<Return>((resolve, reject) => {
     resolver.value = resolve;
