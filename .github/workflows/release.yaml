@@ -49,11 +49,12 @@ jobs:
           name: springboot-app
           path: target/*.jar
 
-      - name: Build changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3.7.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+            # skip-version-file: 'true'
 
       - name: Checkout
         uses: actions/checkout@v3
