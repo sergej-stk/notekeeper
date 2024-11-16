@@ -49,18 +49,27 @@ jobs:
           name: springboot-app
           path: target/*.jar
 
-     # - name: Build changelog
-      #  id: github_release
-      #  uses: mikepenz/release-changelog-builder-action@v3
-      #  with:
-      #    configuration: "changelog-release.json"
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v3
+        with:
+          configurationJson: |
+           {
+             "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
+             "categories": [
+               {
+                   "title": "## 💬 Other",
+                   "labels": ["other"]
+               }
+             ]
+           }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
-       # with:
-        #  body: ${{steps.github_release.outputs.changelog}}
+        with:
+          body: ${{steps.github_release.outputs.changelog}}
