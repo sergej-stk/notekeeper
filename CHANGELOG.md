@@ -26,7 +26,7 @@
 
 
 
-## [0.1.7](https://github.com/sergej-stk/notekeeper/compare/v0.1.6...v0.1.7) (2024-11-17)
+#[0.1.0](https://github.com/sergej-stk/notekeeper/compare/v0.0.2...v0.1.0) (2024-11-16)
 
 
 ### Bug Fixes
