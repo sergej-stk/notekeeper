@@ -21,11 +21,9 @@ const loginDialog = ref<typeof LoginDialog | null>(null);
 const registerDialog = ref<typeof RegisterDialog | null>(null);
 
 onMounted(async () => {
-  const socket = io(
-    process.env.NODE_ENV === "development"
-      ? "/notes"
-      : "https://notekeeper.ckissmann.de/socket.io/notes"
-  );
+  const socket = io("/notes", {
+    secure: process.env.NODE_ENV === "development" ? false : true,
+  });
 
   socket.on("addNote", (note: Note) => {
     notes.value.push(note);
