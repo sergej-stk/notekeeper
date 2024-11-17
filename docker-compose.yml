@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8085:80"
+    volumes:
+      - ./configs/proxy:/etc/nginx/sites-enabled/proxy

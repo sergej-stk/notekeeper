@@ -21,7 +21,7 @@ const loginDialog = ref<typeof LoginDialog | null>(null);
 const registerDialog = ref<typeof RegisterDialog | null>(null);
 
 onMounted(async () => {
-  const socket = io("ws://localhost:8086/notes");
+  const socket = io("/notes");
 
   socket.on("addNote", (note: Note) => {
     notes.value.push(note);
