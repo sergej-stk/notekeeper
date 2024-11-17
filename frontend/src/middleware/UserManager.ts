@@ -30,7 +30,7 @@ export async function register(
   fullName: string
 ) {
   const axiosResponse: AxiosResponse = await axios.post(
-    authEndpoint + "/signup",
+    authEndpoint + "signup",
     {
       username,
       password,
