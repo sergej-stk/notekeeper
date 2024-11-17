@@ -40,7 +40,7 @@
 
 ### Bug Fixes
 
-* test ([3681c80](https://github.com/sergej-stk/notekeeper/commit/3681c8036e2346bc2f4fa50ef2d34c56dfdd0237))
+* test([3681c80](https://github.com/sergej-stk/notekeeper/commit/3681c8036e2346bc2f4fa50ef2d34c56dfdd0237))
 
 
 
