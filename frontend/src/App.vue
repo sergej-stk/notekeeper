@@ -24,7 +24,7 @@ onMounted(async () => {
   const socket = io(
     process.env.NODE_ENV === "development"
       ? "/notes"
-      : "https://notekeeper.ckissmann.de/notes"
+      : "https://notekeeper.ckissmann.de/socket.io/notes"
   );
 
   socket.on("addNote", (note: Note) => {
