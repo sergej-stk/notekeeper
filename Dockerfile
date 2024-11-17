@@ -11,4 +11,4 @@ RUN cd /SpringBootApplication/frontend && npm install --force && npm run lint &&
 RUN cd /SpringBootApplication/frontend && chmod +x ./scripts/deployDistToJavaPackage.sh && ./scripts/deployDistToJavaPackage.sh
 RUN cd /SpringBootApplication && mvn package
 #COPY ./target/notekeeper-0.0.1-SNAPSHOT.jar /SpringBootApplication/notekeeper-0.0.1-SNAPSHOT.jar
-CMD [ "java", "-jar", "/SpringBootApplication/notekeeper-0.0.1-SNAPSHOT.jar" ]
+CMD [ "java", "-jar", "/SpringBootApplication/target/notekeeper-0.0.1-SNAPSHOT.jar" ]
