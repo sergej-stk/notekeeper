@@ -1,7 +1,7 @@
 FROM ubuntu
 WORKDIR /SpringBootApplication
 RUN apt update
-RUN apt install openjdk-17-jdk openjdk-17-jre
+RUN apt install -y openjdk-17-jdk openjdk-17-jre
 RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install default-jre nginx maven nodejs npm
 RUN rm /etc/nginx/sites-enabled/default
 COPY ./configs/proxy /etc/nginx/sites-enabled
