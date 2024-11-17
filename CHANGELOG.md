@@ -1,3 +1,12 @@
+## [0.1.9](https://github.com/sergej-stk/notekeeper/compare/v0.1.8...v0.1.9) (2024-11-17)
+
+
+### Bug Fixes
+
+* release pipe ([ce15fce](https://github.com/sergej-stk/notekeeper/commit/ce15fce3975c9c8f2c94f78993183d7f5c67d0d5))
+
+
+
 ## [0.1.8](https://github.com/sergej-stk/notekeeper/compare/v0.1.7...v0.1.8) (2024-11-17)
 
 
@@ -31,16 +40,6 @@
 ### Bug Fixes
 
 * content ([002a88d](https://github.com/sergej-stk/notekeeper/commit/002a88df20d94f8929cefbb2509d6c208ec8e4dc))
-
-
-
-## [0.1.4](https://github.com/sergej-stk/notekeeper/compare/v0.1.3...v0.1.4) (2024-11-16)
-
-
-### Bug Fixes
-
-* dont checkout again ([f240ce4](https://github.com/sergej-stk/notekeeper/commit/f240ce4337f819ff56bd7f572087f0dc710481f6))
-* refix ([d991b91](https://github.com/sergej-stk/notekeeper/commit/d991b91c62152efe0df4808b27f939418052f4f5))
 
 
 
