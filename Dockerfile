@@ -7,7 +7,7 @@ COPY ./configs/proxy /etc/nginx/sites-enabled
 RUN service nginx restart
 # compile frontend
 COPY . /SpringBootApplication
-RUN cd /SpringBootApplication/frontend && npm install && npm run lint && npm run build
+RUN cd /SpringBootApplication/frontend && npm install --force && npm run lint && npm run build
 RUN ./scripts/deployDistToJavaPackage.sh
 RUN cd /SpringBootApplication && mvn package
 #COPY ./target/notekeeper-0.0.1-SNAPSHOT.jar /SpringBootApplication/notekeeper-0.0.1-SNAPSHOT.jar
