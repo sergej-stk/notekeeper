@@ -1,3 +1,12 @@
+## [0.1.11](https://github.com/sergej-stk/notekeeper/compare/v0.1.10...v0.1.11) (2024-11-17)
+
+
+### Bug Fixes
+
+* release pipe ([5f5597d](https://github.com/sergej-stk/notekeeper/commit/5f5597dd35296f84ee031d2bc95b79cdcf694e06))
+
+
+
 ## [0.1.10](https://github.com/sergej-stk/notekeeper/compare/v0.1.9...v0.1.10) (2024-11-17)
 
 
@@ -26,21 +35,12 @@
 
 
 
-#[0.1.0](https://github.com/sergej-stk/notekeeper/compare/v0.0.2...v0.1.0) (2024-11-16)
+## [0.1.7](https://github.com/sergej-stk/notekeeper/compare/v0.1.6...v0.1.7) (2024-11-17)
 
 
 ### Bug Fixes
 
 * release pipe ([ddf9938](https://github.com/sergej-stk/notekeeper/commit/ddf99383aebf78dc1220698ae77610fb4675dd83))
-
-
-
-## [0.1.6](https://github.com/sergej-stk/notekeeper/compare/v0.1.5...v0.1.6) (2024-11-17)
-
-
-### Bug Fixes
-
-* content ([610d40a](https://github.com/sergej-stk/notekeeper/commit/610d40ac066434acbfe576d2720ebfbec564221e))
 
 
 
