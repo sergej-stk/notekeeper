@@ -101,9 +101,24 @@ jobs:
           #tags: ${{ steps.meta.outputs.tags }}
           tags: ghcr.io/sergej-stk/notekeeper:${{ steps.changelog.outputs.tag }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Build and push Docker image
+        id: latestPush
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: .
+          push: true
+          #tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/sergej-stk/notekeeper:latest
+          labels: ${{ steps.meta.outputs.labels }}
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
           subject-name: ghcr.io/sergej-stk/notekeeper
           subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: ghcr.io/sergej-stk/notekeeper
+          subject-digest: ${{ steps.latestPush.outputs.digest }}
           push-to-registry: true
