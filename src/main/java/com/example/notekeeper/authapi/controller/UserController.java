@@ -17,7 +17,7 @@ import java.util.List;
 
 import jakarta.servlet.http.HttpServletResponse;
 
-@RequestMapping("/users")
+@RequestMapping("/api/v3/v3/users")
 @RestController
 public class UserController {
     private final UserService userService;

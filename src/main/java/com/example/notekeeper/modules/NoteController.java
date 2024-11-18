@@ -31,7 +31,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("/v3/notes")
+@RequestMapping("/api/v3/notes")
 public class NoteController {
     private final NoteService service;
 

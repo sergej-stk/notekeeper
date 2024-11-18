@@ -1,0 +1,5 @@
+services:
+  web:
+    build: ghcr.io/sergej-stk/notekeeper:latest
+    ports:
+      - "8085:80"

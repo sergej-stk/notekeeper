@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { register } from "@/middleware/UserManager";
 import { ref, defineExpose, computed } from "vue";
+import { useDisplay } from "vuetify/lib/framework.mjs";
 
 type Return = {
   accept: boolean;
 };
+
+const { mobile } = useDisplay();
 
 const username = ref("");
 const fullName = ref("");
@@ -52,7 +55,11 @@ defineExpose<{ open: typeof open }>({ open });
 </script>
 
 <template>
-  <v-dialog class="w-50" v-model="dialog" persistent>
+  <v-dialog
+    :class="{ 'w-50': !mobile, 'w-100 h-100': mobile }"
+    v-model="dialog"
+    persistent
+  >
     <v-card>
       <v-card-title>{{ $t("loginDialog.login") }}</v-card-title>
       <v-card-text>

@@ -35,8 +35,8 @@ public class SecurityConfiguration {
 
 
     String[] resources = new String[]{
-        "/", "/home","/pictureCheckCode","/include/**",
-        "/css/**","/icons/**","/images/**","/js/**","/layer/**", "/auth/**", "/index.html"
+        "/", "/home","/pictureCheckCode","/include/**", "/fonts/**",
+        "/css/**","/icons/**","/images/**","/js/**","/layer/**", "/api/v3/auth/**", "/index.html"
 }; 
  http.headers().cacheControl();
 

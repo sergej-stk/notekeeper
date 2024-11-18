@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.corundumstudio.socketio.SocketIOServer;
-import com.example.notekeeper.authapi.entities.User;
 import com.example.notekeeper.authapi.repositories.UserRepository;
 
 

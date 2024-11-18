@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref, defineExpose } from "vue";
+import { useDisplay } from "vuetify/lib/framework.mjs";
 
 type Return = {
   accept: boolean;
 };
+
+const { mobile } = useDisplay();
 
 const title = ref("");
 const text = ref("");
@@ -36,7 +39,11 @@ defineExpose<{ open: typeof open }>({ open });
 </script>
 
 <template>
-  <v-dialog class="w-50" v-model="dialog" persistent>
+  <v-dialog
+    :class="{ 'w-50': !mobile, 'w-100 h-100': mobile }"
+    v-model="dialog"
+    persistent
+  >
     <v-card>
       <v-card-title>{{ title }}</v-card-title>
       <v-card-text>{{ text }}</v-card-text>

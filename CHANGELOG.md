@@ -1,36 +1,45 @@
-## [0.1.3](https://github.com/sergej-stk/notekeeper/compare/v0.1.2...v0.1.3) (2024-11-16)
+## [0.1.16](https://github.com/sergej-stk/notekeeper/compare/v0.1.15...v0.1.16) (2024-11-17)
 
 
 ### Bug Fixes
 
-* dont checkout again ([bac8236](https://github.com/sergej-stk/notekeeper/commit/bac82369a7846313520c09b4ad75e056c1b5954d))
+* fix socket.io ([b69e05f](https://github.com/sergej-stk/notekeeper/commit/b69e05f0d1c2ea907e6cf37b71c83ef64e612a52))
 
 
 
-## [0.1.2](https://github.com/sergej-stk/notekeeper/compare/v0.1.1...v0.1.2) (2024-11-16)
-
-
-### Bug Fixes
-
-* dont checkout again ([f009339](https://github.com/sergej-stk/notekeeper/commit/f00933902697c00796ea4c16d65f290828d8ddbd))
-
-
-
-## [0.1.1](https://github.com/sergej-stk/notekeeper/compare/v0.1.0...v0.1.1) (2024-11-16)
+## [0.1.15](https://github.com/sergej-stk/notekeeper/compare/v0.1.14...v0.1.15) (2024-11-17)
 
 
 ### Bug Fixes
 
-* pipline fix ([e1ef42c](https://github.com/sergej-stk/notekeeper/commit/e1ef42cfd53fa00735e9247d82e3b90299a75124))
+* fix dockerfile ([a04c0d0](https://github.com/sergej-stk/notekeeper/commit/a04c0d0f7a14d5e66ee6d360831c6915b9f503c0))
 
 
 
-# [0.1.0](https://github.com/sergej-stk/notekeeper/compare/v0.0.2...v0.1.0) (2024-11-16)
+## [0.1.14](https://github.com/sergej-stk/notekeeper/compare/v0.1.13...v0.1.14) (2024-11-17)
 
 
 ### Bug Fixes
 
-* test ([3681c80](https://github.com/sergej-stk/notekeeper/commit/3681c8036e2346bc2f4fa50ef2d34c56dfdd0237))
+* fix dockerfile ([d3f13b1](https://github.com/sergej-stk/notekeeper/commit/d3f13b135296a8e1c7cab88d8e3eab1764b63eb0))
+
+
+
+## [0.1.13](https://github.com/sergej-stk/notekeeper/compare/v0.1.12...v0.1.13) (2024-11-17)
+
+
+### Bug Fixes
+
+* fix dockerfile ([143d789](https://github.com/sergej-stk/notekeeper/commit/143d789aa3434ee65f0e255ee83bf68c8b714cdb))
+
+
+
+## [0.1.12](https://github.com/sergej-stk/notekeeper/compare/v0.1.11...v0.1.12) (2024-11-17)
+
+
+### Bug Fixes
+
+* fix dockerfile ([f69016c](https://github.com/sergej-stk/notekeeper/commit/f69016c3071ae708531a6ba230decba59cbe68b1))
 
 
 
