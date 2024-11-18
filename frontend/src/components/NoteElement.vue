@@ -9,7 +9,6 @@ const props = defineProps<{ note: Note }>();
 
 const confirmDialog = ref<typeof ConfirmDialog | null>(null);
 
-const editRef = ref<HTMLElement | null>(null);
 const editing = ref<boolean>(false);
 const editValue = ref("");
 
@@ -26,89 +25,68 @@ async function performRemove() {
   }
 }
 
-function handleKeydown() {
-  setTimeout(() => {
-    if (editRef.value === null) {
-      return;
-    }
-    editValue.value = editRef.value.innerText;
-  });
-}
-
 function performEdit() {
-  if (editRef.value === null) {
-    return;
-  }
-  editValue.value = editRef.value.innerText;
+  editValue.value = props.note.text;
   editing.value = true;
 }
 
 function stopEditing() {
-  if (editRef.value === null) {
-    return;
-  }
-
-  editRef.value.innerText = props.note.text;
+  // editRef.value.innerText = props.note.text;
   editing.value = false;
 }
 
 function performSave() {
-  if (editRef.value === null) {
-    return;
-  }
-
   const newNote = { ...props.note };
-  newNote.text = editRef.value.innerText;
+  newNote.text = editValue.value;
   updateNote(newNote);
   stopEditing();
 }
 
 function performResetEditing() {
-  if (editRef.value === null) {
-    return;
-  }
-
-  editRef.value.innerText = props.note.text;
+  editValue.value = props.note.text;
 }
 
 const hasChanges = computed(() => {
-  if (editRef.value === null) {
-    return false;
-  }
-
   return props.note.text !== editValue.value;
 });
 </script>
 <template>
-  <v-list-item class="mb-2">
-    <v-list-item-title
-      >Anaonym {{ $d(props.note.timestamp, "long") }}</v-list-item-title
-    >
-    <div class="d-flex flex-row justify-space-between">
-      <div>{{ props.note.id }}</div>
-      <div class="d-flex flex-row">
-        <v-icon icon="mdi-check-bold" v-if="editing" @click="performSave" />
-        <v-icon icon="mdi-pencil" v-if="!editing" @click="performEdit" />
-        <v-icon
-          icon="mdi-close"
-          v-if="editing && !hasChanges"
-          @click="stopEditing"
-        />
-        <v-icon
-          icon="mdi-reload"
-          v-else-if="editing && hasChanges"
-          @click="performResetEditing"
-        />
-        <v-icon icon="mdi-close" v-else @click="performRemove" />
-      </div>
-    </div>
-    <div
+  <v-card class="mb-4">
+    <v-card-title>
+      <div class="d-flex flex-row justify-space-between">
+        <div class="mb-2">Anaonym {{ $d(props.note.timestamp, "long") }}</div>
+        <div class="d-flex flex-row">
+          <v-icon icon="mdi-check-bold" v-if="editing" @click="performSave" />
+          <v-icon icon="mdi-pencil" v-if="!editing" @click="performEdit" />
+          <v-icon
+            icon="mdi-close"
+            v-if="editing && !hasChanges"
+            @click="stopEditing"
+          />
+          <v-icon
+            icon="mdi-reload"
+            v-else-if="editing && hasChanges"
+            @click="performResetEditing"
+          />
+          <v-icon icon="mdi-close" v-else @click="performRemove" />
+        </div></div
+    ></v-card-title>
+    <v-card-text>
+      <VuetifyViewer
+        v-if="!editing"
+        :value="props.note.text.replace(/\n/g, '<br />')"
+        markdown-theme="github"
+      />
+      <VuetifyTiptap v-else v-model="editValue" markdown-theme="github" />
+    </v-card-text>
+  </v-card>
+  <!-- <div
       ref="editRef"
       :contenteditable="editing"
       @keydown="handleKeydown"
       v-html="props.note.text.replace(/\n/g, '<br />')"
-    ></div>
-  </v-list-item>
+    ></div>-->
+
   <confirm-dialog ref="confirmDialog" />
 </template>
 <style lang="scss" scoped>

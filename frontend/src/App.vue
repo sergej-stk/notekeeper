@@ -5,9 +5,8 @@ import { Note } from "./types";
 import { addNote, loadAllNotes } from "./middleware/NotesManager";
 import { io } from "socket.io-client";
 import { useMainStore } from "./store/mainStore";
-import LoginDialog from "./components/dialogs/LoginDialog.vue";
-import RegisterDialog from "./components/dialogs/RegisterDialog.vue";
-
+import AuthView from "./views/AuthView.vue";
+import { VuetifyTiptap } from "vuetify-pro-tiptap";
 const notes = ref<Note[]>([]);
 
 const text = ref("");
@@ -15,10 +14,6 @@ const text = ref("");
 const sendLoading = ref(false);
 
 const mainStore = useMainStore();
-
-const loginDialog = ref<typeof LoginDialog | null>(null);
-
-const registerDialog = ref<typeof RegisterDialog | null>(null);
 
 onMounted(async () => {
   const socket = io("/notes", {
@@ -41,12 +36,16 @@ onMounted(async () => {
     foundNote.text = note.text;
     foundNote.timestamp = note.timestamp;
   });
+  loadNotes();
+});
+
+async function loadNotes() {
   const allNotes = await loadAllNotes();
   if (allNotes === null) {
     return;
   }
   notes.value = allNotes;
-});
+}
 
 async function performSave() {
   sendLoading.value = true;
@@ -65,56 +64,43 @@ function toggleTheme() {
   mainStore.theme = mainStore.theme === "dark" ? "light" : "dark";
 }
 
-async function performLogin() {
-  if (loginDialog.value === null) {
-    return;
-  }
-  loginDialog.value.open();
-}
-
-async function performRegister() {
-  if (registerDialog.value === null) {
-    return;
-  }
-  registerDialog.value.open();
-}
-
 const hasChanges = computed(() => {
   return text.value !== "";
 });
+
+function logout() {
+  mainStore.token = null;
+  mainStore.user = null;
+}
 
 const items = computed(() => {
   // eslint-disable-next-line vue/no-side-effects-in-computed-properties
   const reversed = notes.value.slice().reverse();
   return reversed;
 });
+
+const isLoggedIn = computed(() => {
+  return mainStore.token !== null && mainStore.user !== null;
+});
+
+watch(isLoggedIn, () => {
+  if (isLoggedIn.value) {
+    loadNotes();
+  }
+});
 </script>
 
 <template>
-  <!--<nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />-->
   <v-app :theme="mainStore.theme">
     <v-app-bar :elevation="2">
       <v-app-bar-title>Application Bar</v-app-bar-title>
-      <template v-slot:append>
+      <template v-slot:append v-if="isLoggedIn">
         <v-btn icon="mdi-theme-light-dark" @click="toggleTheme"></v-btn>
         <v-btn icon="mdi-account">
           <v-icon icon="mdi-account"></v-icon>
           <v-menu activator="parent">
             <v-list>
-              <div v-if="mainStore.user === null">
-                <v-list-item @click="performLogin">{{
-                  $t("general.login")
-                }}</v-list-item>
-                <v-list-item @click="performRegister">{{
-                  $t("general.register")
-                }}</v-list-item>
-              </div>
-
-              <v-list-item v-else @click="mainStore.user = null">{{
+              <v-list-item @click="logout">{{
                 $t("general.logout")
               }}</v-list-item>
             </v-list>
@@ -124,13 +110,13 @@ const items = computed(() => {
     </v-app-bar>
 
     <v-main>
-      <v-container>
+      <v-container v-if="isLoggedIn">
         <v-layout row wrap align-center class="justify-center">
           <div class="w-75">
             <v-card justify="center" class="mb-3">
               <v-card-title class="text-left">Note erstellen</v-card-title>
               <v-card-text>
-                <v-textarea v-model="text"></v-textarea>
+                <VuetifyTiptap v-model="text" markdown-theme="github" />
               </v-card-text>
               <v-card-actions
                 ><v-btn @click="text = ''" :disabled="!hasChanges">Reset</v-btn>
@@ -142,20 +128,19 @@ const items = computed(() => {
                 ></v-card-actions
               >
             </v-card>
-            <v-list>
+            <div class="d-flex flex-column">
               <NoteElement
                 :note="note"
                 v-for="note of items"
                 :key="note.id"
                 class="element"
               />
-            </v-list>
+            </div>
           </div>
         </v-layout>
       </v-container>
+      <v-container class="fill-height" fluid v-else> <AuthView /> </v-container>
     </v-main>
-    <LoginDialog ref="loginDialog" />
-    <RegisterDialog ref="registerDialog" />
   </v-app>
 </template>
 

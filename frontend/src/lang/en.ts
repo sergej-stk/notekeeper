@@ -3,10 +3,15 @@ export default {
     yes: "Yes",
     no: "No",
     abort: "Abort",
+    logout: "Logout",
   },
-  loginDialog: {
+  authView: {
     login: "Login",
     username: "Username",
     password: "Password",
+    fullName: "Name",
+    register: "Register",
+    registerError: "register failed.",
+    loginError: "login failed.",
   },
 };

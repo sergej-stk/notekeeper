@@ -14,7 +14,6 @@ import com.example.notekeeper.authapi.entities.User;
 import com.example.notekeeper.authapi.services.AuthenticationService;
 import com.example.notekeeper.authapi.services.JwtService;
 
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -45,15 +44,15 @@ public class AuthenticationController {
         User authenticatedUser = authenticationService.authenticate(loginUserDto);
 
         String jwtToken = jwtService.generateToken(authenticatedUser);
-        Cookie jwtTokenCookie = new Cookie("token", "Bearer:" + jwtToken);
+        //Cookie jwtTokenCookie = new Cookie("token", "Bearer:" + jwtToken);
 
-        jwtTokenCookie.setMaxAge(86400);
-        jwtTokenCookie.setSecure(true);
-        jwtTokenCookie.setHttpOnly(true);
-        jwtTokenCookie.setPath("/");
-        jwtTokenCookie.setDomain("localhost");
+        //jwtTokenCookie.setMaxAge(86400);
+        //jwtTokenCookie.setSecure(true);
+        //jwtTokenCookie.setHttpOnly(true);
+        //jwtTokenCookie.setPath("/");
+        //jwtTokenCookie.setDomain("localhost");
        // LoginResponse loginResponse = new LoginResponse().setToken(jwtToken).setExpiresIn(jwtService.getExpirationTime());
-        response.addCookie(jwtTokenCookie);
+       // response.addCookie(jwtTokenCookie);
 
         response.setStatus(200);
         response.getWriter().write("token="+jwtToken);

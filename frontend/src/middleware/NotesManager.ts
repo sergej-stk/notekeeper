@@ -8,8 +8,16 @@ export async function loadAllNotes(): Promise<Note[] | null> {
   const config = {
     headers: { Authorization: `Bearer ${mainStore.token}` },
   };
+  let axiosResponse: AxiosResponse | null = null;
+  try {
+    axiosResponse = await axios.get(endpoint, config);
+  } catch (e) {
+    return null;
+  }
 
-  const axiosResponse: AxiosResponse = await axios.get(endpoint, config);
+  if (axiosResponse === null) {
+    return null;
+  }
 
   if (axiosResponse.status !== 200) {
     return null;
@@ -23,10 +31,16 @@ export async function loadNote(id: number): Promise<Note | null> {
   const config = {
     headers: { Authorization: `Bearer ${mainStore.token}` },
   };
-  const axiosResponse: AxiosResponse = await axios.get(
-    endpoint + "/" + id,
-    config
-  );
+  let axiosResponse: AxiosResponse | null = null;
+  try {
+    axiosResponse = await axios.get(endpoint + "/" + id, config);
+  } catch (e) {
+    return null;
+  }
+
+  if (axiosResponse === null) {
+    return null;
+  }
 
   if (axiosResponse.status !== 200) {
     return null;
@@ -40,7 +54,16 @@ export async function addNote(note: AddNoteRequest): Promise<Note | null> {
   const config = {
     headers: { Authorization: `Bearer ${mainStore.token}` },
   };
-  const axiosResponse: AxiosResponse = await axios.post(endpoint, note, config);
+  let axiosResponse: AxiosResponse | null = null;
+  try {
+    axiosResponse = await axios.post(endpoint, note, config);
+  } catch (e) {
+    return null;
+  }
+
+  if (axiosResponse === null) {
+    return null;
+  }
 
   if (axiosResponse.status !== 201) {
     return null;
@@ -54,11 +77,16 @@ export async function updateNote(note: Note): Promise<Note | null> {
   const config = {
     headers: { Authorization: `Bearer ${mainStore.token}` },
   };
-  const axiosResponse: AxiosResponse = await axios.put(
-    endpoint + "/" + note.id,
-    note,
-    config
-  );
+  let axiosResponse: AxiosResponse | null = null;
+  try {
+    axiosResponse = await axios.put(endpoint + "/" + note.id, note, config);
+  } catch (e) {
+    return null;
+  }
+
+  if (axiosResponse === null) {
+    return null;
+  }
 
   if (axiosResponse.status !== 200) {
     return null;
@@ -72,10 +100,16 @@ export async function removeNote(id: number): Promise<boolean> {
   const config = {
     headers: { Authorization: `Bearer ${mainStore.token}` },
   };
-  const axiosResponse: AxiosResponse = await axios.delete(
-    endpoint + "/" + id,
-    config
-  );
+  let axiosResponse: AxiosResponse | null = null;
+  try {
+    axiosResponse = await axios.delete(endpoint + "/" + id, config);
+  } catch (e) {
+    return false;
+  }
+
+  if (axiosResponse === null) {
+    return false;
+  }
 
   if (axiosResponse.status !== 200) {
     return false;

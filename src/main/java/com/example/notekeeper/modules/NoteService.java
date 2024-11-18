@@ -54,6 +54,7 @@ public class NoteService {
         }
         foundNote.headline = node.headline;
         foundNote.text = node.text;
+        this.noteRepository.save(foundNote);
         return foundNote;
     }
 

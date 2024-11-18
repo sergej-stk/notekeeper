@@ -1,10 +1,6 @@
 package com.example.notekeeper.authapi.controller;
 
-import com.example.notekeeper.authapi.entities.User;
-import com.example.notekeeper.authapi.services.UserService;
-
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -13,11 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.example.notekeeper.authapi.entities.User;
+import com.example.notekeeper.authapi.services.UserService;
 
-import jakarta.servlet.http.HttpServletResponse;
-
-@RequestMapping("/api/v3/v3/users")
+@RequestMapping("/api/v3/users")
 @RestController
 public class UserController {
     private final UserService userService;
