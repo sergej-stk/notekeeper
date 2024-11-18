@@ -1,3 +1,13 @@
+## [0.1.17](https://github.com/sergej-stk/notekeeper/compare/v0.1.16...v0.1.17) (2024-11-18)
+
+
+### Bug Fixes
+
+* fix dockerfile ([a6a2a88](https://github.com/sergej-stk/notekeeper/commit/a6a2a8885df32aa45a6383122f232549eecfd1d4))
+* frontend ([27b8b20](https://github.com/sergej-stk/notekeeper/commit/27b8b2036c924db6273e0ee1636373ee408c62f0))
+
+
+
 ## [0.1.16](https://github.com/sergej-stk/notekeeper/compare/v0.1.15...v0.1.16) (2024-11-17)
 
 
@@ -31,15 +41,6 @@
 ### Bug Fixes
 
 * fix dockerfile ([143d789](https://github.com/sergej-stk/notekeeper/commit/143d789aa3434ee65f0e255ee83bf68c8b714cdb))
-
-
-
-## [0.1.12](https://github.com/sergej-stk/notekeeper/compare/v0.1.11...v0.1.12) (2024-11-17)
-
-
-### Bug Fixes
-
-* fix dockerfile ([f69016c](https://github.com/sergej-stk/notekeeper/commit/f69016c3071ae708531a6ba230decba59cbe68b1))
 
 
 
