@@ -58,9 +58,6 @@ jobs:
             ${{ secrets.GITHUB_TOKEN }}
             # skip-version-file: 'true'
 
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: create release
         uses: actions/create-release@v1
         id: create_release
