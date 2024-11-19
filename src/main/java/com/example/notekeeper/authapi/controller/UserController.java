@@ -32,6 +32,13 @@ public class UserController {
         return ResponseEntity.ok(currentUser);
     }
 
+    @GetMapping("/me/settings")
+    public ResponseEntity<List<User>> getSettings() {
+        List <User> users = userService.allUsers();
+
+        return ResponseEntity.ok(users);
+    }
+
     @GetMapping
     public ResponseEntity<List<User>> allUsers() {
         List <User> users = userService.allUsers();
