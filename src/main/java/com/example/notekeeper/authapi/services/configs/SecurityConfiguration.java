@@ -9,6 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -35,10 +36,10 @@ public class SecurityConfiguration {
 
 
     String[] resources = new String[]{
-        "/", "/home","/pictureCheckCode","/include/**",
-        "/css/**","/icons/**","/images/**","/js/**","/layer/**", "/auth/**", "/index.html"
+        "/", "/home","/pictureCheckCode","/include/**", "/fonts/**",
+        "/css/**","/icons/**","/images/**","/js/**","/layer/**", "/api/v3/auth/**", "/index.html"
 }; 
- http.headers().cacheControl();
+            http.headers().cacheControl();
 
         http.csrf()
                 .disable()

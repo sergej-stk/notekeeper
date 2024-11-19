@@ -5,13 +5,19 @@ export async function login(
   username: string,
   password: string
 ): Promise<string | null> {
-  const axiosResponse: AxiosResponse = await axios.post(
-    authEndpoint + "login",
-    {
+  let axiosResponse: AxiosResponse | null = null;
+  try {
+    axiosResponse = await axios.post(authEndpoint + "login", {
       email: username,
       password,
-    }
-  );
+    });
+  } catch (e) {
+    return null;
+  }
+
+  if (axiosResponse === null) {
+    return null;
+  }
 
   if (axiosResponse.status !== 200) {
     return null;
@@ -29,14 +35,20 @@ export async function register(
   password: string,
   fullName: string
 ) {
-  const axiosResponse: AxiosResponse = await axios.post(
-    authEndpoint + "/signup",
-    {
-      username,
+  let axiosResponse: AxiosResponse | null = null;
+  try {
+    axiosResponse = await axios.post(authEndpoint + "signup", {
+      email: username,
       password,
       fullName,
-    }
-  );
+    });
+  } catch (e) {
+    return null;
+  }
+
+  if (axiosResponse === null) {
+    return null;
+  }
 
   if (axiosResponse.status !== 200) {
     return false;
