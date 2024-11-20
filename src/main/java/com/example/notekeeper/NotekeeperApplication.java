@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.example.notekeeper.authapi.repositories.UserRepository;
 
+import pb.AuthService.LoginRequest;
 
 @SpringBootApplication
 @Configuration
@@ -69,6 +70,9 @@ public class NotekeeperApplication {
     }
 
 	public static void main(String[] args) {
+        LoginRequest iid = LoginRequest.getDefaultInstance();
+            
+        String str = iid.toBuilder().setUsername("asd").build().toString();
 		SpringApplication.run(NotekeeperApplication.class, args);
 	}
 

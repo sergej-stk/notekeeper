@@ -1,4 +1,5 @@
 import { authEndpoint } from "@/constants";
+import { LoginRequest } from "@/ts/proto/auth_service";
 import axios, { AxiosResponse } from "axios";
 
 export async function login(
