@@ -33,5 +33,5 @@ build/
 .vscode/
 
 frontend/node_modules
-frontend/docs
+docs/node_modules
 frontend/yarn.lock
