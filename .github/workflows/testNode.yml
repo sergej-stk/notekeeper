@@ -12,7 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: "frontend" # Here the path to the folder where package-lock.json is located.
     strategy:
       matrix:
         node-version: [20.x, 22.x]
@@ -20,11 +22,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Configure NPM
-        working-directory: frontend
-        run: |
-          echo "always-auth: true" >> .npmrc
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
