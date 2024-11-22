@@ -540,12 +540,12 @@ public final class AuthService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
     java.lang.String getUsername();
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
      */
     com.google.protobuf.ByteString
@@ -606,7 +606,7 @@ public final class AuthService {
     @SuppressWarnings("serial")
     private volatile java.lang.Object username_ = "";
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
     @java.lang.Override
@@ -623,7 +623,7 @@ public final class AuthService {
       }
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
      */
     @java.lang.Override
@@ -1000,7 +1000,7 @@ public final class AuthService {
 
       private java.lang.Object username_ = "";
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return The username.
        */
       public java.lang.String getUsername() {
@@ -1016,7 +1016,7 @@ public final class AuthService {
         }
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return The bytes for username.
        */
       public com.google.protobuf.ByteString
@@ -1033,7 +1033,7 @@ public final class AuthService {
         }
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @param value The username to set.
        * @return This builder for chaining.
        */
@@ -1046,7 +1046,7 @@ public final class AuthService {
         return this;
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearUsername() {
@@ -1056,7 +1056,7 @@ public final class AuthService {
         return this;
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @param value The bytes for username to set.
        * @return This builder for chaining.
        */
@@ -1198,12 +1198,12 @@ public final class AuthService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
     java.lang.String getUsername();
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
      */
     com.google.protobuf.ByteString
@@ -1222,16 +1222,16 @@ public final class AuthService {
         getPasswordBytes();
 
     /**
-     * <code>string email = 3;</code>
-     * @return The email.
+     * <code>string full_name = 3;</code>
+     * @return The fullName.
      */
-    java.lang.String getEmail();
+    java.lang.String getFullName();
     /**
-     * <code>string email = 3;</code>
-     * @return The bytes for email.
+     * <code>string full_name = 3;</code>
+     * @return The bytes for fullName.
      */
     com.google.protobuf.ByteString
-        getEmailBytes();
+        getFullNameBytes();
   }
   /**
    * Protobuf type {@code pb.RegisterRequest}
@@ -1257,7 +1257,7 @@ public final class AuthService {
     private RegisterRequest() {
       username_ = "";
       password_ = "";
-      email_ = "";
+      fullName_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -1277,7 +1277,7 @@ public final class AuthService {
     @SuppressWarnings("serial")
     private volatile java.lang.Object username_ = "";
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
     @java.lang.Override
@@ -1294,7 +1294,7 @@ public final class AuthService {
       }
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
      */
     @java.lang.Override
@@ -1351,39 +1351,39 @@ public final class AuthService {
       }
     }
 
-    public static final int EMAIL_FIELD_NUMBER = 3;
+    public static final int FULL_NAME_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object email_ = "";
+    private volatile java.lang.Object fullName_ = "";
     /**
-     * <code>string email = 3;</code>
-     * @return The email.
+     * <code>string full_name = 3;</code>
+     * @return The fullName.
      */
     @java.lang.Override
-    public java.lang.String getEmail() {
-      java.lang.Object ref = email_;
+    public java.lang.String getFullName() {
+      java.lang.Object ref = fullName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        email_ = s;
+        fullName_ = s;
         return s;
       }
     }
     /**
-     * <code>string email = 3;</code>
-     * @return The bytes for email.
+     * <code>string full_name = 3;</code>
+     * @return The bytes for fullName.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getEmailBytes() {
-      java.lang.Object ref = email_;
+        getFullNameBytes() {
+      java.lang.Object ref = fullName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        email_ = b;
+        fullName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1410,8 +1410,8 @@ public final class AuthService {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(password_)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 2, password_);
       }
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(email_)) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 3, email_);
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fullName_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, fullName_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1428,8 +1428,8 @@ public final class AuthService {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(password_)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(2, password_);
       }
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(email_)) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, email_);
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fullName_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, fullName_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1450,8 +1450,8 @@ public final class AuthService {
           .equals(other.getUsername())) return false;
       if (!getPassword()
           .equals(other.getPassword())) return false;
-      if (!getEmail()
-          .equals(other.getEmail())) return false;
+      if (!getFullName()
+          .equals(other.getFullName())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1467,8 +1467,8 @@ public final class AuthService {
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
-      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getEmail().hashCode();
+      hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFullName().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1602,7 +1602,7 @@ public final class AuthService {
         bitField0_ = 0;
         username_ = "";
         password_ = "";
-        email_ = "";
+        fullName_ = "";
         return this;
       }
 
@@ -1643,7 +1643,7 @@ public final class AuthService {
           result.password_ = password_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.email_ = email_;
+          result.fullName_ = fullName_;
         }
       }
 
@@ -1669,8 +1669,8 @@ public final class AuthService {
           bitField0_ |= 0x00000002;
           onChanged();
         }
-        if (!other.getEmail().isEmpty()) {
-          email_ = other.email_;
+        if (!other.getFullName().isEmpty()) {
+          fullName_ = other.fullName_;
           bitField0_ |= 0x00000004;
           onChanged();
         }
@@ -1711,7 +1711,7 @@ public final class AuthService {
                 break;
               } // case 18
               case 26: {
-                email_ = input.readStringRequireUtf8();
+                fullName_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
@@ -1734,7 +1734,7 @@ public final class AuthService {
 
       private java.lang.Object username_ = "";
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return The username.
        */
       public java.lang.String getUsername() {
@@ -1750,7 +1750,7 @@ public final class AuthService {
         }
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return The bytes for username.
        */
       public com.google.protobuf.ByteString
@@ -1767,7 +1767,7 @@ public final class AuthService {
         }
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @param value The username to set.
        * @return This builder for chaining.
        */
@@ -1780,7 +1780,7 @@ public final class AuthService {
         return this;
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearUsername() {
@@ -1790,7 +1790,7 @@ public final class AuthService {
         return this;
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @param value The bytes for username to set.
        * @return This builder for chaining.
        */
@@ -1876,73 +1876,73 @@ public final class AuthService {
         return this;
       }
 
-      private java.lang.Object email_ = "";
+      private java.lang.Object fullName_ = "";
       /**
-       * <code>string email = 3;</code>
-       * @return The email.
+       * <code>string full_name = 3;</code>
+       * @return The fullName.
        */
-      public java.lang.String getEmail() {
-        java.lang.Object ref = email_;
+      public java.lang.String getFullName() {
+        java.lang.Object ref = fullName_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          email_ = s;
+          fullName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string email = 3;</code>
-       * @return The bytes for email.
+       * <code>string full_name = 3;</code>
+       * @return The bytes for fullName.
        */
       public com.google.protobuf.ByteString
-          getEmailBytes() {
-        java.lang.Object ref = email_;
+          getFullNameBytes() {
+        java.lang.Object ref = fullName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          email_ = b;
+          fullName_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string email = 3;</code>
-       * @param value The email to set.
+       * <code>string full_name = 3;</code>
+       * @param value The fullName to set.
        * @return This builder for chaining.
        */
-      public Builder setEmail(
+      public Builder setFullName(
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
-        email_ = value;
+        fullName_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string email = 3;</code>
+       * <code>string full_name = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearEmail() {
-        email_ = getDefaultInstance().getEmail();
+      public Builder clearFullName() {
+        fullName_ = getDefaultInstance().getFullName();
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
-       * <code>string email = 3;</code>
-       * @param value The bytes for email to set.
+       * <code>string full_name = 3;</code>
+       * @param value The bytes for fullName to set.
        * @return This builder for chaining.
        */
-      public Builder setEmailBytes(
+      public Builder setFullNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
-        email_ = value;
+        fullName_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
@@ -2024,20 +2024,23 @@ public final class AuthService {
   static {
     java.lang.String[] descriptorData = {
       "\n\030proto/auth_service.proto\022\002pb\032\034google/a" +
-      "pi/annotations.proto\"\035\n\007Session\022\022\n\nsessi" +
-      "on_id\030\001 \001(\t\"2\n\014LoginRequest\022\020\n\010username\030" +
-      "\001 \001(\t\022\020\n\010password\030\002 \001(\t\"D\n\017RegisterReque" +
-      "st\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\r" +
-      "\n\005email\030\003 \001(\t2\246\001\n\rDeviceService\022E\n\005Login" +
-      "\022\020.pb.LoginRequest\032\013.pb.Session\"\035\202\323\344\223\002\027\"" +
-      "\022/api/v1/auth/login:\001*\022N\n\010Register\022\023.pb." +
-      "RegisterRequest\032\013.pb.Session\" \202\323\344\223\002\032\"\025/a" +
-      "pi/v1/auth/register:\001*B\010Z\006com.deb\006proto3"
+      "pi/annotations.proto\032\027validate/validate." +
+      "proto\"\035\n\007Session\022\022\n\nsession_id\030\001 \001(\t\";\n\014" +
+      "LoginRequest\022\031\n\010username\030\001 \001(\tB\007\372B\004r\002`\001\022" +
+      "\020\n\010password\030\002 \001(\t\"Q\n\017RegisterRequest\022\031\n\010" +
+      "username\030\001 \001(\tB\007\372B\004r\002`\001\022\020\n\010password\030\002 \001(" +
+      "\t\022\021\n\tfull_name\030\003 \001(\t2\246\001\n\rDeviceService\022E" +
+      "\n\005Login\022\020.pb.LoginRequest\032\013.pb.Session\"\035" +
+      "\202\323\344\223\002\027\"\022/api/v1/auth/login:\001*\022N\n\010Registe" +
+      "r\022\023.pb.RegisterRequest\032\013.pb.Session\" \202\323\344" +
+      "\223\002\032\"\025/api/v1/auth/register:\001*B\010Z\006com.deb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
+          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
         });
     internal_static_pb_Session_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2056,12 +2059,14 @@ public final class AuthService {
     internal_static_pb_RegisterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_RegisterRequest_descriptor,
-        new java.lang.String[] { "Username", "Password", "Email", });
+        new java.lang.String[] { "Username", "Password", "FullName", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.api.AnnotationsProto.getDescriptor();
+    io.envoyproxy.pgv.validate.Validate.getDescriptor();
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
+    registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
   }

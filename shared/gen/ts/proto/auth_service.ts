@@ -46,9 +46,9 @@ export interface RegisterRequest {
      */
     password: string;
     /**
-     * @generated from protobuf field: string email = 3;
+     * @generated from protobuf field: string full_name = 3;
      */
-    email: string;
+    fullName: string;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class Session$Type extends MessageType<Session> {
@@ -101,7 +101,7 @@ export const Session = new Session$Type();
 class LoginRequest$Type extends MessageType<LoginRequest> {
     constructor() {
         super("pb.LoginRequest", [
-            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { email: true } } } },
             { no: 2, name: "password", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
     }
@@ -156,16 +156,16 @@ export const LoginRequest = new LoginRequest$Type();
 class RegisterRequest$Type extends MessageType<RegisterRequest> {
     constructor() {
         super("pb.RegisterRequest", [
-            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { email: true } } } },
             { no: 2, name: "password", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "email", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 3, name: "full_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
     }
     create(value?: PartialMessage<RegisterRequest>): RegisterRequest {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.username = "";
         message.password = "";
-        message.email = "";
+        message.fullName = "";
         if (value !== undefined)
             reflectionMergePartial<RegisterRequest>(this, message, value);
         return message;
@@ -181,8 +181,8 @@ class RegisterRequest$Type extends MessageType<RegisterRequest> {
                 case /* string password */ 2:
                     message.password = reader.string();
                     break;
-                case /* string email */ 3:
-                    message.email = reader.string();
+                case /* string full_name */ 3:
+                    message.fullName = reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -202,9 +202,9 @@ class RegisterRequest$Type extends MessageType<RegisterRequest> {
         /* string password = 2; */
         if (message.password !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.password);
-        /* string email = 3; */
-        if (message.email !== "")
-            writer.tag(3, WireType.LengthDelimited).string(message.email);
+        /* string full_name = 3; */
+        if (message.fullName !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.fullName);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

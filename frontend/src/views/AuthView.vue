@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { login, register } from "@/middleware/UserManager";
 import { useMainStore } from "@/store/mainStore";
+import { isEmail } from "@/validators/validators";
 import { ref } from "vue";
 import { useDisplay } from "vuetify/lib/framework.mjs";
 
@@ -60,9 +61,10 @@ async function performRegister() {
             {{ $t("authView.loginError") }}
           </p>
           <v-text-field
-            type="username"
+            type="email"
             v-model="username"
             :placeholder="$t('authView.username')"
+            :rules="[(value) => (isEmail(value) ? true : 'Must be a email')]"
           />
           <v-text-field
             type="password"

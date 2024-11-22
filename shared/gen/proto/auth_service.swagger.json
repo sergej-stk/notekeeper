@@ -104,7 +104,7 @@
         "password": {
           "type": "string"
         },
-        "email": {
+        "fullName": {
           "type": "string"
         }
       }

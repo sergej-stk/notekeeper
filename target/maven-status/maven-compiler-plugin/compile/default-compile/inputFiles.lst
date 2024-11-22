@@ -1,3 +1,5 @@
+G:\newNotekeeper\shared\gen\java\pb\AuthService.java
+G:\newNotekeeper\shared\gen\java\pb\AuthServiceValidator.java
 G:\newNotekeeper\src\main\java\com\example\notekeeper\authapi\controller\AuthenticationController.java
 G:\newNotekeeper\src\main\java\com\example\notekeeper\authapi\controller\UserController.java
 G:\newNotekeeper\src\main\java\com\example\notekeeper\authapi\dtos\LoginUserDto.java
@@ -16,4 +18,6 @@ G:\newNotekeeper\src\main\java\com\example\notekeeper\modules\NoteRepository.jav
 G:\newNotekeeper\src\main\java\com\example\notekeeper\modules\NoteService.java
 G:\newNotekeeper\src\main\java\com\example\notekeeper\NotekeeperApplication.java
 G:\newNotekeeper\src\main\java\com\example\notekeeper\requests\PostRequestBody.java
-G:\newNotekeeper\src\main\java\pb\Test.java
+G:\newNotekeeper\src\main\java\com\example\notekeeper\validation\GrpcValidation.java
+G:\newNotekeeper\src\main\java\com\example\notekeeper\validation\GrpcValidationException.java
+G:\newNotekeeper\src\main\java\com\example\notekeeper\validation\GrpcValidator.java

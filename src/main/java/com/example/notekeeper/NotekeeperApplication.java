@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -72,8 +73,13 @@ public class NotekeeperApplication {
 	public static void main(String[] args) {
         LoginRequest iid = LoginRequest.getDefaultInstance();
             
-        String str = iid.toBuilder().setUsername("asd").build().toString();
+        //String str = iid.toBuilder().setUsername("asd").setPassword("asd").build().toString();
 		SpringApplication.run(NotekeeperApplication.class, args);
 	}
+
+         @Bean
+        ProtobufHttpMessageConverter protobufHttpMessageConverter() {
+            return new ProtobufHttpMessageConverter();
+        }
 
 }
