@@ -21,7 +21,7 @@ function setRegisterMode(value: boolean) {
 
 async function performLogin() {
   const success = await login(username.value, password.value);
-
+  console.log("ssss");
   if (success === null) {
     error.value = true;
     return;
