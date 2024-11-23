@@ -9,6 +9,11 @@ import com.example.notekeeper.authapi.dtos.LoginUserDto;
 import com.example.notekeeper.authapi.dtos.RegisterUserDto;
 import com.example.notekeeper.authapi.entities.User;
 import com.example.notekeeper.authapi.repositories.UserRepository;
+import com.example.notekeeper.validation.GrpcValidation;
+
+import pb.AuthService;
+import pb.AuthService.LoginRequest;
+import pb.AuthService.RegisterRequest;
 
 @Service
 public class AuthenticationService {
@@ -28,24 +33,25 @@ public class AuthenticationService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User signup(RegisterUserDto input) {
+    public User signup(RegisterRequest input) {
         User user = new User()
                 .setFullName(input.getFullName())
-                .setEmail(input.getEmail())
+                .setEmail(input.getUsername())
                 .setPassword(passwordEncoder.encode(input.getPassword()));
 
         return userRepository.save(user);
     }
 
-    public User authenticate(LoginUserDto input) {
+
+    public User authenticate(LoginRequest input) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        input.getEmail(),
+                        input.getUsername(),
                         input.getPassword()
                 )
         );
 
-        return userRepository.findByEmail(input.getEmail())
+        return userRepository.findByEmail(input.getUsername())
                 .orElseThrow();
     }
 }

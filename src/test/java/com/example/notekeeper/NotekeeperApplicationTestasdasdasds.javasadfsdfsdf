@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
+import com.example.notekeeper.modules.Note;
+import com.example.notekeeper.modules.NoteController;
+import com.example.notekeeper.modules.NoteService;
 import com.example.notekeeper.requests.PostRequestBody;
 
 @SpringBootTest
