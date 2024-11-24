@@ -37,7 +37,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         String[] resources = new String[]{
-            "/", /*"^/api/v3.*",*/ "/home", "/pictureCheckCode", "/include/**", "/fonts/**",
+            "/", "^/api/v3.*", "/home", "/pictureCheckCode", "/include/**", "/fonts/**",
             "/css/**", "/icons/**", "/images/**", "/js/**", "/layer/**", "/api/v3/auth/**", "/index.html"
         };
         http.headers().cacheControl();
@@ -45,11 +45,11 @@ public class SecurityConfiguration {
         http.csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers(resources)
-                //.requestMatchers(new CustomRequestMatcher())
-                .permitAll()
-                .anyRequest()
+                .requestMatchers("/api/v3/auth/**").permitAll() // Erlaubt alle Anfragen an /api/v3/auth/**
+                .requestMatchers("/api/v3/**") // Alle anderen Anfragen an /api/v3/** erfordern Authentifizierung
                 .authenticated()
+                .anyRequest()
+                .permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -75,7 +75,6 @@ public class SecurityConfiguration {
 
         return source;
     }*/
-    // CustomRequestMatcher, der alle Anfragen außer "/api/v3/**" abgleicht
     public static class CustomRequestMatcher implements RequestMatcher {
 
         private static final String EXCLUDED_PATH = "^(?!/api/v3/).*"; // Regex, um "/api/v3/**" auszuschließen
