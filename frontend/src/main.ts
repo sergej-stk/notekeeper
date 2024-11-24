@@ -7,11 +7,14 @@ import piniaPluginPersistedState from "pinia-plugin-persistedstate";
 import de from "./lang/de";
 import en from "./lang/en";
 import { vuetifyProTipTap } from "./plugins/tiptap";
+import router from "./router";
 
 const app = createApp(App);
 const pinia = createPinia();
 
 app.use(vuetifyProTipTap);
+app.use(router);
+
 pinia.use(piniaPluginPersistedState);
 
 const i18n = createI18n({
