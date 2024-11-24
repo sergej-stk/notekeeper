@@ -18,6 +18,9 @@ const mainStore = useMainStore();
 onMounted(async () => {
   const socket = io("/notes", {
     secure: process.env.NODE_ENV === "development" ? false : true,
+    extraHeaders: {
+      Authorization: "Bearer:" + mainStore.token,
+    },
   });
 
   socket.on("addNote", (note: Note) => {

@@ -2029,12 +2029,12 @@ public final class AuthService {
       "\007\372B\004r\002`\001\022\020\n\010password\030\002 \001(\t\"\036\n\rLoginRespo" +
       "nse\022\r\n\005token\030\001 \001(\t\"Q\n\017RegisterRequest\022\031\n" +
       "\010username\030\001 \001(\tB\007\372B\004r\002`\001\022\020\n\010password\030\002 \001" +
-      "(\t\022\021\n\tfull_name\030\003 \001(\t2\262\001\n\rDeviceService\022" +
-      "K\n\005Login\022\020.pb.LoginRequest\032\021.pb.LoginRes" +
-      "ponse\"\035\202\323\344\223\002\027\"\022/api/v1/auth/login:\001*\022T\n\010" +
-      "Register\022\023.pb.RegisterRequest\032\021.pb.Login" +
-      "Response\" \202\323\344\223\002\032\"\025/api/v1/auth/register:" +
-      "\001*B\010Z\006com.deb\006proto3"
+      "(\t\022\021\n\tfull_name\030\003 \001(\t2\263\001\n\016AuthApiService" +
+      "\022K\n\005Login\022\020.pb.LoginRequest\032\021.pb.LoginRe" +
+      "sponse\"\035\202\323\344\223\002\027\"\022/api/v3/auth/login:\001*\022T\n" +
+      "\010Register\022\023.pb.RegisterRequest\032\021.pb.Logi" +
+      "nResponse\" \202\323\344\223\002\032\"\025/api/v3/auth/register" +
+      ":\001*B\010Z\006com.deb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

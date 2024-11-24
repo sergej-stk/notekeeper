@@ -26,6 +26,7 @@ import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
 import com.corundumstudio.socketio.listener.DisconnectListener;
 import com.example.notekeeper.requests.PostRequestBody;
+import com.example.notekeeper.socket.SocketServer;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -40,7 +41,7 @@ public class NoteController {
     private final SocketIONamespace namespace;
     
     @Autowired
-    public NoteController(NoteService service, SocketIOServer server) {
+    public NoteController(NoteService service, SocketServer server) {
         this.service = service;
         
         Note note = new Note(); 
@@ -55,14 +56,14 @@ public class NoteController {
         
         this.service.post(note);
 
-        this.namespace = server.addNamespace("/notes");
-        this.namespace.addConnectListener(onConnected());
-        this.namespace.addDisconnectListener(onDisconnected());
-        this.namespace.addEventListener("addNote", PostRequestBody.class, onChatReceived());   
-        server.start();     
+        this.namespace = server.getNamespace("/notes");
+        //this.namespace.addConnectListener(onConnected());
+       // this.namespace.addDisconnectListener(onDisconnected());
+        //this.namespace.addEventListener("addNote", PostRequestBody.class, onChatReceived());   
+        //server.start();     
     }
 
-    private DataListener<PostRequestBody> onChatReceived() {
+    /* DataListener<PostRequestBody> onChatReceived() {
         return (client, data, ackSender) -> {
             log.debug("Client[{}] - Received chat message '{}'", client.getSessionId().toString(), data);
             namespace.getBroadcastOperations().sendEvent("chat", data);
@@ -81,7 +82,7 @@ public class NoteController {
         return client -> {
             log.debug("Client[{}] - Disconnected from chat module.", client.getSessionId().toString());
         };
-    }
+    }*/
 
     @GetMapping
     @CrossOrigin

@@ -15,8 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.corundumstudio.socketio.SocketIOServer;
 import com.example.notekeeper.authapi.repositories.UserRepository;
+import com.example.notekeeper.socket.SocketServer;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -66,11 +66,14 @@ public class NotekeeperApplication {
     }
 
     @Bean
-    public SocketIOServer socketIOServer() {
-        com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
-        config.setHostname(host);
-        config.setPort(port);
-        return new SocketIOServer(config);
+    public SocketServer socketIOServer() {
+        SocketServer socketServer = new SocketServer(host, port);
+        
+        socketServer.registerNamespace("/notes");
+        socketServer.registerNamespace("/chat");
+        socketServer.registerNamespace("/friends");
+
+        return socketServer;
     }
 
 	public static void main(String[] args) {
@@ -84,6 +87,7 @@ public class NotekeeperApplication {
     ProtobufHttpMessageConverter protobufHttpMessageConverter() {
         return new ProtobufHttpMessageConverter();
     }
+    
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();

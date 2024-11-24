@@ -6,7 +6,7 @@
   },
   "tags": [
     {
-      "name": "DeviceService"
+      "name": "AuthApiService"
     }
   ],
   "consumes": [
@@ -16,10 +16,10 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/auth/login": {
+    "/api/v3/auth/login": {
       "post": {
         "summary": "List all registered devices",
-        "operationId": "DeviceService_Login",
+        "operationId": "AuthApiService_Login",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -45,14 +45,14 @@
           }
         ],
         "tags": [
-          "DeviceService"
+          "AuthApiService"
         ]
       }
     },
-    "/api/v1/auth/register": {
+    "/api/v3/auth/register": {
       "post": {
         "summary": "register",
-        "operationId": "DeviceService_Register",
+        "operationId": "AuthApiService_Register",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -78,7 +78,7 @@
           }
         ],
         "tags": [
-          "DeviceService"
+          "AuthApiService"
         ]
       }
     }

@@ -3,7 +3,7 @@
 // tslint:disable
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
-import { DeviceService } from "./auth_service";
+import { AuthApiService } from "./auth_service";
 import type { RegisterRequest } from "./auth_service";
 import { stackIntercept } from "@protobuf-ts/runtime-rpc";
 import type { LoginResponse } from "./auth_service";
@@ -11,9 +11,9 @@ import type { LoginRequest } from "./auth_service";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
 import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
- * @generated from protobuf service pb.DeviceService
+ * @generated from protobuf service pb.AuthApiService
  */
-export interface IDeviceServiceClient {
+export interface IAuthApiServiceClient {
     /**
      * List all registered devices
      *
@@ -28,12 +28,12 @@ export interface IDeviceServiceClient {
     register(input: RegisterRequest, options?: RpcOptions): UnaryCall<RegisterRequest, LoginResponse>;
 }
 /**
- * @generated from protobuf service pb.DeviceService
+ * @generated from protobuf service pb.AuthApiService
  */
-export class DeviceServiceClient implements IDeviceServiceClient, ServiceInfo {
-    typeName = DeviceService.typeName;
-    methods = DeviceService.methods;
-    options = DeviceService.options;
+export class AuthApiServiceClient implements IAuthApiServiceClient, ServiceInfo {
+    typeName = AuthApiService.typeName;
+    methods = AuthApiService.methods;
+    options = AuthApiService.options;
     constructor(private readonly _transport: RpcTransport) {
     }
     /**

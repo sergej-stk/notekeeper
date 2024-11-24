@@ -35,3 +35,4 @@ build/
 frontend/node_modules
 docs/node_modules
 frontend/yarn.lock
+node_modules
