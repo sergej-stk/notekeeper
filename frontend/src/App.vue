@@ -113,6 +113,8 @@ watch(isLoggedIn, () => {
     </v-app-bar>
 
     <v-main>
+      <RouterView />
+
       <v-container v-if="isLoggedIn">
         <v-layout row wrap align-center class="justify-center">
           <div class="w-75">

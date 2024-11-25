@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: springboot-app
-          path: target/*.jar
+          path: backend/target/*.jar
 
       - name: conventional Changelog Action
         id: changelog
@@ -75,7 +75,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: target/notekeeper-0.0.1-SNAPSHOT.jar
+          asset_path: backend/target/notekeeper-0.0.1-SNAPSHOT.jar
           asset_name: application.jar
           asset_content_type: application/java-archive
         # publish docker image

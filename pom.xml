@@ -2,33 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>parent-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>parent-project</name>
+    <groupId>com.example</groupId>
+    <modules>
+        <module>frontend</module>
+        <module>backend</module>
+    </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>notekeeper</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>notekeeper</name>
-    <description>Demo project for Spring Boot</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
-    <properties>
-        <java.version>17</java.version>
-    </properties>
+
+
     <dependencies>
  
         <dependency>
@@ -131,6 +121,7 @@
         </dependency>
     </dependencies>
 
+
     <build>
         <plugins>
             <plugin>
@@ -155,34 +146,30 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.example.notekeeper.NotekeeperApplication</mainClass> <!-- FQN der Main-Klasse -->
+                </configuration>
             </plugin>
 
             <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.6.1</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
                 <configuration>
-                    <protocArtifact>
-                        com.google.protobuf:protoc:${protoc.version}:exe:${os.detected.classifier}
-                    </protocArtifact>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>backend/src/main/java</additionalClasspathElement>
+                        <additionalClasspathElement>backend/src/main/resources</additionalClasspathElement>
+                        <additionalClasspathElement>backend/src/shared/gen/java</additionalClasspathElement>
+                    </additionalClasspathElements>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>protoc-java-pgv</id>
-                        <goals>
-                            <goal>compile-custom</goal>
-                        </goals>
-                        <configuration>
-                            <pluginParameter>lang=java</pluginParameter>
-                            <pluginId>java-pgv</pluginId>
-                            <pluginArtifact>
-                                build.buf.protoc-gen-validate:protoc-gen-validate:${pgv.version}:exe:${os.detected.classifier}
-                            </pluginArtifact>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
-            
 </project>
