@@ -1,4 +1,9 @@
 import { authEndpoint } from "@/constants";
+import {
+  LoginResponse,
+  LoginRequest,
+  RegisterRequest,
+} from "@/shared/gen/ts/proto/auth_service";
 import axios, { AxiosResponse } from "axios";
 
 export async function login(
@@ -6,11 +11,12 @@ export async function login(
   password: string
 ): Promise<string | null> {
   let axiosResponse: AxiosResponse | null = null;
+  const body: LoginRequest = {
+    username,
+    password,
+  };
   try {
-    axiosResponse = await axios.post(authEndpoint + "login", {
-      email: username,
-      password,
-    });
+    axiosResponse = await axios.post(authEndpoint + "login", body);
   } catch (e) {
     return null;
   }
@@ -23,11 +29,9 @@ export async function login(
     return null;
   }
 
-  if (!axiosResponse.data.startsWith("token=")) {
-    return null;
-  }
+  const lr = LoginResponse.create(axiosResponse.data);
 
-  return axiosResponse.data.split("token=")[1];
+  return lr.token;
 }
 
 export async function register(
@@ -36,12 +40,13 @@ export async function register(
   fullName: string
 ) {
   let axiosResponse: AxiosResponse | null = null;
+  const registerRequest: RegisterRequest = {
+    username,
+    password,
+    fullName,
+  };
   try {
-    axiosResponse = await axios.post(authEndpoint + "signup", {
-      email: username,
-      password,
-      fullName,
-    });
+    axiosResponse = await axios.post(authEndpoint + "signup", registerRequest);
   } catch (e) {
     return null;
   }
