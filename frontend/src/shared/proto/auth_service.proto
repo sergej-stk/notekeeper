@@ -19,18 +19,18 @@ message RegisterRequest {
   string full_name = 3;
 }
 
-  service DeviceService {
+  service AuthApiService {
     // List all registered devices
     rpc Login(LoginRequest) returns (LoginResponse) {
       option (google.api.http) = {
-        post: "/api/v1/auth/login"
+        post: "/api/v3/auth/login"
         body: "*"
       };
     };
     // register
     rpc Register(RegisterRequest) returns (LoginResponse) {
       option (google.api.http) = {
-        post: "/api/v1/auth/register"
+        post: "/api/v3/auth/register"
         body: "*"
       };
     };

@@ -216,9 +216,9 @@ class RegisterRequest$Type extends MessageType<RegisterRequest> {
  */
 export const RegisterRequest = new RegisterRequest$Type();
 /**
- * @generated ServiceType for protobuf service pb.DeviceService
+ * @generated ServiceType for protobuf service pb.AuthApiService
  */
-export const DeviceService = new ServiceType("pb.DeviceService", [
-    { name: "Login", options: { "google.api.http": { post: "/api/v1/auth/login", body: "*" } }, I: LoginRequest, O: LoginResponse },
-    { name: "Register", options: { "google.api.http": { post: "/api/v1/auth/register", body: "*" } }, I: RegisterRequest, O: LoginResponse }
+export const AuthApiService = new ServiceType("pb.AuthApiService", [
+    { name: "Login", options: { "google.api.http": { post: "/api/v3/auth/login", body: "*" } }, I: LoginRequest, O: LoginResponse },
+    { name: "Register", options: { "google.api.http": { post: "/api/v3/auth/register", body: "*" } }, I: RegisterRequest, O: LoginResponse }
 ]);

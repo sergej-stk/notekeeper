@@ -15,8 +15,8 @@ module.exports = defineConfig({
         ws: true,
       },
       "/sockjs-node": {
-        target: "http://localhost:8086",
-        ws: false,
+        target: "http://localhost:8080",
+        ws: true,
         changeOrigin: true,
       },
     },

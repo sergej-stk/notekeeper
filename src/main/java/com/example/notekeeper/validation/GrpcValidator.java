@@ -12,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.google.protobuf.Message;
 
+import io.envoyproxy.pgv.ReflectiveValidatorIndex;
 import io.envoyproxy.pgv.ValidatorIndex;
 
 @Aspect
@@ -27,8 +28,6 @@ public class GrpcValidator {
     public Object validate(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         GrpcValidation GrpcValidation = ((MethodSignature) proceedingJoinPoint.getSignature()).getMethod().getAnnotation(GrpcValidation.class);
         Constructor<?> validatorClassConstructor = GrpcValidation.validatorClass().getConstructor();
-        //Constructor<?> bodyClass = GrpcValidation.bodyClass().getConstructor();
-        //Class<?> cl = (Class<?>) ((ParameterizedType) bodyClass.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         io.envoyproxy.pgv.ValidatorImpl<Object> validator = (io.envoyproxy.pgv.ValidatorImpl<Object>) validatorClassConstructor.newInstance();
         //System.out.println(proceedingJoinPoint.proceed());
 //Object result;
@@ -38,12 +37,14 @@ public class GrpcValidator {
             for (Object param : args) {
                 
                 if (param instanceof Message message) {
-                    validator.assertValid(param, ValidatorIndex.ALWAYS_VALID);
+                    ValidatorIndex index = new ReflectiveValidatorIndex();
+
+                    validator.assertValid(param, index);
                 }
             }
             
            
-            return proceedingJoinPoint.proceed(args);
+                return proceedingJoinPoint.proceed(args);
             } catch (Exception e) {
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN);
             }

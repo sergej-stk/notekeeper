@@ -31,7 +31,7 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
-func request_DeviceService_Login_0(ctx context.Context, marshaler runtime.Marshaler, client DeviceServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_AuthApiService_Login_0(ctx context.Context, marshaler runtime.Marshaler, client AuthApiServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq LoginRequest
 	var metadata runtime.ServerMetadata
 
@@ -44,7 +44,7 @@ func request_DeviceService_Login_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_DeviceService_Login_0(ctx context.Context, marshaler runtime.Marshaler, server DeviceServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_AuthApiService_Login_0(ctx context.Context, marshaler runtime.Marshaler, server AuthApiServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq LoginRequest
 	var metadata runtime.ServerMetadata
 
@@ -57,7 +57,7 @@ func local_request_DeviceService_Login_0(ctx context.Context, marshaler runtime.
 
 }
 
-func request_DeviceService_Register_0(ctx context.Context, marshaler runtime.Marshaler, client DeviceServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_AuthApiService_Register_0(ctx context.Context, marshaler runtime.Marshaler, client AuthApiServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RegisterRequest
 	var metadata runtime.ServerMetadata
 
@@ -70,7 +70,7 @@ func request_DeviceService_Register_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_DeviceService_Register_0(ctx context.Context, marshaler runtime.Marshaler, server DeviceServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_AuthApiService_Register_0(ctx context.Context, marshaler runtime.Marshaler, server AuthApiServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RegisterRequest
 	var metadata runtime.ServerMetadata
 
@@ -83,14 +83,14 @@ func local_request_DeviceService_Register_0(ctx context.Context, marshaler runti
 
 }
 
-// RegisterDeviceServiceHandlerServer registers the http handlers for service DeviceService to "mux".
-// UnaryRPC     :call DeviceServiceServer directly.
+// RegisterAuthApiServiceHandlerServer registers the http handlers for service AuthApiService to "mux".
+// UnaryRPC     :call AuthApiServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterDeviceServiceHandlerFromEndpoint instead.
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterAuthApiServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
-func RegisterDeviceServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server DeviceServiceServer) error {
+func RegisterAuthApiServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server AuthApiServiceServer) error {
 
-	mux.Handle("POST", pattern_DeviceService_Login_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_AuthApiService_Login_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -98,12 +98,12 @@ func RegisterDeviceServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/pb.DeviceService/Login", runtime.WithHTTPPathPattern("/api/v1/auth/login"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/pb.AuthApiService/Login", runtime.WithHTTPPathPattern("/api/v3/auth/login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_DeviceService_Login_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_AuthApiService_Login_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -111,11 +111,11 @@ func RegisterDeviceServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 			return
 		}
 
-		forward_DeviceService_Login_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_AuthApiService_Login_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_DeviceService_Register_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_AuthApiService_Register_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -123,12 +123,12 @@ func RegisterDeviceServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/pb.DeviceService/Register", runtime.WithHTTPPathPattern("/api/v1/auth/register"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/pb.AuthApiService/Register", runtime.WithHTTPPathPattern("/api/v3/auth/register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_DeviceService_Register_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_AuthApiService_Register_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -136,16 +136,16 @@ func RegisterDeviceServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 			return
 		}
 
-		forward_DeviceService_Register_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_AuthApiService_Register_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
 	return nil
 }
 
-// RegisterDeviceServiceHandlerFromEndpoint is same as RegisterDeviceServiceHandler but
+// RegisterAuthApiServiceHandlerFromEndpoint is same as RegisterAuthApiServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterDeviceServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterAuthApiServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.NewClient(endpoint, opts...)
 	if err != nil {
 		return err
@@ -165,63 +165,63 @@ func RegisterDeviceServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.
 		}()
 	}()
 
-	return RegisterDeviceServiceHandler(ctx, mux, conn)
+	return RegisterAuthApiServiceHandler(ctx, mux, conn)
 }
 
-// RegisterDeviceServiceHandler registers the http handlers for service DeviceService to "mux".
+// RegisterAuthApiServiceHandler registers the http handlers for service AuthApiService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterDeviceServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterDeviceServiceHandlerClient(ctx, mux, NewDeviceServiceClient(conn))
+func RegisterAuthApiServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterAuthApiServiceHandlerClient(ctx, mux, NewAuthApiServiceClient(conn))
 }
 
-// RegisterDeviceServiceHandlerClient registers the http handlers for service DeviceService
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "DeviceServiceClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "DeviceServiceClient"
+// RegisterAuthApiServiceHandlerClient registers the http handlers for service AuthApiService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "AuthApiServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "AuthApiServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "DeviceServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
-func RegisterDeviceServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client DeviceServiceClient) error {
+// "AuthApiServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
+func RegisterAuthApiServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client AuthApiServiceClient) error {
 
-	mux.Handle("POST", pattern_DeviceService_Login_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_AuthApiService_Login_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/pb.DeviceService/Login", runtime.WithHTTPPathPattern("/api/v1/auth/login"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/pb.AuthApiService/Login", runtime.WithHTTPPathPattern("/api/v3/auth/login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_DeviceService_Login_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_AuthApiService_Login_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_DeviceService_Login_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_AuthApiService_Login_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_DeviceService_Register_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_AuthApiService_Register_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/pb.DeviceService/Register", runtime.WithHTTPPathPattern("/api/v1/auth/register"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/pb.AuthApiService/Register", runtime.WithHTTPPathPattern("/api/v3/auth/register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_DeviceService_Register_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_AuthApiService_Register_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_DeviceService_Register_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_AuthApiService_Register_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -229,13 +229,13 @@ func RegisterDeviceServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 }
 
 var (
-	pattern_DeviceService_Login_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "auth", "login"}, ""))
+	pattern_AuthApiService_Login_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v3", "auth", "login"}, ""))
 
-	pattern_DeviceService_Register_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "auth", "register"}, ""))
+	pattern_AuthApiService_Register_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v3", "auth", "register"}, ""))
 )
 
 var (
-	forward_DeviceService_Login_0 = runtime.ForwardResponseMessage
+	forward_AuthApiService_Login_0 = runtime.ForwardResponseMessage
 
-	forward_DeviceService_Register_0 = runtime.ForwardResponseMessage
+	forward_AuthApiService_Register_0 = runtime.ForwardResponseMessage
 )
