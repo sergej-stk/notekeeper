@@ -57,7 +57,7 @@ public class NoteController {
 
         this.service.post(note);
 
-        this.namespace = server.getNamespace("/notes");
+        this.namespace = server.getNamespace("/notes").getSocketIoNamespace();
         //this.namespace.addConnectListener(onConnected());
         // this.namespace.addDisconnectListener(onDisconnected());
         //this.namespace.addEventListener("addNote", PostRequestBody.class, onChatReceived());   

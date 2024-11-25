@@ -34,7 +34,7 @@ public class ChatService {
         this.userRepository = userRepository;
         this.chatRoomRepository = chatRoomRepository;
         this.chatMessageRepository = chatMessageRepository;
-        this.chatNamespace = this.socketServer.getNamespace("/chat");
+        this.chatNamespace = this.socketServer.getNamespace("/chat").getSocketIoNamespace();
     }
 
     public StartChatResponse startChat(StartChatRequest request) {

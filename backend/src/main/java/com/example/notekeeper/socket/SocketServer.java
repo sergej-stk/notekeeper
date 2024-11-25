@@ -24,7 +24,7 @@ public class SocketServer {
 
     private final SocketIOServer socketIoServer;
 
-    private HashMap<String, SocketIONamespace> namespaces = new HashMap<String, SocketIONamespace>();
+    private HashMap<String, SocketNamespace> namespaces = new HashMap<String, SocketNamespace>();
 
     public SocketServer(String host, Integer port) {
         Configuration configuration = new Configuration();
@@ -38,11 +38,10 @@ public class SocketServer {
     }
 
     public void registerNamespace(String name) {
-        SocketIONamespace namespace = this.socketIoServer.addNamespace(name);
-        this.namespaces.put(name, namespace);
+        this.namespaces.put(name, new SocketNamespace(this.socketIoServer, name));
     }
 
-    public SocketIONamespace getNamespace(String name) {
+    public SocketNamespace getNamespace(String name) {
         return this.namespaces.get(name);
     }
 

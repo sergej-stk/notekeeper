@@ -34,8 +34,14 @@ public class SocketAuthorizationListener implements AuthorizationListener {
 
         if (userEmail != null) {
             UserDetails userDetails = new User(userEmail, "", new ArrayList<>());
+            boolean tokenValid = jwtService.isTokenValid(jwt, userDetails);
 
-            return jwtService.isTokenValid(jwt, userDetails);
+            if (!tokenValid) {
+                return false;
+            }
+
+            data.getHttpHeaders().set("x-username", userEmail);
+            return true;
         }
 
         return false;

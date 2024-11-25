@@ -1,4 +1,4 @@
 <template>
-  <p>TestView</p>
+  <p>TestVieZZZZZZw</p>
 </template>
 <script setup lang="ts"></script>
