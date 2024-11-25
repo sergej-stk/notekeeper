@@ -7,7 +7,7 @@ RUN rm /etc/nginx/sites-enabled/default
 COPY ./configs/proxy /etc/nginx/sites-enabled
 RUN systemctl enable nginx
 COPY . /SpringBootApplication
-RUN rm /SpringBootApplication/frontend/src/shared && rm /SpringBootApplication/backend/src/shared
+RUN rm -r /SpringBootApplication/frontend/src/shared && rm -r /SpringBootApplication/backend/src/shared
 COPY ./shared /SpringBootApplication/frontend/src/shared
 COPY ./shared /SpringBootApplication/backend/src/shared
 RUN cd /SpringBootApplication && mvn package

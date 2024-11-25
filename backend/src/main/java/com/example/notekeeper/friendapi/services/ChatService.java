@@ -3,6 +3,7 @@ package com.example.notekeeper.friendapi.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.notekeeper.socket.SocketNamespace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ import pb.ChatService.StartChatResponse;
 public class ChatService {
     
     private final SocketServer socketServer;
-    private final SocketIONamespace chatNamespace;
+    private final SocketNamespace chatNamespace;
     private final UserRepository userRepository;
     private final ChatRoomRepository chatRoomRepository;
     private final ChatMessageRepository chatMessageRepository;
@@ -34,7 +35,7 @@ public class ChatService {
         this.userRepository = userRepository;
         this.chatRoomRepository = chatRoomRepository;
         this.chatMessageRepository = chatMessageRepository;
-        this.chatNamespace = this.socketServer.getNamespace("/chat").getSocketIoNamespace();
+        this.chatNamespace = this.socketServer.getNamespace("/chat");
     }
 
     public StartChatResponse startChat(StartChatRequest request) {
@@ -46,10 +47,15 @@ public class ChatService {
             if (user == null) {
                 continue;
             }
+
             chatRoom.addUser(user);
         }
 
         chatRoom = this.chatRoomRepository.save(chatRoom);
+
+        for (String username : users) {
+            this.chatNamespace.addUserToRoom(username, chatRoom.getId().toString());
+        }
 
         return StartChatResponse.newBuilder().setChatRoomId(chatRoom.getId()).build();
     }  
@@ -60,6 +66,8 @@ public class ChatService {
         if (chatRoom == null) {
             return false;
         }
+
+        this.chatNamespace.getSocketIoNamespace().getRoomOperations(chatRoom.getId().toString()).sendEvent("message", request.getChatMessage().getMessage());
 
         ChatMessage chatMessage = new ChatMessage();
         chatMessage.setText(request.getChatMessage().getMessage());
