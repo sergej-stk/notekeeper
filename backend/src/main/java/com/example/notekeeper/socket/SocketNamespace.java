@@ -16,6 +16,7 @@ public class SocketNamespace {
     private final SocketIONamespace namespace;
 
     private final HashMap<String, ArrayList<UUID>> usersSessions = new HashMap<>();
+    private final HashMap<String, ArrayList<String>> userRooms = new HashMap<>();
 
     public SocketNamespace(SocketIOServer socketIoServer, String name) {
         this.namespace = socketIoServer.addNamespace(name);
@@ -36,6 +37,24 @@ public class SocketNamespace {
             }
 
             userSessions.add(client.getSessionId());
+
+            ArrayList<String> rooms = userRooms.get(userEmail);
+
+            if (rooms == null) {
+                rooms = new ArrayList<String>();
+                userRooms.put(userEmail, rooms);
+                return;
+            }
+            
+            if (rooms.size() == 0) {
+                return;
+            }
+
+            for (String room : rooms) {
+                System.out.println("Join room " + userEmail);
+                client.joinRoom(room);
+                client.sendEvent("join-room", room);
+            }
         };
     }
 
@@ -53,8 +72,42 @@ public class SocketNamespace {
             }
 
             userSessions.remove(client.getSessionId());
-
         };
+    }
+
+    public void addUserToRoom(String username, String room) {
+        ArrayList<String> rooms = userRooms.get(username);
+
+        if (rooms == null) {
+            rooms = new ArrayList<String>();
+            userRooms.put(username, rooms);
+            return;
+        }
+
+        if (rooms.contains(room)) {
+            //Error
+            return;
+        }
+        ArrayList<SocketIOClient> clients = getClientsByUsername(username);
+        for (SocketIOClient client : clients) {
+            System.out.println("Join room " + username);
+            client.joinRoom(room);
+            client.sendEvent("join-room", room);
+        }
+        rooms.add(room);
+    }
+
+    public void removeUserFromRoom(String username, String room) {
+        ArrayList<String> rooms = userRooms.get(username);
+
+        if (rooms != null) {
+            rooms.remove(room);
+        }
+
+        ArrayList<SocketIOClient> clients = getClientsByUsername(username);
+        for (SocketIOClient client : clients) {
+            client.leaveRoom(room);
+        }
     }
 
     public ArrayList<SocketIOClient> getClientsByUsername(String username) {
