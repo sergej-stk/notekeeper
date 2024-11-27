@@ -26,10 +26,14 @@ public class ChatServiceValidator {
 	
 		
 	
+		
+	
 	
 	
 
 	public void assertValid(pb.ChatService.ChatMessage proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for RoomId
+
 	
 			io.envoyproxy.pgv.StringValidation.email(".pb.ChatMessage.username", proto.getUsername());
 	
@@ -53,13 +57,7 @@ public class ChatServiceValidator {
 	// no validation rules for RoomId
 
 	
-		if (proto.hasChatMessage()) {
-			io.envoyproxy.pgv.RequiredValidation.required(".pb.SendChatMessageRequest.chat_message", proto.getChatMessage());
-		} else {
-			io.envoyproxy.pgv.RequiredValidation.required(".pb.SendChatMessageRequest.chat_message", null);
-		};
-			// Validate chat_message
-			if (proto.hasChatMessage()) index.validatorFor(proto.getChatMessage()).assertValid(proto.getChatMessage());
+			io.envoyproxy.pgv.StringValidation.minLength(".pb.SendChatMessageRequest.message", proto.getMessage(), 1);
 	
 	
 	}

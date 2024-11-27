@@ -7,6 +7,10 @@ import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.HandshakeData;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DisconnectListener;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageOrBuilder;
+import com.google.protobuf.util.JsonFormat;
+import pb.ChatService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -113,8 +117,18 @@ public class SocketNamespace {
     public ArrayList<SocketIOClient> getClientsByUsername(String username) {
         ArrayList<SocketIOClient> clients = new ArrayList<>();
 
-        for (UUID uuid : usersSessions.get(username)) {
-            clients.add(this.namespace.getClient(uuid));
+        ArrayList<UUID> userSessions = usersSessions.get(username);
+
+        if (userSessions == null) {
+            return clients;
+        }
+
+        for (UUID uuid : userSessions) {
+            SocketIOClient client = this.namespace.getClient(uuid);
+            if (client == null) {
+                continue;
+            }
+            clients.add(client);
         }
 
         return clients;
@@ -122,5 +136,16 @@ public class SocketNamespace {
 
     public SocketIONamespace getSocketIoNamespace() {
         return this.namespace;
+    }
+
+    public boolean emitRoom(String roomId, String event, MessageOrBuilder messageOrBuilder) {
+        try {
+            String json = JsonFormat.printer().print(messageOrBuilder);
+            this.getSocketIoNamespace().getRoomOperations(roomId).sendEvent(event, json);
+            return true;
+        } catch (InvalidProtocolBufferException e) {
+            return false;
+        }
+
     }
 }

@@ -6,13 +6,9 @@ import "validate/validate.proto";
 import "proto/utils.proto";
 
 message ChatMessage {
-    string username = 1  [(validate.rules).string.email = true];
-    string message = 2 [(validate.rules).string.min_len = 1];
-}
-
-message SendChatMessageRequest {
-  int32 room_id = 1;
-  ChatMessage chat_message = 2 [(validate.rules).message.required = true];
+    int32 room_id = 1;
+    string username = 2 [(validate.rules).string.email = true];
+    string message = 3 [(validate.rules).string.min_len = 1];
 }
 
 message StartChatRequest {
@@ -22,6 +18,12 @@ message StartChatRequest {
 message StartChatResponse {
     int32 chat_room_id = 1;
     repeated ChatMessage messages = 2;
+}
+
+message SendChatMessageRequest {
+    // TODO: find other solution for this, because room_id is a get parameter
+  int32 room_id = 1;
+  string message = 2 [(validate.rules).string.min_len = 1];
 }
 
 message GetAllChatMessagesRequest {

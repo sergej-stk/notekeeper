@@ -17,11 +17,15 @@ import { MessageType } from "@protobuf-ts/runtime";
  */
 export interface ChatMessage {
     /**
-     * @generated from protobuf field: string username = 1;
+     * @generated from protobuf field: int32 room_id = 1;
+     */
+    roomId: number;
+    /**
+     * @generated from protobuf field: string username = 2;
      */
     username: string;
     /**
-     * @generated from protobuf field: string message = 2;
+     * @generated from protobuf field: string message = 3;
      */
     message: string;
 }
@@ -30,13 +34,15 @@ export interface ChatMessage {
  */
 export interface SendChatMessageRequest {
     /**
+     * TODO: find other solution for this, because room_id is a get parameter
+     *
      * @generated from protobuf field: int32 room_id = 1;
      */
     roomId: number;
     /**
-     * @generated from protobuf field: pb.ChatMessage chat_message = 2;
+     * @generated from protobuf field: string message = 2;
      */
-    chatMessage?: ChatMessage;
+    message: string;
 }
 /**
  * @generated from protobuf message pb.StartChatRequest
@@ -82,12 +88,14 @@ export interface GetAllChatMessagesResponse {
 class ChatMessage$Type extends MessageType<ChatMessage> {
     constructor() {
         super("pb.ChatMessage", [
-            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { email: true } } } },
-            { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { minLen: "1" } } } }
+            { no: 1, name: "room_id", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
+            { no: 2, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { email: true } } } },
+            { no: 3, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { minLen: "1" } } } }
         ]);
     }
     create(value?: PartialMessage<ChatMessage>): ChatMessage {
         const message = globalThis.Object.create((this.messagePrototype!));
+        message.roomId = 0;
         message.username = "";
         message.message = "";
         if (value !== undefined)
@@ -99,10 +107,13 @@ class ChatMessage$Type extends MessageType<ChatMessage> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* string username */ 1:
+                case /* int32 room_id */ 1:
+                    message.roomId = reader.int32();
+                    break;
+                case /* string username */ 2:
                     message.username = reader.string();
                     break;
-                case /* string message */ 2:
+                case /* string message */ 3:
                     message.message = reader.string();
                     break;
                 default:
@@ -117,12 +128,15 @@ class ChatMessage$Type extends MessageType<ChatMessage> {
         return message;
     }
     internalBinaryWrite(message: ChatMessage, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* string username = 1; */
+        /* int32 room_id = 1; */
+        if (message.roomId !== 0)
+            writer.tag(1, WireType.Varint).int32(message.roomId);
+        /* string username = 2; */
         if (message.username !== "")
-            writer.tag(1, WireType.LengthDelimited).string(message.username);
-        /* string message = 2; */
+            writer.tag(2, WireType.LengthDelimited).string(message.username);
+        /* string message = 3; */
         if (message.message !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.message);
+            writer.tag(3, WireType.LengthDelimited).string(message.message);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -138,12 +152,13 @@ class SendChatMessageRequest$Type extends MessageType<SendChatMessageRequest> {
     constructor() {
         super("pb.SendChatMessageRequest", [
             { no: 1, name: "room_id", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "chat_message", kind: "message", T: () => ChatMessage, options: { "validate.rules": { message: { required: true } } } }
+            { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { minLen: "1" } } } }
         ]);
     }
     create(value?: PartialMessage<SendChatMessageRequest>): SendChatMessageRequest {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.roomId = 0;
+        message.message = "";
         if (value !== undefined)
             reflectionMergePartial<SendChatMessageRequest>(this, message, value);
         return message;
@@ -156,8 +171,8 @@ class SendChatMessageRequest$Type extends MessageType<SendChatMessageRequest> {
                 case /* int32 room_id */ 1:
                     message.roomId = reader.int32();
                     break;
-                case /* pb.ChatMessage chat_message */ 2:
-                    message.chatMessage = ChatMessage.internalBinaryRead(reader, reader.uint32(), options, message.chatMessage);
+                case /* string message */ 2:
+                    message.message = reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -174,9 +189,9 @@ class SendChatMessageRequest$Type extends MessageType<SendChatMessageRequest> {
         /* int32 room_id = 1; */
         if (message.roomId !== 0)
             writer.tag(1, WireType.Varint).int32(message.roomId);
-        /* pb.ChatMessage chat_message = 2; */
-        if (message.chatMessage)
-            ChatMessage.internalBinaryWrite(message.chatMessage, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* string message = 2; */
+        if (message.message !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.message);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

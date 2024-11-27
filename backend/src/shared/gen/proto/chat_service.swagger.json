@@ -100,6 +100,7 @@
         "parameters": [
           {
             "name": "roomId",
+            "description": "TODO: find other solution for this, because room_id is a get parameter",
             "in": "path",
             "required": true,
             "type": "integer",
@@ -124,14 +125,18 @@
     "ChatApiServiceSendChatMessageBody": {
       "type": "object",
       "properties": {
-        "chatMessage": {
-          "$ref": "#/definitions/pbChatMessage"
+        "message": {
+          "type": "string"
         }
       }
     },
     "pbChatMessage": {
       "type": "object",
       "properties": {
+        "roomId": {
+          "type": "integer",
+          "format": "int32"
+        },
         "username": {
           "type": "string"
         },

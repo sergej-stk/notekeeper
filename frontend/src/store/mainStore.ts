@@ -1,5 +1,8 @@
 import { User } from "@/types";
 import { defineStore } from "pinia";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 type MainStore = {
   theme: "light" | "dark";
@@ -22,6 +25,11 @@ export const useMainStore = defineStore("mainStore", {
         username: token,
       };
       this.token = token;
+    },
+    logout() {
+      this.token = null;
+      this.user = null;
+      router.push("/auth");
     },
   },
   // could also be defined as

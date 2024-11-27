@@ -21,7 +21,6 @@ function setRegisterMode(value: boolean) {
 
 async function performLogin() {
   const success = await login(username.value, password.value);
-  console.log("ssss");
   if (success === null) {
     error.value = true;
     return;
@@ -46,51 +45,55 @@ async function performRegister() {
 }
 </script>
 <template>
-  <v-row align="center" justify="center">
-    <v-col class="d-flex justify-center">
-      <v-card :class="{ 'w-50': !mobile, 'w-100 h-100': mobile }">
-        <v-card-title v-if="registerMode">{{
-          $t("authView.register")
-        }}</v-card-title>
-        <v-card-title v-else>{{ $t("authView.login") }}</v-card-title>
-        <v-card-text>
-          <p v-if="error && registerMode">
-            {{ $t("authView.registerError") }}
-          </p>
-          <p v-else-if="error">
-            {{ $t("authView.loginError") }}
-          </p>
-          <v-text-field
-            type="email"
-            v-model="username"
-            :placeholder="$t('authView.username')"
-            :rules="[(value) => (isEmail(value) ? true : 'Must be a email')]"
-          />
-          <v-text-field
-            type="password"
-            v-model="password"
-            :placeholder="$t('authView.password')"
-          />
-          <v-text-field
-            v-if="registerMode"
-            type="text"
-            v-model="fullName"
-            :placeholder="$t('authView.fullName')"
-          />
-        </v-card-text>
-        <v-card-actions class="d-flex flex-row justify-space-between">
-          <v-btn v-if="registerMode" @click="setRegisterMode(false)">{{
-            $t("authView.login")
-          }}</v-btn>
-          <v-btn v-else @click="setRegisterMode(true)">{{
+  <v-container class="fill-height" fluid>
+    <v-row align="center" justify="center">
+      <v-col class="d-flex justify-center">
+        <v-card :class="{ 'w-50': !mobile, 'w-100 h-100': mobile }">
+          <v-card-title v-if="registerMode">{{
             $t("authView.register")
-          }}</v-btn>
-          <v-btn v-if="registerMode" @click="performRegister">{{
-            $t("authView.register")
-          }}</v-btn>
-          <v-btn v-else @click="performLogin">{{ $t("authView.login") }}</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+          }}</v-card-title>
+          <v-card-title v-else>{{ $t("authView.login") }}</v-card-title>
+          <v-card-text>
+            <p v-if="error && registerMode">
+              {{ $t("authView.registerError") }}
+            </p>
+            <p v-else-if="error">
+              {{ $t("authView.loginError") }}
+            </p>
+            <v-text-field
+              type="email"
+              v-model="username"
+              :placeholder="$t('authView.username')"
+              :rules="[(value) => (isEmail(value) ? true : 'Must be a email')]"
+            />
+            <v-text-field
+              type="password"
+              v-model="password"
+              :placeholder="$t('authView.password')"
+            />
+            <v-text-field
+              v-if="registerMode"
+              type="text"
+              v-model="fullName"
+              :placeholder="$t('authView.fullName')"
+            />
+          </v-card-text>
+          <v-card-actions class="d-flex flex-row justify-space-between">
+            <v-btn v-if="registerMode" @click="setRegisterMode(false)">{{
+              $t("authView.login")
+            }}</v-btn>
+            <v-btn v-else @click="setRegisterMode(true)">{{
+              $t("authView.register")
+            }}</v-btn>
+            <v-btn v-if="registerMode" @click="performRegister">{{
+              $t("authView.register")
+            }}</v-btn>
+            <v-btn v-else @click="performLogin">{{
+              $t("authView.login")
+            }}</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
