@@ -30,21 +30,6 @@ export interface ChatMessage {
     message: string;
 }
 /**
- * @generated from protobuf message pb.SendChatMessageRequest
- */
-export interface SendChatMessageRequest {
-    /**
-     * TODO: find other solution for this, because room_id is a get parameter
-     *
-     * @generated from protobuf field: int32 room_id = 1;
-     */
-    roomId: number;
-    /**
-     * @generated from protobuf field: string message = 2;
-     */
-    message: string;
-}
-/**
  * @generated from protobuf message pb.StartChatRequest
  */
 export interface StartChatRequest {
@@ -65,6 +50,21 @@ export interface StartChatResponse {
      * @generated from protobuf field: repeated pb.ChatMessage messages = 2;
      */
     messages: ChatMessage[];
+}
+/**
+ * @generated from protobuf message pb.SendChatMessageRequest
+ */
+export interface SendChatMessageRequest {
+    /**
+     * TODO: find other solution for this, because room_id is a get parameter
+     *
+     * @generated from protobuf field: int32 room_id = 1;
+     */
+    roomId: number;
+    /**
+     * @generated from protobuf field: string message = 2;
+     */
+    message: string;
 }
 /**
  * @generated from protobuf message pb.GetAllChatMessagesRequest
@@ -147,61 +147,6 @@ class ChatMessage$Type extends MessageType<ChatMessage> {
  * @generated MessageType for protobuf message pb.ChatMessage
  */
 export const ChatMessage = new ChatMessage$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class SendChatMessageRequest$Type extends MessageType<SendChatMessageRequest> {
-    constructor() {
-        super("pb.SendChatMessageRequest", [
-            { no: 1, name: "room_id", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { minLen: "1" } } } }
-        ]);
-    }
-    create(value?: PartialMessage<SendChatMessageRequest>): SendChatMessageRequest {
-        const message = globalThis.Object.create((this.messagePrototype!));
-        message.roomId = 0;
-        message.message = "";
-        if (value !== undefined)
-            reflectionMergePartial<SendChatMessageRequest>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: SendChatMessageRequest): SendChatMessageRequest {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* int32 room_id */ 1:
-                    message.roomId = reader.int32();
-                    break;
-                case /* string message */ 2:
-                    message.message = reader.string();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: SendChatMessageRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* int32 room_id = 1; */
-        if (message.roomId !== 0)
-            writer.tag(1, WireType.Varint).int32(message.roomId);
-        /* string message = 2; */
-        if (message.message !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.message);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message pb.SendChatMessageRequest
- */
-export const SendChatMessageRequest = new SendChatMessageRequest$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class StartChatRequest$Type extends MessageType<StartChatRequest> {
     constructor() {
@@ -304,6 +249,61 @@ class StartChatResponse$Type extends MessageType<StartChatResponse> {
  * @generated MessageType for protobuf message pb.StartChatResponse
  */
 export const StartChatResponse = new StartChatResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class SendChatMessageRequest$Type extends MessageType<SendChatMessageRequest> {
+    constructor() {
+        super("pb.SendChatMessageRequest", [
+            { no: 1, name: "room_id", kind: "scalar", T: 5 /*ScalarType.INT32*/ },
+            { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/, options: { "validate.rules": { string: { minLen: "1" } } } }
+        ]);
+    }
+    create(value?: PartialMessage<SendChatMessageRequest>): SendChatMessageRequest {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.roomId = 0;
+        message.message = "";
+        if (value !== undefined)
+            reflectionMergePartial<SendChatMessageRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: SendChatMessageRequest): SendChatMessageRequest {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* int32 room_id */ 1:
+                    message.roomId = reader.int32();
+                    break;
+                case /* string message */ 2:
+                    message.message = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: SendChatMessageRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* int32 room_id = 1; */
+        if (message.roomId !== 0)
+            writer.tag(1, WireType.Varint).int32(message.roomId);
+        /* string message = 2; */
+        if (message.message !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.message);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message pb.SendChatMessageRequest
+ */
+export const SendChatMessageRequest = new SendChatMessageRequest$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class GetAllChatMessagesRequest$Type extends MessageType<GetAllChatMessagesRequest> {
     constructor() {

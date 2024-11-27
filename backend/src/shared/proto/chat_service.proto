@@ -11,12 +11,6 @@ message ChatMessage {
     string message = 3 [(validate.rules).string.min_len = 1];
 }
 
-message SendChatMessageRequest {
-    // TODO: find other solution for this, because room_id is a get parameter
-  int32 room_id = 1;
-  string message = 2 [(validate.rules).string.min_len = 1];
-}
-
 message StartChatRequest {
     repeated string usernames = 1 [(validate.rules).repeated.items.string.email = true];
 }
@@ -24,6 +18,12 @@ message StartChatRequest {
 message StartChatResponse {
     int32 chat_room_id = 1;
     repeated ChatMessage messages = 2;
+}
+
+message SendChatMessageRequest {
+    // TODO: find other solution for this, because room_id is a get parameter
+  int32 room_id = 1;
+  string message = 2 [(validate.rules).string.min_len = 1];
 }
 
 message GetAllChatMessagesRequest {
