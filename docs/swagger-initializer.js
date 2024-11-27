@@ -1,9 +1,65 @@
-window.onload = function() {
-  //<editor-fold desc="Changeable Configuration Block">
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 
-  // the following lines will be replaced by docker/configurator, when it runs in a docker-container
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
+window.onload = function() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+
+  const responseText = httpGet("/list.json");
+  let json = null;
+
+  try {
+    json = JSON.parse(responseText);
+  } catch (e) {
+    console.log(e);
+    return;
+  }
+
+  if (json === null) {
+    return;
+  }
+
+  const listRootElement = document.getElementById("body");
+
+  for (const element of json) {
+    const newDiv = document.createElement("div");
+    const newContent = document.createTextNode(element);
+    newDiv.onclick = () => {
+      window.location.replace('/?file='+element);
+    }
+
+    // add the text node to the newly created div
+    newDiv.appendChild(newContent);
+  
+    listRootElement.appendChild(newDiv);
+  }
+
+  let file = json[0];
+
+  if (urlParams.has("file")) {
+    file = urlParams.get("file");
+  } else {
+    window.location.replace('/?file='+file);
+  }
+
   window.ui = SwaggerUIBundle({
-    url: "test.swagger.json",
+    url: "swagger/"+file,
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -15,6 +71,5 @@ window.onload = function() {
     ],
     layout: "StandaloneLayout"
   });
-
-  //</editor-fold>
 };
+
