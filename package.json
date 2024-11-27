@@ -1,3 +1,6 @@
 {
-  "version": "0.1.19"
+  "version": "0.1.19",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
 }

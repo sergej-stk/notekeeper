@@ -1,1 +1,1 @@
-["auth_service.swagger.json","chat_service.swagger.json","friend_service.swagger.json","utils.swagger.json"]
+{"swaggerFiles":["auth_service.swagger.json","chat_service.swagger.json","friend_service.swagger.json","utils.swagger.json"],"asyncApiFiles":["test_socket.yaml"]}

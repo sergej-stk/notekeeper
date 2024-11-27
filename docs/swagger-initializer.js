@@ -1,62 +1,129 @@
-function httpGet(theUrl)
+function httpGet(url)
 {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.open( "GET", url, false ); 
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
 
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
+let activeDiv = null;
+
+function loadListData() {
+  const responseText = httpGet("/list.json");
+  let responseObject = null;
+  
+  try {
+    responseObject = JSON.parse(responseText);
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+
+  return {
+    swaggerFiles: responseObject.swaggerFiles,
+    asyncApiFiles: responseObject.asyncApiFiles
+  };
+}
+
+function loadAsyncApiHtml(file) {
+  return httpGet("/asyncapi/docs/" + file + "/index.html");
 }
 
 window.onload = function() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
-  const responseText = httpGet("/list.json");
-  let json = null;
+  const listData = loadListData();
 
-  try {
-    json = JSON.parse(responseText);
-  } catch (e) {
-    console.log(e);
+  if (listData === null) {
     return;
   }
 
-  if (json === null) {
-    return;
+  let file = listData.swaggerFiles[0];
+
+  if (urlParams.has("file")) {
+    file = urlParams.get("file") + ".swagger.json";
+  } else {
+    window.location.replace('/?file='+file.replace(".swagger.json", ""));
   }
 
   const listRootElement = document.getElementById("body");
 
-  for (const element of json) {
+  for (const element of listData.swaggerFiles) {
     const newDiv = document.createElement("div");
-    const newContent = document.createTextNode(element);
-    newDiv.onclick = () => {
-      window.location.replace('/?file='+element);
-    }
+    const newContent = document.createTextNode(element.replace(".swagger.json", ""));
 
-    // add the text node to the newly created div
+    if (element.replace(".swagger.json", "") === file.replace(".swagger.json", "")) {
+      newDiv.classList.add("active");
+      activeDiv = newDiv;
+    } 
+
+    newDiv.onclick = () => {
+      if (activeDiv === newDiv) {
+        return;
+      }
+
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set('file', element.replace(".swagger.json", ""));
+      window.history.pushState({}, '', currentUrl);
+
+      initSwagger(element);
+
+      if (activeDiv !== null) {
+        activeDiv.classList.remove("active");
+      }
+      activeDiv = newDiv;
+      newDiv.classList.add("active");
+    } 
+
     newDiv.appendChild(newContent);
   
     listRootElement.appendChild(newDiv);
   }
 
-  let file = json[0];
+  for (const element of listData.asyncApiFiles) {
+    const newDiv = document.createElement("div");
+    const newContent = document.createTextNode(element.replace(".yaml", ""));
 
-  if (urlParams.has("file")) {
-    file = urlParams.get("file");
-  } else {
-    window.location.replace('/?file='+file);
+    if (element.replace(".yaml", "") === file.replace(".yaml", "")) {
+      newDiv.classList.add("active");
+      activeDiv = newDiv;
+    } 
+
+    newDiv.onclick = () => {
+      if (activeDiv === newDiv) {
+        return;
+      }
+
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set('file', element.replace(".yaml", ""));
+      window.history.pushState({}, '', currentUrl);
+
+      initAsyncApi(element);
+
+      if (activeDiv !== null) {
+        activeDiv.classList.remove("active");
+      }
+      activeDiv = newDiv;
+      newDiv.classList.add("active");
+    } 
+
+    newDiv.appendChild(newContent);
+  
+    listRootElement.appendChild(newDiv);
   }
+
+  if (file.endsWith(".yaml")) {
+    initAsyncApi(file);
+    return;
+  }
+  initSwagger(file);
+};
+
+function initSwagger(file) {
+  const swaggerUiElement = document.getElementById("swagger-ui");
+  
+  swaggerUiElement.innerHTML = "";
 
   window.ui = SwaggerUIBundle({
     url: "swagger/"+file,
@@ -71,5 +138,16 @@ window.onload = function() {
     ],
     layout: "StandaloneLayout"
   });
-};
+}
 
+function initAsyncApi(file) {
+  const swaggerUiElement = document.getElementById("swagger-ui");
+  swaggerUiElement.innerHTML = "";
+  window.ui = null;
+  const newDiv = document.createElement("iframe");
+  newDiv.style.width = "100%";
+  newDiv.style.height = "100%";
+  newDiv.src = "asyncapi/docs/" + file + "/index.html";
+
+  swaggerUiElement.appendChild(newDiv);
+}
