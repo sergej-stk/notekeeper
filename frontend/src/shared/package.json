@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "gen": "npm run proto && npm run copy && npm run swagger && npm run swagger:prepare",
+    "gen": "npm run proto && npm run swagger && npm run swagger:prepare && npm run copy",
     "copy": "bash ./scripts/copyShared.sh",
     "swagger": "bash ./scripts/copySwagger.sh",
     "swagger:prepare": "node scripts/prepareSwaggerFiles.js",
