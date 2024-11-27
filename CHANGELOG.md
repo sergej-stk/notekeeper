@@ -1,3 +1,12 @@
+## [0.1.22](https://github.com/sergej-stk/notekeeper/compare/v0.1.21...v0.1.22) (2024-11-27)
+
+
+### Bug Fixes
+
+* chat sockets ([fc76e9b](https://github.com/sergej-stk/notekeeper/commit/fc76e9b01997ad85102087a40fc63340e5439357))
+
+
+
 ## [0.1.21](https://github.com/sergej-stk/notekeeper/compare/v0.1.20...v0.1.21) (2024-11-27)
 
 
@@ -51,15 +60,6 @@
 
 * fix dockerfile ([a6a2a88](https://github.com/sergej-stk/notekeeper/commit/a6a2a8885df32aa45a6383122f232549eecfd1d4))
 * frontend ([27b8b20](https://github.com/sergej-stk/notekeeper/commit/27b8b2036c924db6273e0ee1636373ee408c62f0))
-
-
-
-## [0.1.16](https://github.com/sergej-stk/notekeeper/compare/v0.1.15...v0.1.16) (2024-11-17)
-
-
-### Bug Fixes
-
-* fix socket.io ([b69e05f](https://github.com/sergej-stk/notekeeper/commit/b69e05f0d1c2ea907e6cf37b71c83ef64e612a52))
 
 
 
