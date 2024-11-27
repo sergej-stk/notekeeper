@@ -3,10 +3,12 @@ import { login, register } from "@/middleware/UserManager";
 import { useMainStore } from "@/store/mainStore";
 import { isEmail } from "@/validators/validators";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { useDisplay } from "vuetify/lib/framework.mjs";
 
 const { mobile } = useDisplay();
 const registerMode = ref(false);
+const router = useRouter();
 
 const mainStore = useMainStore();
 
@@ -17,16 +19,19 @@ const fullName = ref("");
 
 function setRegisterMode(value: boolean) {
   registerMode.value = value;
+  clear();
 }
 
 async function performLogin() {
   const success = await login(username.value, password.value);
+  clear();
   if (success === null) {
     error.value = true;
     return;
   }
 
   mainStore.setToken(success);
+  router.push("/");
 }
 
 async function performRegister() {
@@ -35,6 +40,7 @@ async function performRegister() {
     password.value,
     fullName.value
   );
+  clear();
   error.value = false;
 
   if (!success) {
@@ -42,6 +48,12 @@ async function performRegister() {
     return;
   }
   registerMode.value = false;
+}
+
+function clear() {
+  username.value = "";
+  password.value = "";
+  fullName.value = "";
 }
 </script>
 <template>

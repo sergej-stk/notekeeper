@@ -31,6 +31,24 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
+func request_FriendApiService_GetFriends_0(ctx context.Context, marshaler runtime.Marshaler, client FriendApiServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq Empty
+	var metadata runtime.ServerMetadata
+
+	msg, err := client.GetFriends(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_FriendApiService_GetFriends_0(ctx context.Context, marshaler runtime.Marshaler, server FriendApiServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq Empty
+	var metadata runtime.ServerMetadata
+
+	msg, err := server.GetFriends(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 func request_FriendApiService_AddFriend_0(ctx context.Context, marshaler runtime.Marshaler, client FriendApiServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AddFriendRequest
 	var metadata runtime.ServerMetadata
@@ -89,6 +107,31 @@ func local_request_FriendApiService_AnswerFirend_0(ctx context.Context, marshale
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterFriendApiServiceHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterFriendApiServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server FriendApiServiceServer) error {
+
+	mux.Handle("GET", pattern_FriendApiService_GetFriends_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/pb.FriendApiService/GetFriends", runtime.WithHTTPPathPattern("/api/v3/friend"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_FriendApiService_GetFriends_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_FriendApiService_GetFriends_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
 
 	mux.Handle("POST", pattern_FriendApiService_AddFriend_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -181,6 +224,28 @@ func RegisterFriendApiServiceHandler(ctx context.Context, mux *runtime.ServeMux,
 // "FriendApiServiceClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterFriendApiServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client FriendApiServiceClient) error {
 
+	mux.Handle("GET", pattern_FriendApiService_GetFriends_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/pb.FriendApiService/GetFriends", runtime.WithHTTPPathPattern("/api/v3/friend"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_FriendApiService_GetFriends_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_FriendApiService_GetFriends_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_FriendApiService_AddFriend_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -229,12 +294,16 @@ func RegisterFriendApiServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 }
 
 var (
+	pattern_FriendApiService_GetFriends_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v3", "friend"}, ""))
+
 	pattern_FriendApiService_AddFriend_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v3", "friend"}, ""))
 
 	pattern_FriendApiService_AnswerFirend_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v3", "friend", "answer"}, ""))
 )
 
 var (
+	forward_FriendApiService_GetFriends_0 = runtime.ForwardResponseMessage
+
 	forward_FriendApiService_AddFriend_0 = runtime.ForwardResponseMessage
 
 	forward_FriendApiService_AnswerFirend_0 = runtime.ForwardResponseMessage

@@ -8,16 +8,38 @@ package pb;
 public class FriendServiceValidator {
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		
+		if (clazz.equals(pb.FriendService.Friend.class)) return new FriendValidator();
 		if (clazz.equals(pb.FriendService.AddFriendRequest.class)) return new AddFriendRequestValidator();
 		if (clazz.equals(pb.FriendService.AddFriendResponse.class)) return new AddFriendResponseValidator();
 		if (clazz.equals(pb.FriendService.AnswerAddFriendRequest.class)) return new AnswerAddFriendRequestValidator();
 		if (clazz.equals(pb.FriendService.CheckFriendshipRequest.class)) return new CheckFriendshipRequestValidator();
 		if (clazz.equals(pb.FriendService.CheckFriendshipResponse.class)) return new CheckFriendshipResponseValidator();
 		if (clazz.equals(pb.FriendService.RemoveFriendRequest.class)) return new RemoveFriendRequestValidator();
+		if (clazz.equals(pb.FriendService.GetFriendListResponse.class)) return new GetFriendListResponseValidator();
 		return null;
 	}
 
 
+/**
+	 * Validates {@code Friend} protobuf objects.
+	 */
+	public static class FriendValidator implements io.envoyproxy.pgv.ValidatorImpl<pb.FriendService.Friend> {
+		
+	
+		
+	
+	
+	
+
+	public void assertValid(pb.FriendService.Friend proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Username
+
+	// no validation rules for Accept
+
+	
+	
+	}
+}
 /**
 	 * Validates {@code AddFriendRequest} protobuf objects.
 	 */
@@ -114,6 +136,26 @@ public class FriendServiceValidator {
 	public void assertValid(pb.FriendService.RemoveFriendRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.email(".pb.RemoveFriendRequest.username", proto.getUsername());
+	
+	
+	}
+}
+/**
+	 * Validates {@code GetFriendListResponse} protobuf objects.
+	 */
+	public static class GetFriendListResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<pb.FriendService.GetFriendListResponse> {
+		
+	
+	
+	
+
+	public void assertValid(pb.FriendService.GetFriendListResponse proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getFriendsList(), item -> {
+				
+			// Validate friends
+			if (true) index.validatorFor(item).assertValid(item);
+			});
 	
 	
 	}

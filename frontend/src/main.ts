@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, markRaw } from "vue";
 import App from "./App.vue";
 import vuetify from "./plugins/vuetify";
 import { createI18n } from "vue-i18n";
@@ -15,6 +15,10 @@ const pinia = createPinia();
 app.use(vuetifyProTipTap);
 app.use(router);
 
+// TODO: find a better solution
+pinia.use(({ store }) => {
+  store.router = markRaw(router);
+});
 pinia.use(piniaPluginPersistedState);
 
 const i18n = createI18n({

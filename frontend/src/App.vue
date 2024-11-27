@@ -12,6 +12,7 @@ function toggleTheme() {
 function logout() {
   mainStore.token = null;
   mainStore.user = null;
+  mainStore.logout();
 }
 
 const isLoggedIn = computed(() => {

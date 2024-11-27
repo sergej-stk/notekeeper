@@ -4,17 +4,24 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { FriendApiService } from "./friend_service";
-import type { Empty } from "./utils";
 import type { AnswerAddFriendRequest } from "./friend_service";
-import { stackIntercept } from "@protobuf-ts/runtime-rpc";
 import type { AddFriendResponse } from "./friend_service";
 import type { AddFriendRequest } from "./friend_service";
+import { stackIntercept } from "@protobuf-ts/runtime-rpc";
+import type { GetFriendListResponse } from "./friend_service";
+import type { Empty } from "./utils";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
 import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
 /**
  * @generated from protobuf service pb.FriendApiService
  */
 export interface IFriendApiServiceClient {
+    /**
+     * Load all friends
+     *
+     * @generated from protobuf rpc: GetFriends(pb.Empty) returns (pb.GetFriendListResponse);
+     */
+    getFriends(input: Empty, options?: RpcOptions): UnaryCall<Empty, GetFriendListResponse>;
     /**
      * Send a friend request
      *
@@ -38,12 +45,21 @@ export class FriendApiServiceClient implements IFriendApiServiceClient, ServiceI
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
+     * Load all friends
+     *
+     * @generated from protobuf rpc: GetFriends(pb.Empty) returns (pb.GetFriendListResponse);
+     */
+    getFriends(input: Empty, options?: RpcOptions): UnaryCall<Empty, GetFriendListResponse> {
+        const method = this.methods[0], opt = this._transport.mergeOptions(options);
+        return stackIntercept<Empty, GetFriendListResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
      * Send a friend request
      *
      * @generated from protobuf rpc: AddFriend(pb.AddFriendRequest) returns (pb.AddFriendResponse);
      */
     addFriend(input: AddFriendRequest, options?: RpcOptions): UnaryCall<AddFriendRequest, AddFriendResponse> {
-        const method = this.methods[0], opt = this._transport.mergeOptions(options);
+        const method = this.methods[1], opt = this._transport.mergeOptions(options);
         return stackIntercept<AddFriendRequest, AddFriendResponse>("unary", this._transport, method, opt, input);
     }
     /**
@@ -52,7 +68,7 @@ export class FriendApiServiceClient implements IFriendApiServiceClient, ServiceI
      * @generated from protobuf rpc: AnswerFirend(pb.AnswerAddFriendRequest) returns (pb.Empty);
      */
     answerFirend(input: AnswerAddFriendRequest, options?: RpcOptions): UnaryCall<AnswerAddFriendRequest, Empty> {
-        const method = this.methods[1], opt = this._transport.mergeOptions(options);
+        const method = this.methods[2], opt = this._transport.mergeOptions(options);
         return stackIntercept<AnswerAddFriendRequest, Empty>("unary", this._transport, method, opt, input);
     }
 }

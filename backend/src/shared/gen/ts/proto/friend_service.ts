@@ -13,6 +13,19 @@ import type { PartialMessage } from "@protobuf-ts/runtime";
 import { reflectionMergePartial } from "@protobuf-ts/runtime";
 import { MessageType } from "@protobuf-ts/runtime";
 /**
+ * @generated from protobuf message pb.Friend
+ */
+export interface Friend {
+    /**
+     * @generated from protobuf field: string username = 1;
+     */
+    username: string;
+    /**
+     * @generated from protobuf field: bool accept = 2;
+     */
+    accept: boolean;
+}
+/**
  * @generated from protobuf message pb.AddFriendRequest
  */
 export interface AddFriendRequest {
@@ -70,6 +83,70 @@ export interface RemoveFriendRequest {
      */
     username: string;
 }
+/**
+ * @generated from protobuf message pb.GetFriendListResponse
+ */
+export interface GetFriendListResponse {
+    /**
+     * @generated from protobuf field: repeated pb.Friend friends = 1;
+     */
+    friends: Friend[];
+}
+// @generated message type with reflection information, may provide speed optimized methods
+class Friend$Type extends MessageType<Friend> {
+    constructor() {
+        super("pb.Friend", [
+            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "accept", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
+        ]);
+    }
+    create(value?: PartialMessage<Friend>): Friend {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.username = "";
+        message.accept = false;
+        if (value !== undefined)
+            reflectionMergePartial<Friend>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Friend): Friend {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string username */ 1:
+                    message.username = reader.string();
+                    break;
+                case /* bool accept */ 2:
+                    message.accept = reader.bool();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: Friend, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string username = 1; */
+        if (message.username !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.username);
+        /* bool accept = 2; */
+        if (message.accept !== false)
+            writer.tag(2, WireType.Varint).bool(message.accept);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message pb.Friend
+ */
+export const Friend = new Friend$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class AddFriendRequest$Type extends MessageType<AddFriendRequest> {
     constructor() {
@@ -360,10 +437,58 @@ class RemoveFriendRequest$Type extends MessageType<RemoveFriendRequest> {
  * @generated MessageType for protobuf message pb.RemoveFriendRequest
  */
 export const RemoveFriendRequest = new RemoveFriendRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class GetFriendListResponse$Type extends MessageType<GetFriendListResponse> {
+    constructor() {
+        super("pb.GetFriendListResponse", [
+            { no: 1, name: "friends", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Friend }
+        ]);
+    }
+    create(value?: PartialMessage<GetFriendListResponse>): GetFriendListResponse {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.friends = [];
+        if (value !== undefined)
+            reflectionMergePartial<GetFriendListResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: GetFriendListResponse): GetFriendListResponse {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* repeated pb.Friend friends */ 1:
+                    message.friends.push(Friend.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: GetFriendListResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* repeated pb.Friend friends = 1; */
+        for (let i = 0; i < message.friends.length; i++)
+            Friend.internalBinaryWrite(message.friends[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message pb.GetFriendListResponse
+ */
+export const GetFriendListResponse = new GetFriendListResponse$Type();
 /**
  * @generated ServiceType for protobuf service pb.FriendApiService
  */
 export const FriendApiService = new ServiceType("pb.FriendApiService", [
+    { name: "GetFriends", options: { "google.api.http": { get: "/api/v3/friend" } }, I: Empty, O: GetFriendListResponse },
     { name: "AddFriend", options: { "google.api.http": { post: "/api/v3/friend", body: "*" } }, I: AddFriendRequest, O: AddFriendResponse },
     { name: "AnswerFirend", options: { "google.api.http": { post: "/api/v3/friend/answer", body: "*" } }, I: AnswerAddFriendRequest, O: Empty }
 ]);
