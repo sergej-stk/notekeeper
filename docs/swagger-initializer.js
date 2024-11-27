@@ -9,7 +9,7 @@ function httpGet(url)
 let activeDiv = null;
 
 function loadListData() {
-  const responseText = httpGet("/list.json");
+  const responseText = httpGet("list.json");
   let responseObject = null;
   
   try {
@@ -26,7 +26,7 @@ function loadListData() {
 }
 
 function loadAsyncApiHtml(file) {
-  return httpGet("/asyncapi/docs/" + file + "/index.html");
+  return httpGet("asyncapi/docs/" + file + "/index.html");
 }
 
 window.onload = function() {
@@ -44,7 +44,7 @@ window.onload = function() {
   if (urlParams.has("file")) {
     file = urlParams.get("file") + ".swagger.json";
   } else {
-    window.location.replace('/?file='+file.replace(".swagger.json", ""));
+    window.location.replace('?file='+file.replace(".swagger.json", ""));
   }
 
   const listRootElement = document.getElementById("body");
