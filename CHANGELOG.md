@@ -1,3 +1,12 @@
+## [0.1.21](https://github.com/sergej-stk/notekeeper/compare/v0.1.20...v0.1.21) (2024-11-27)
+
+
+### Bug Fixes
+
+* dockerfile fix ([57e1f11](https://github.com/sergej-stk/notekeeper/commit/57e1f119ee15025eb33e38a420ff6ef276af9fff))
+
+
+
 ## [0.1.20](https://github.com/sergej-stk/notekeeper/compare/v0.1.18...v0.1.20) (2024-11-27)
 
 
@@ -51,15 +60,6 @@
 ### Bug Fixes
 
 * fix socket.io ([b69e05f](https://github.com/sergej-stk/notekeeper/commit/b69e05f0d1c2ea907e6cf37b71c83ef64e612a52))
-
-
-
-## [0.1.15](https://github.com/sergej-stk/notekeeper/compare/v0.1.14...v0.1.15) (2024-11-17)
-
-
-### Bug Fixes
-
-* fix dockerfile ([a04c0d0](https://github.com/sergej-stk/notekeeper/commit/a04c0d0f7a14d5e66ee6d360831c6915b9f503c0))
 
 
 
