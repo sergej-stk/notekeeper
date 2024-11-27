@@ -18,6 +18,9 @@ const mainStore = useMainStore();
 onMounted(async () => {
   const socket = io("/notes", {
     secure: process.env.NODE_ENV === "development" ? false : true,
+    extraHeaders: {
+      Authorization: "Bearer:" + mainStore.token,
+    },
   });
 
   socket.on("addNote", (note: Note) => {
@@ -110,6 +113,8 @@ watch(isLoggedIn, () => {
     </v-app-bar>
 
     <v-main>
+      <RouterView />
+
       <v-container v-if="isLoggedIn">
         <v-layout row wrap align-center class="justify-center">
           <div class="w-75">

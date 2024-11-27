@@ -1,0 +1,5 @@
+frontend/node_modules
+shared/node_modules
+target
+frontend/node
+backend/target
