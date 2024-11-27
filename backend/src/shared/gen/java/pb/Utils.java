@@ -55,19 +55,19 @@ public final class Utils {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Utils.internal_static_pb_Empty_descriptor;
+      return pb.Utils.internal_static_pb_Empty_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Utils.internal_static_pb_Empty_fieldAccessorTable
+      return pb.Utils.internal_static_pb_Empty_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Empty.class, Builder.class);
+              pb.Utils.Empty.class, pb.Utils.Empty.Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -77,13 +77,13 @@ public final class Utils {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -94,21 +94,21 @@ public final class Utils {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Empty)) {
+      if (!(obj instanceof pb.Utils.Empty)) {
         return super.equals(obj);
       }
-      Empty other = (Empty) obj;
+      pb.Utils.Empty other = (pb.Utils.Empty) obj;
 
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -120,44 +120,44 @@ public final class Utils {
       return hash;
     }
 
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Empty parseFrom(byte[] data)
+    public static pb.Utils.Empty parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Empty parseFrom(java.io.InputStream input)
+    public static pb.Utils.Empty parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -165,26 +165,26 @@ public final class Utils {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Empty parseDelimitedFrom(java.io.InputStream input)
+    public static pb.Utils.Empty parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static Empty parseDelimitedFrom(
+    public static pb.Utils.Empty parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static Empty parseFrom(
+    public static pb.Utils.Empty parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -192,23 +192,23 @@ public final class Utils {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Empty prototype) {
+    public static Builder newBuilder(pb.Utils.Empty prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -218,18 +218,18 @@ public final class Utils {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.Empty)
-        EmptyOrBuilder {
+        pb.Utils.EmptyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Utils.internal_static_pb_Empty_descriptor;
+        return pb.Utils.internal_static_pb_Empty_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Utils.internal_static_pb_Empty_fieldAccessorTable
+        return pb.Utils.internal_static_pb_Empty_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Empty.class, Builder.class);
+                pb.Utils.Empty.class, pb.Utils.Empty.Builder.class);
       }
 
       // Construct using pb.Utils.Empty.newBuilder()
@@ -238,72 +238,72 @@ public final class Utils {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Utils.internal_static_pb_Empty_descriptor;
+        return pb.Utils.internal_static_pb_Empty_descriptor;
       }
 
-      @Override
-      public Empty getDefaultInstanceForType() {
-        return Empty.getDefaultInstance();
+      @java.lang.Override
+      public pb.Utils.Empty getDefaultInstanceForType() {
+        return pb.Utils.Empty.getDefaultInstance();
       }
 
-      @Override
-      public Empty build() {
-        Empty result = buildPartial();
+      @java.lang.Override
+      public pb.Utils.Empty build() {
+        pb.Utils.Empty result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public Empty buildPartial() {
-        Empty result = new Empty(this);
+      @java.lang.Override
+      public pb.Utils.Empty buildPartial() {
+        pb.Utils.Empty result = new pb.Utils.Empty(this);
         onBuilt();
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Empty) {
-          return mergeFrom((Empty)other);
+        if (other instanceof pb.Utils.Empty) {
+          return mergeFrom((pb.Utils.Empty)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Empty other) {
-        if (other == Empty.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.Utils.Empty other) {
+        if (other == pb.Utils.Empty.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -333,18 +333,18 @@ public final class Utils {
     }
 
     // @@protoc_insertion_point(class_scope:pb.Empty)
-    private static final Empty DEFAULT_INSTANCE;
+    private static final pb.Utils.Empty DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Empty();
+      DEFAULT_INSTANCE = new pb.Utils.Empty();
     }
 
-    public static Empty getDefaultInstance() {
+    public static pb.Utils.Empty getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<Empty>
         PARSER = new com.google.protobuf.AbstractParser<Empty>() {
-      @Override
+      @java.lang.Override
       public Empty parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -368,13 +368,13 @@ public final class Utils {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<Empty> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public Empty getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.Utils.Empty getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -393,7 +393,7 @@ public final class Utils {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\021proto/utils.proto\022\002pb\"\007\n\005EmptyB\010Z\006com." +
       "deb\006proto3"
     };
@@ -406,7 +406,7 @@ public final class Utils {
     internal_static_pb_Empty_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_Empty_descriptor,
-        new String[] { });
+        new java.lang.String[] { });
     descriptor.resolveAllFeaturesImmutable();
   }
 

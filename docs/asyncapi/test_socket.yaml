@@ -1,0 +1,36 @@
+asyncapi: 2.2.0
+
+info:
+  title: Socket.IO chat service
+  version: 1.0.0
+  description: |
+    This is one of the get-started demos listed in the socket.io website: https://socket.io/demos/chat/
+
+servers:
+  docker:
+    url: localdocker:80/socket.io
+    protocol: ws
+
+channels:
+  /chat:
+    publish: {} # Operation object - Ignore this for now
+    subscribe: {} # Operation object - Ignore this for now
+    bindings:
+      ws:
+        header:
+          type: object
+          properties:
+            Authorization:
+              type: string
+          required: [Authorization]
+  /notes:
+    publish: {} # Operation object - Ignore this for now
+    subscribe: {} # Operation object - Ignore this for now
+    bindings:
+      ws:
+        query:
+          type: object
+          properties:
+            token:
+              type: string
+          required: [token]

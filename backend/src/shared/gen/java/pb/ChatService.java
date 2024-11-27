@@ -33,7 +33,7 @@ public final class ChatService {
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
-    String getUsername();
+    java.lang.String getUsername();
     /**
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
@@ -45,7 +45,7 @@ public final class ChatService {
      * <code>string message = 2 [(.validate.rules) = { ... }</code>
      * @return The message.
      */
-    String getMessage();
+    java.lang.String getMessage();
     /**
      * <code>string message = 2 [(.validate.rules) = { ... }</code>
      * @return The bytes for message.
@@ -81,33 +81,33 @@ public final class ChatService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ChatService.internal_static_pb_ChatMessage_descriptor;
+      return pb.ChatService.internal_static_pb_ChatMessage_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ChatService.internal_static_pb_ChatMessage_fieldAccessorTable
+      return pb.ChatService.internal_static_pb_ChatMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ChatMessage.class, Builder.class);
+              pb.ChatService.ChatMessage.class, pb.ChatService.ChatMessage.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile Object username_ = "";
+    private volatile java.lang.Object username_ = "";
     /**
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
-    @Override
-    public String getUsername() {
-      Object ref = username_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         username_ = s;
         return s;
       }
@@ -116,14 +116,14 @@ public final class ChatService {
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUsernameBytes() {
-      Object ref = username_;
-      if (ref instanceof String) {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         username_ = b;
         return b;
       } else {
@@ -133,20 +133,20 @@ public final class ChatService {
 
     public static final int MESSAGE_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile Object message_ = "";
+    private volatile java.lang.Object message_ = "";
     /**
      * <code>string message = 2 [(.validate.rules) = { ... }</code>
      * @return The message.
      */
-    @Override
-    public String getMessage() {
-      Object ref = message_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         message_ = s;
         return s;
       }
@@ -155,14 +155,14 @@ public final class ChatService {
      * <code>string message = 2 [(.validate.rules) = { ... }</code>
      * @return The bytes for message.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getMessageBytes() {
-      Object ref = message_;
-      if (ref instanceof String) {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         message_ = b;
         return b;
       } else {
@@ -171,7 +171,7 @@ public final class ChatService {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -181,7 +181,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
@@ -193,7 +193,7 @@ public final class ChatService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -210,15 +210,15 @@ public final class ChatService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ChatMessage)) {
+      if (!(obj instanceof pb.ChatService.ChatMessage)) {
         return super.equals(obj);
       }
-      ChatMessage other = (ChatMessage) obj;
+      pb.ChatService.ChatMessage other = (pb.ChatService.ChatMessage) obj;
 
       if (!getUsername()
           .equals(other.getUsername())) return false;
@@ -228,7 +228,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -244,44 +244,44 @@ public final class ChatService {
       return hash;
     }
 
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChatMessage parseFrom(byte[] data)
+    public static pb.ChatService.ChatMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChatMessage parseFrom(java.io.InputStream input)
+    public static pb.ChatService.ChatMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -289,26 +289,26 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static ChatMessage parseDelimitedFrom(java.io.InputStream input)
+    public static pb.ChatService.ChatMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static ChatMessage parseDelimitedFrom(
+    public static pb.ChatService.ChatMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static ChatMessage parseFrom(
+    public static pb.ChatService.ChatMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -316,23 +316,23 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ChatMessage prototype) {
+    public static Builder newBuilder(pb.ChatService.ChatMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -342,18 +342,18 @@ public final class ChatService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.ChatMessage)
-        ChatMessageOrBuilder {
+        pb.ChatService.ChatMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ChatService.internal_static_pb_ChatMessage_descriptor;
+        return pb.ChatService.internal_static_pb_ChatMessage_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ChatService.internal_static_pb_ChatMessage_fieldAccessorTable
+        return pb.ChatService.internal_static_pb_ChatMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ChatMessage.class, Builder.class);
+                pb.ChatService.ChatMessage.class, pb.ChatService.ChatMessage.Builder.class);
       }
 
       // Construct using pb.ChatService.ChatMessage.newBuilder()
@@ -362,11 +362,11 @@ public final class ChatService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -375,35 +375,35 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ChatService.internal_static_pb_ChatMessage_descriptor;
+        return pb.ChatService.internal_static_pb_ChatMessage_descriptor;
       }
 
-      @Override
-      public ChatMessage getDefaultInstanceForType() {
-        return ChatMessage.getDefaultInstance();
+      @java.lang.Override
+      public pb.ChatService.ChatMessage getDefaultInstanceForType() {
+        return pb.ChatService.ChatMessage.getDefaultInstance();
       }
 
-      @Override
-      public ChatMessage build() {
-        ChatMessage result = buildPartial();
+      @java.lang.Override
+      public pb.ChatService.ChatMessage build() {
+        pb.ChatService.ChatMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public ChatMessage buildPartial() {
-        ChatMessage result = new ChatMessage(this);
+      @java.lang.Override
+      public pb.ChatService.ChatMessage buildPartial() {
+        pb.ChatService.ChatMessage result = new pb.ChatService.ChatMessage(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(ChatMessage result) {
+      private void buildPartial0(pb.ChatService.ChatMessage result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.username_ = username_;
@@ -413,18 +413,18 @@ public final class ChatService {
         }
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ChatMessage) {
-          return mergeFrom((ChatMessage)other);
+        if (other instanceof pb.ChatService.ChatMessage) {
+          return mergeFrom((pb.ChatService.ChatMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ChatMessage other) {
-        if (other == ChatMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.ChatService.ChatMessage other) {
+        if (other == pb.ChatService.ChatMessage.getDefaultInstance()) return this;
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
           bitField0_ |= 0x00000001;
@@ -440,18 +440,18 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -488,21 +488,21 @@ public final class ChatService {
       }
       private int bitField0_;
 
-      private Object username_ = "";
+      private java.lang.Object username_ = "";
       /**
        * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return The username.
        */
-      public String getUsername() {
-        Object ref = username_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           username_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -511,11 +511,11 @@ public final class ChatService {
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
-        Object ref = username_;
+        java.lang.Object ref = username_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           username_ = b;
           return b;
         } else {
@@ -528,7 +528,7 @@ public final class ChatService {
        * @return This builder for chaining.
        */
       public Builder setUsername(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         username_ = value;
         bitField0_ |= 0x00000001;
@@ -560,21 +560,21 @@ public final class ChatService {
         return this;
       }
 
-      private Object message_ = "";
+      private java.lang.Object message_ = "";
       /**
        * <code>string message = 2 [(.validate.rules) = { ... }</code>
        * @return The message.
        */
-      public String getMessage() {
-        Object ref = message_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -583,11 +583,11 @@ public final class ChatService {
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
-        Object ref = message_;
+        java.lang.Object ref = message_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           message_ = b;
           return b;
         } else {
@@ -600,7 +600,7 @@ public final class ChatService {
        * @return This builder for chaining.
        */
       public Builder setMessage(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         message_ = value;
         bitField0_ |= 0x00000002;
@@ -636,18 +636,18 @@ public final class ChatService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.ChatMessage)
-    private static final ChatMessage DEFAULT_INSTANCE;
+    private static final pb.ChatService.ChatMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ChatMessage();
+      DEFAULT_INSTANCE = new pb.ChatService.ChatMessage();
     }
 
-    public static ChatMessage getDefaultInstance() {
+    public static pb.ChatService.ChatMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ChatMessage>
         PARSER = new com.google.protobuf.AbstractParser<ChatMessage>() {
-      @Override
+      @java.lang.Override
       public ChatMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -671,13 +671,13 @@ public final class ChatService {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ChatMessage> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public ChatMessage getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.ChatService.ChatMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -702,11 +702,11 @@ public final class ChatService {
      * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
      * @return The chatMessage.
      */
-    ChatMessage getChatMessage();
+    pb.ChatService.ChatMessage getChatMessage();
     /**
      * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
      */
-    ChatMessageOrBuilder getChatMessageOrBuilder();
+    pb.ChatService.ChatMessageOrBuilder getChatMessageOrBuilder();
   }
   /**
    * Protobuf type {@code pb.SendChatMessageRequest}
@@ -734,15 +734,15 @@ public final class ChatService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ChatService.internal_static_pb_SendChatMessageRequest_descriptor;
+      return pb.ChatService.internal_static_pb_SendChatMessageRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ChatService.internal_static_pb_SendChatMessageRequest_fieldAccessorTable
+      return pb.ChatService.internal_static_pb_SendChatMessageRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              SendChatMessageRequest.class, Builder.class);
+              pb.ChatService.SendChatMessageRequest.class, pb.ChatService.SendChatMessageRequest.Builder.class);
     }
 
     private int bitField0_;
@@ -752,18 +752,18 @@ public final class ChatService {
      * <code>int32 room_id = 1;</code>
      * @return The roomId.
      */
-    @Override
+    @java.lang.Override
     public int getRoomId() {
       return roomId_;
     }
 
     public static final int CHAT_MESSAGE_FIELD_NUMBER = 2;
-    private ChatMessage chatMessage_;
+    private pb.ChatService.ChatMessage chatMessage_;
     /**
      * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
      * @return Whether the chatMessage field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasChatMessage() {
       return ((bitField0_ & 0x00000001) != 0);
     }
@@ -771,20 +771,20 @@ public final class ChatService {
      * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
      * @return The chatMessage.
      */
-    @Override
-    public ChatMessage getChatMessage() {
-      return chatMessage_ == null ? ChatMessage.getDefaultInstance() : chatMessage_;
+    @java.lang.Override
+    public pb.ChatService.ChatMessage getChatMessage() {
+      return chatMessage_ == null ? pb.ChatService.ChatMessage.getDefaultInstance() : chatMessage_;
     }
     /**
      * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
      */
-    @Override
-    public ChatMessageOrBuilder getChatMessageOrBuilder() {
-      return chatMessage_ == null ? ChatMessage.getDefaultInstance() : chatMessage_;
+    @java.lang.Override
+    public pb.ChatService.ChatMessageOrBuilder getChatMessageOrBuilder() {
+      return chatMessage_ == null ? pb.ChatService.ChatMessage.getDefaultInstance() : chatMessage_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -794,7 +794,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (roomId_ != 0) {
@@ -806,7 +806,7 @@ public final class ChatService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -825,15 +825,15 @@ public final class ChatService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof SendChatMessageRequest)) {
+      if (!(obj instanceof pb.ChatService.SendChatMessageRequest)) {
         return super.equals(obj);
       }
-      SendChatMessageRequest other = (SendChatMessageRequest) obj;
+      pb.ChatService.SendChatMessageRequest other = (pb.ChatService.SendChatMessageRequest) obj;
 
       if (getRoomId()
           != other.getRoomId()) return false;
@@ -846,7 +846,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -864,44 +864,44 @@ public final class ChatService {
       return hash;
     }
 
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendChatMessageRequest parseFrom(byte[] data)
+    public static pb.ChatService.SendChatMessageRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendChatMessageRequest parseFrom(java.io.InputStream input)
+    public static pb.ChatService.SendChatMessageRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -909,26 +909,26 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static SendChatMessageRequest parseDelimitedFrom(java.io.InputStream input)
+    public static pb.ChatService.SendChatMessageRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static SendChatMessageRequest parseDelimitedFrom(
+    public static pb.ChatService.SendChatMessageRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static SendChatMessageRequest parseFrom(
+    public static pb.ChatService.SendChatMessageRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -936,23 +936,23 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(SendChatMessageRequest prototype) {
+    public static Builder newBuilder(pb.ChatService.SendChatMessageRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -962,18 +962,18 @@ public final class ChatService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.SendChatMessageRequest)
-        SendChatMessageRequestOrBuilder {
+        pb.ChatService.SendChatMessageRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ChatService.internal_static_pb_SendChatMessageRequest_descriptor;
+        return pb.ChatService.internal_static_pb_SendChatMessageRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ChatService.internal_static_pb_SendChatMessageRequest_fieldAccessorTable
+        return pb.ChatService.internal_static_pb_SendChatMessageRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                SendChatMessageRequest.class, Builder.class);
+                pb.ChatService.SendChatMessageRequest.class, pb.ChatService.SendChatMessageRequest.Builder.class);
       }
 
       // Construct using pb.ChatService.SendChatMessageRequest.newBuilder()
@@ -982,7 +982,7 @@ public final class ChatService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -992,7 +992,7 @@ public final class ChatService {
           getChatMessageFieldBuilder();
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -1005,35 +1005,35 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ChatService.internal_static_pb_SendChatMessageRequest_descriptor;
+        return pb.ChatService.internal_static_pb_SendChatMessageRequest_descriptor;
       }
 
-      @Override
-      public SendChatMessageRequest getDefaultInstanceForType() {
-        return SendChatMessageRequest.getDefaultInstance();
+      @java.lang.Override
+      public pb.ChatService.SendChatMessageRequest getDefaultInstanceForType() {
+        return pb.ChatService.SendChatMessageRequest.getDefaultInstance();
       }
 
-      @Override
-      public SendChatMessageRequest build() {
-        SendChatMessageRequest result = buildPartial();
+      @java.lang.Override
+      public pb.ChatService.SendChatMessageRequest build() {
+        pb.ChatService.SendChatMessageRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public SendChatMessageRequest buildPartial() {
-        SendChatMessageRequest result = new SendChatMessageRequest(this);
+      @java.lang.Override
+      public pb.ChatService.SendChatMessageRequest buildPartial() {
+        pb.ChatService.SendChatMessageRequest result = new pb.ChatService.SendChatMessageRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(SendChatMessageRequest result) {
+      private void buildPartial0(pb.ChatService.SendChatMessageRequest result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.roomId_ = roomId_;
@@ -1048,18 +1048,18 @@ public final class ChatService {
         result.bitField0_ |= to_bitField0_;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof SendChatMessageRequest) {
-          return mergeFrom((SendChatMessageRequest)other);
+        if (other instanceof pb.ChatService.SendChatMessageRequest) {
+          return mergeFrom((pb.ChatService.SendChatMessageRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(SendChatMessageRequest other) {
-        if (other == SendChatMessageRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.ChatService.SendChatMessageRequest other) {
+        if (other == pb.ChatService.SendChatMessageRequest.getDefaultInstance()) return this;
         if (other.getRoomId() != 0) {
           setRoomId(other.getRoomId());
         }
@@ -1071,18 +1071,18 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -1126,7 +1126,7 @@ public final class ChatService {
        * <code>int32 room_id = 1;</code>
        * @return The roomId.
        */
-      @Override
+      @java.lang.Override
       public int getRoomId() {
         return roomId_;
       }
@@ -1153,9 +1153,9 @@ public final class ChatService {
         return this;
       }
 
-      private ChatMessage chatMessage_;
+      private pb.ChatService.ChatMessage chatMessage_;
       private com.google.protobuf.SingleFieldBuilder<
-          ChatMessage, ChatMessage.Builder, ChatMessageOrBuilder> chatMessageBuilder_;
+          pb.ChatService.ChatMessage, pb.ChatService.ChatMessage.Builder, pb.ChatService.ChatMessageOrBuilder> chatMessageBuilder_;
       /**
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        * @return Whether the chatMessage field is set.
@@ -1167,9 +1167,9 @@ public final class ChatService {
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        * @return The chatMessage.
        */
-      public ChatMessage getChatMessage() {
+      public pb.ChatService.ChatMessage getChatMessage() {
         if (chatMessageBuilder_ == null) {
-          return chatMessage_ == null ? ChatMessage.getDefaultInstance() : chatMessage_;
+          return chatMessage_ == null ? pb.ChatService.ChatMessage.getDefaultInstance() : chatMessage_;
         } else {
           return chatMessageBuilder_.getMessage();
         }
@@ -1177,7 +1177,7 @@ public final class ChatService {
       /**
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        */
-      public Builder setChatMessage(ChatMessage value) {
+      public Builder setChatMessage(pb.ChatService.ChatMessage value) {
         if (chatMessageBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1194,7 +1194,7 @@ public final class ChatService {
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        */
       public Builder setChatMessage(
-          ChatMessage.Builder builderForValue) {
+          pb.ChatService.ChatMessage.Builder builderForValue) {
         if (chatMessageBuilder_ == null) {
           chatMessage_ = builderForValue.build();
         } else {
@@ -1207,11 +1207,11 @@ public final class ChatService {
       /**
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        */
-      public Builder mergeChatMessage(ChatMessage value) {
+      public Builder mergeChatMessage(pb.ChatService.ChatMessage value) {
         if (chatMessageBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0) &&
             chatMessage_ != null &&
-            chatMessage_ != ChatMessage.getDefaultInstance()) {
+            chatMessage_ != pb.ChatService.ChatMessage.getDefaultInstance()) {
             getChatMessageBuilder().mergeFrom(value);
           } else {
             chatMessage_ = value;
@@ -1241,7 +1241,7 @@ public final class ChatService {
       /**
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        */
-      public ChatMessage.Builder getChatMessageBuilder() {
+      public pb.ChatService.ChatMessage.Builder getChatMessageBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getChatMessageFieldBuilder().getBuilder();
@@ -1249,23 +1249,23 @@ public final class ChatService {
       /**
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        */
-      public ChatMessageOrBuilder getChatMessageOrBuilder() {
+      public pb.ChatService.ChatMessageOrBuilder getChatMessageOrBuilder() {
         if (chatMessageBuilder_ != null) {
           return chatMessageBuilder_.getMessageOrBuilder();
         } else {
           return chatMessage_ == null ?
-              ChatMessage.getDefaultInstance() : chatMessage_;
+              pb.ChatService.ChatMessage.getDefaultInstance() : chatMessage_;
         }
       }
       /**
        * <code>.pb.ChatMessage chat_message = 2 [(.validate.rules) = { ... }</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          ChatMessage, ChatMessage.Builder, ChatMessageOrBuilder>
+          pb.ChatService.ChatMessage, pb.ChatService.ChatMessage.Builder, pb.ChatService.ChatMessageOrBuilder> 
           getChatMessageFieldBuilder() {
         if (chatMessageBuilder_ == null) {
           chatMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              ChatMessage, ChatMessage.Builder, ChatMessageOrBuilder>(
+              pb.ChatService.ChatMessage, pb.ChatService.ChatMessage.Builder, pb.ChatService.ChatMessageOrBuilder>(
                   getChatMessage(),
                   getParentForChildren(),
                   isClean());
@@ -1278,18 +1278,18 @@ public final class ChatService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.SendChatMessageRequest)
-    private static final SendChatMessageRequest DEFAULT_INSTANCE;
+    private static final pb.ChatService.SendChatMessageRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new SendChatMessageRequest();
+      DEFAULT_INSTANCE = new pb.ChatService.SendChatMessageRequest();
     }
 
-    public static SendChatMessageRequest getDefaultInstance() {
+    public static pb.ChatService.SendChatMessageRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<SendChatMessageRequest>
         PARSER = new com.google.protobuf.AbstractParser<SendChatMessageRequest>() {
-      @Override
+      @java.lang.Override
       public SendChatMessageRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1313,13 +1313,13 @@ public final class ChatService {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<SendChatMessageRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public SendChatMessageRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.ChatService.SendChatMessageRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1333,7 +1333,7 @@ public final class ChatService {
      * <code>repeated string usernames = 1 [(.validate.rules) = { ... }</code>
      * @return A list containing the usernames.
      */
-    java.util.List<String>
+    java.util.List<java.lang.String>
         getUsernamesList();
     /**
      * <code>repeated string usernames = 1 [(.validate.rules) = { ... }</code>
@@ -1345,7 +1345,7 @@ public final class ChatService {
      * @param index The index of the element to return.
      * @return The usernames at the given index.
      */
-    String getUsernames(int index);
+    java.lang.String getUsernames(int index);
     /**
      * <code>repeated string usernames = 1 [(.validate.rules) = { ... }</code>
      * @param index The index of the value to return.
@@ -1382,15 +1382,15 @@ public final class ChatService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ChatService.internal_static_pb_StartChatRequest_descriptor;
+      return pb.ChatService.internal_static_pb_StartChatRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ChatService.internal_static_pb_StartChatRequest_fieldAccessorTable
+      return pb.ChatService.internal_static_pb_StartChatRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              StartChatRequest.class, Builder.class);
+              pb.ChatService.StartChatRequest.class, pb.ChatService.StartChatRequest.Builder.class);
     }
 
     public static final int USERNAMES_FIELD_NUMBER = 1;
@@ -1417,7 +1417,7 @@ public final class ChatService {
      * @param index The index of the element to return.
      * @return The usernames at the given index.
      */
-    public String getUsernames(int index) {
+    public java.lang.String getUsernames(int index) {
       return usernames_.get(index);
     }
     /**
@@ -1431,7 +1431,7 @@ public final class ChatService {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1441,7 +1441,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < usernames_.size(); i++) {
@@ -1450,7 +1450,7 @@ public final class ChatService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1469,15 +1469,15 @@ public final class ChatService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof StartChatRequest)) {
+      if (!(obj instanceof pb.ChatService.StartChatRequest)) {
         return super.equals(obj);
       }
-      StartChatRequest other = (StartChatRequest) obj;
+      pb.ChatService.StartChatRequest other = (pb.ChatService.StartChatRequest) obj;
 
       if (!getUsernamesList()
           .equals(other.getUsernamesList())) return false;
@@ -1485,7 +1485,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1501,44 +1501,44 @@ public final class ChatService {
       return hash;
     }
 
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static StartChatRequest parseFrom(byte[] data)
+    public static pb.ChatService.StartChatRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static StartChatRequest parseFrom(java.io.InputStream input)
+    public static pb.ChatService.StartChatRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1546,26 +1546,26 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static StartChatRequest parseDelimitedFrom(java.io.InputStream input)
+    public static pb.ChatService.StartChatRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static StartChatRequest parseDelimitedFrom(
+    public static pb.ChatService.StartChatRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static StartChatRequest parseFrom(
+    public static pb.ChatService.StartChatRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1573,23 +1573,23 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(StartChatRequest prototype) {
+    public static Builder newBuilder(pb.ChatService.StartChatRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1599,18 +1599,18 @@ public final class ChatService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.StartChatRequest)
-        StartChatRequestOrBuilder {
+        pb.ChatService.StartChatRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ChatService.internal_static_pb_StartChatRequest_descriptor;
+        return pb.ChatService.internal_static_pb_StartChatRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ChatService.internal_static_pb_StartChatRequest_fieldAccessorTable
+        return pb.ChatService.internal_static_pb_StartChatRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                StartChatRequest.class, Builder.class);
+                pb.ChatService.StartChatRequest.class, pb.ChatService.StartChatRequest.Builder.class);
       }
 
       // Construct using pb.ChatService.StartChatRequest.newBuilder()
@@ -1619,11 +1619,11 @@ public final class ChatService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -1632,35 +1632,35 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ChatService.internal_static_pb_StartChatRequest_descriptor;
+        return pb.ChatService.internal_static_pb_StartChatRequest_descriptor;
       }
 
-      @Override
-      public StartChatRequest getDefaultInstanceForType() {
-        return StartChatRequest.getDefaultInstance();
+      @java.lang.Override
+      public pb.ChatService.StartChatRequest getDefaultInstanceForType() {
+        return pb.ChatService.StartChatRequest.getDefaultInstance();
       }
 
-      @Override
-      public StartChatRequest build() {
-        StartChatRequest result = buildPartial();
+      @java.lang.Override
+      public pb.ChatService.StartChatRequest build() {
+        pb.ChatService.StartChatRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public StartChatRequest buildPartial() {
-        StartChatRequest result = new StartChatRequest(this);
+      @java.lang.Override
+      public pb.ChatService.StartChatRequest buildPartial() {
+        pb.ChatService.StartChatRequest result = new pb.ChatService.StartChatRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(StartChatRequest result) {
+      private void buildPartial0(pb.ChatService.StartChatRequest result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           usernames_.makeImmutable();
@@ -1668,18 +1668,18 @@ public final class ChatService {
         }
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof StartChatRequest) {
-          return mergeFrom((StartChatRequest)other);
+        if (other instanceof pb.ChatService.StartChatRequest) {
+          return mergeFrom((pb.ChatService.StartChatRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(StartChatRequest other) {
-        if (other == StartChatRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.ChatService.StartChatRequest other) {
+        if (other == pb.ChatService.StartChatRequest.getDefaultInstance()) return this;
         if (!other.usernames_.isEmpty()) {
           if (usernames_.isEmpty()) {
             usernames_ = other.usernames_;
@@ -1695,18 +1695,18 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -1717,7 +1717,7 @@ public final class ChatService {
                 done = true;
                 break;
               case 10: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
                 ensureUsernamesIsMutable();
                 usernames_.add(s);
                 break;
@@ -1768,7 +1768,7 @@ public final class ChatService {
        * @param index The index of the element to return.
        * @return The usernames at the given index.
        */
-      public String getUsernames(int index) {
+      public java.lang.String getUsernames(int index) {
         return usernames_.get(index);
       }
       /**
@@ -1787,7 +1787,7 @@ public final class ChatService {
        * @return This builder for chaining.
        */
       public Builder setUsernames(
-          int index, String value) {
+          int index, java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         ensureUsernamesIsMutable();
         usernames_.set(index, value);
@@ -1801,7 +1801,7 @@ public final class ChatService {
        * @return This builder for chaining.
        */
       public Builder addUsernames(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         ensureUsernamesIsMutable();
         usernames_.add(value);
@@ -1815,7 +1815,7 @@ public final class ChatService {
        * @return This builder for chaining.
        */
       public Builder addAllUsernames(
-          Iterable<String> values) {
+          java.lang.Iterable<java.lang.String> values) {
         ensureUsernamesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, usernames_);
@@ -1854,18 +1854,18 @@ public final class ChatService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.StartChatRequest)
-    private static final StartChatRequest DEFAULT_INSTANCE;
+    private static final pb.ChatService.StartChatRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new StartChatRequest();
+      DEFAULT_INSTANCE = new pb.ChatService.StartChatRequest();
     }
 
-    public static StartChatRequest getDefaultInstance() {
+    public static pb.ChatService.StartChatRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<StartChatRequest>
         PARSER = new com.google.protobuf.AbstractParser<StartChatRequest>() {
-      @Override
+      @java.lang.Override
       public StartChatRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1889,13 +1889,13 @@ public final class ChatService {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<StartChatRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public StartChatRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.ChatService.StartChatRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1914,12 +1914,12 @@ public final class ChatService {
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    java.util.List<ChatMessage>
+    java.util.List<pb.ChatService.ChatMessage> 
         getMessagesList();
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    ChatMessage getMessages(int index);
+    pb.ChatService.ChatMessage getMessages(int index);
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
@@ -1927,12 +1927,12 @@ public final class ChatService {
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    java.util.List<? extends ChatMessageOrBuilder>
+    java.util.List<? extends pb.ChatService.ChatMessageOrBuilder> 
         getMessagesOrBuilderList();
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    ChatMessageOrBuilder getMessagesOrBuilder(
+    pb.ChatService.ChatMessageOrBuilder getMessagesOrBuilder(
         int index);
   }
   /**
@@ -1962,15 +1962,15 @@ public final class ChatService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ChatService.internal_static_pb_StartChatResponse_descriptor;
+      return pb.ChatService.internal_static_pb_StartChatResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ChatService.internal_static_pb_StartChatResponse_fieldAccessorTable
+      return pb.ChatService.internal_static_pb_StartChatResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              StartChatResponse.class, Builder.class);
+              pb.ChatService.StartChatResponse.class, pb.ChatService.StartChatResponse.Builder.class);
     }
 
     public static final int CHAT_ROOM_ID_FIELD_NUMBER = 1;
@@ -1979,54 +1979,54 @@ public final class ChatService {
      * <code>int32 chat_room_id = 1;</code>
      * @return The chatRoomId.
      */
-    @Override
+    @java.lang.Override
     public int getChatRoomId() {
       return chatRoomId_;
     }
 
     public static final int MESSAGES_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private java.util.List<ChatMessage> messages_;
+    private java.util.List<pb.ChatService.ChatMessage> messages_;
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    @Override
-    public java.util.List<ChatMessage> getMessagesList() {
+    @java.lang.Override
+    public java.util.List<pb.ChatService.ChatMessage> getMessagesList() {
       return messages_;
     }
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    @Override
-    public java.util.List<? extends ChatMessageOrBuilder>
+    @java.lang.Override
+    public java.util.List<? extends pb.ChatService.ChatMessageOrBuilder> 
         getMessagesOrBuilderList() {
       return messages_;
     }
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    @Override
+    @java.lang.Override
     public int getMessagesCount() {
       return messages_.size();
     }
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    @Override
-    public ChatMessage getMessages(int index) {
+    @java.lang.Override
+    public pb.ChatService.ChatMessage getMessages(int index) {
       return messages_.get(index);
     }
     /**
      * <code>repeated .pb.ChatMessage messages = 2;</code>
      */
-    @Override
-    public ChatMessageOrBuilder getMessagesOrBuilder(
+    @java.lang.Override
+    public pb.ChatService.ChatMessageOrBuilder getMessagesOrBuilder(
         int index) {
       return messages_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2036,7 +2036,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (chatRoomId_ != 0) {
@@ -2048,7 +2048,7 @@ public final class ChatService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2067,15 +2067,15 @@ public final class ChatService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof StartChatResponse)) {
+      if (!(obj instanceof pb.ChatService.StartChatResponse)) {
         return super.equals(obj);
       }
-      StartChatResponse other = (StartChatResponse) obj;
+      pb.ChatService.StartChatResponse other = (pb.ChatService.StartChatResponse) obj;
 
       if (getChatRoomId()
           != other.getChatRoomId()) return false;
@@ -2085,7 +2085,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2103,44 +2103,44 @@ public final class ChatService {
       return hash;
     }
 
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static StartChatResponse parseFrom(byte[] data)
+    public static pb.ChatService.StartChatResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static StartChatResponse parseFrom(java.io.InputStream input)
+    public static pb.ChatService.StartChatResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2148,26 +2148,26 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static StartChatResponse parseDelimitedFrom(java.io.InputStream input)
+    public static pb.ChatService.StartChatResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static StartChatResponse parseDelimitedFrom(
+    public static pb.ChatService.StartChatResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static StartChatResponse parseFrom(
+    public static pb.ChatService.StartChatResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2175,23 +2175,23 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(StartChatResponse prototype) {
+    public static Builder newBuilder(pb.ChatService.StartChatResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2201,18 +2201,18 @@ public final class ChatService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.StartChatResponse)
-        StartChatResponseOrBuilder {
+        pb.ChatService.StartChatResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ChatService.internal_static_pb_StartChatResponse_descriptor;
+        return pb.ChatService.internal_static_pb_StartChatResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ChatService.internal_static_pb_StartChatResponse_fieldAccessorTable
+        return pb.ChatService.internal_static_pb_StartChatResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                StartChatResponse.class, Builder.class);
+                pb.ChatService.StartChatResponse.class, pb.ChatService.StartChatResponse.Builder.class);
       }
 
       // Construct using pb.ChatService.StartChatResponse.newBuilder()
@@ -2221,11 +2221,11 @@ public final class ChatService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -2240,36 +2240,36 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ChatService.internal_static_pb_StartChatResponse_descriptor;
+        return pb.ChatService.internal_static_pb_StartChatResponse_descriptor;
       }
 
-      @Override
-      public StartChatResponse getDefaultInstanceForType() {
-        return StartChatResponse.getDefaultInstance();
+      @java.lang.Override
+      public pb.ChatService.StartChatResponse getDefaultInstanceForType() {
+        return pb.ChatService.StartChatResponse.getDefaultInstance();
       }
 
-      @Override
-      public StartChatResponse build() {
-        StartChatResponse result = buildPartial();
+      @java.lang.Override
+      public pb.ChatService.StartChatResponse build() {
+        pb.ChatService.StartChatResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public StartChatResponse buildPartial() {
-        StartChatResponse result = new StartChatResponse(this);
+      @java.lang.Override
+      public pb.ChatService.StartChatResponse buildPartial() {
+        pb.ChatService.StartChatResponse result = new pb.ChatService.StartChatResponse(this);
         buildPartialRepeatedFields(result);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartialRepeatedFields(StartChatResponse result) {
+      private void buildPartialRepeatedFields(pb.ChatService.StartChatResponse result) {
         if (messagesBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             messages_ = java.util.Collections.unmodifiableList(messages_);
@@ -2281,25 +2281,25 @@ public final class ChatService {
         }
       }
 
-      private void buildPartial0(StartChatResponse result) {
+      private void buildPartial0(pb.ChatService.StartChatResponse result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.chatRoomId_ = chatRoomId_;
         }
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof StartChatResponse) {
-          return mergeFrom((StartChatResponse)other);
+        if (other instanceof pb.ChatService.StartChatResponse) {
+          return mergeFrom((pb.ChatService.StartChatResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(StartChatResponse other) {
-        if (other == StartChatResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.ChatService.StartChatResponse other) {
+        if (other == pb.ChatService.StartChatResponse.getDefaultInstance()) return this;
         if (other.getChatRoomId() != 0) {
           setChatRoomId(other.getChatRoomId());
         }
@@ -2334,18 +2334,18 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -2361,9 +2361,9 @@ public final class ChatService {
                 break;
               } // case 8
               case 18: {
-                ChatMessage m =
+                pb.ChatService.ChatMessage m =
                     input.readMessage(
-                        ChatMessage.parser(),
+                        pb.ChatService.ChatMessage.parser(),
                         extensionRegistry);
                 if (messagesBuilder_ == null) {
                   ensureMessagesIsMutable();
@@ -2395,7 +2395,7 @@ public final class ChatService {
        * <code>int32 chat_room_id = 1;</code>
        * @return The chatRoomId.
        */
-      @Override
+      @java.lang.Override
       public int getChatRoomId() {
         return chatRoomId_;
       }
@@ -2422,22 +2422,22 @@ public final class ChatService {
         return this;
       }
 
-      private java.util.List<ChatMessage> messages_ =
+      private java.util.List<pb.ChatService.ChatMessage> messages_ =
         java.util.Collections.emptyList();
       private void ensureMessagesIsMutable() {
         if (!((bitField0_ & 0x00000002) != 0)) {
-          messages_ = new java.util.ArrayList<ChatMessage>(messages_);
+          messages_ = new java.util.ArrayList<pb.ChatService.ChatMessage>(messages_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          ChatMessage, ChatMessage.Builder, ChatMessageOrBuilder> messagesBuilder_;
+          pb.ChatService.ChatMessage, pb.ChatService.ChatMessage.Builder, pb.ChatService.ChatMessageOrBuilder> messagesBuilder_;
 
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public java.util.List<ChatMessage> getMessagesList() {
+      public java.util.List<pb.ChatService.ChatMessage> getMessagesList() {
         if (messagesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(messages_);
         } else {
@@ -2457,7 +2457,7 @@ public final class ChatService {
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public ChatMessage getMessages(int index) {
+      public pb.ChatService.ChatMessage getMessages(int index) {
         if (messagesBuilder_ == null) {
           return messages_.get(index);
         } else {
@@ -2468,7 +2468,7 @@ public final class ChatService {
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
       public Builder setMessages(
-          int index, ChatMessage value) {
+          int index, pb.ChatService.ChatMessage value) {
         if (messagesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2485,7 +2485,7 @@ public final class ChatService {
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
       public Builder setMessages(
-          int index, ChatMessage.Builder builderForValue) {
+          int index, pb.ChatService.ChatMessage.Builder builderForValue) {
         if (messagesBuilder_ == null) {
           ensureMessagesIsMutable();
           messages_.set(index, builderForValue.build());
@@ -2498,7 +2498,7 @@ public final class ChatService {
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public Builder addMessages(ChatMessage value) {
+      public Builder addMessages(pb.ChatService.ChatMessage value) {
         if (messagesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2515,7 +2515,7 @@ public final class ChatService {
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
       public Builder addMessages(
-          int index, ChatMessage value) {
+          int index, pb.ChatService.ChatMessage value) {
         if (messagesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2532,7 +2532,7 @@ public final class ChatService {
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
       public Builder addMessages(
-          ChatMessage.Builder builderForValue) {
+          pb.ChatService.ChatMessage.Builder builderForValue) {
         if (messagesBuilder_ == null) {
           ensureMessagesIsMutable();
           messages_.add(builderForValue.build());
@@ -2546,7 +2546,7 @@ public final class ChatService {
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
       public Builder addMessages(
-          int index, ChatMessage.Builder builderForValue) {
+          int index, pb.ChatService.ChatMessage.Builder builderForValue) {
         if (messagesBuilder_ == null) {
           ensureMessagesIsMutable();
           messages_.add(index, builderForValue.build());
@@ -2560,7 +2560,7 @@ public final class ChatService {
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
       public Builder addAllMessages(
-          Iterable<? extends ChatMessage> values) {
+          java.lang.Iterable<? extends pb.ChatService.ChatMessage> values) {
         if (messagesBuilder_ == null) {
           ensureMessagesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2600,14 +2600,14 @@ public final class ChatService {
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public ChatMessage.Builder getMessagesBuilder(
+      public pb.ChatService.ChatMessage.Builder getMessagesBuilder(
           int index) {
         return getMessagesFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public ChatMessageOrBuilder getMessagesOrBuilder(
+      public pb.ChatService.ChatMessageOrBuilder getMessagesOrBuilder(
           int index) {
         if (messagesBuilder_ == null) {
           return messages_.get(index);  } else {
@@ -2617,7 +2617,7 @@ public final class ChatService {
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public java.util.List<? extends ChatMessageOrBuilder>
+      public java.util.List<? extends pb.ChatService.ChatMessageOrBuilder> 
            getMessagesOrBuilderList() {
         if (messagesBuilder_ != null) {
           return messagesBuilder_.getMessageOrBuilderList();
@@ -2628,31 +2628,31 @@ public final class ChatService {
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public ChatMessage.Builder addMessagesBuilder() {
+      public pb.ChatService.ChatMessage.Builder addMessagesBuilder() {
         return getMessagesFieldBuilder().addBuilder(
-            ChatMessage.getDefaultInstance());
+            pb.ChatService.ChatMessage.getDefaultInstance());
       }
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public ChatMessage.Builder addMessagesBuilder(
+      public pb.ChatService.ChatMessage.Builder addMessagesBuilder(
           int index) {
         return getMessagesFieldBuilder().addBuilder(
-            index, ChatMessage.getDefaultInstance());
+            index, pb.ChatService.ChatMessage.getDefaultInstance());
       }
       /**
        * <code>repeated .pb.ChatMessage messages = 2;</code>
        */
-      public java.util.List<ChatMessage.Builder>
+      public java.util.List<pb.ChatService.ChatMessage.Builder> 
            getMessagesBuilderList() {
         return getMessagesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          ChatMessage, ChatMessage.Builder, ChatMessageOrBuilder>
+          pb.ChatService.ChatMessage, pb.ChatService.ChatMessage.Builder, pb.ChatService.ChatMessageOrBuilder> 
           getMessagesFieldBuilder() {
         if (messagesBuilder_ == null) {
           messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              ChatMessage, ChatMessage.Builder, ChatMessageOrBuilder>(
+              pb.ChatService.ChatMessage, pb.ChatService.ChatMessage.Builder, pb.ChatService.ChatMessageOrBuilder>(
                   messages_,
                   ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
@@ -2666,18 +2666,18 @@ public final class ChatService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.StartChatResponse)
-    private static final StartChatResponse DEFAULT_INSTANCE;
+    private static final pb.ChatService.StartChatResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new StartChatResponse();
+      DEFAULT_INSTANCE = new pb.ChatService.StartChatResponse();
     }
 
-    public static StartChatResponse getDefaultInstance() {
+    public static pb.ChatService.StartChatResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<StartChatResponse>
         PARSER = new com.google.protobuf.AbstractParser<StartChatResponse>() {
-      @Override
+      @java.lang.Override
       public StartChatResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2701,13 +2701,13 @@ public final class ChatService {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<StartChatResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public StartChatResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.ChatService.StartChatResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2749,15 +2749,15 @@ public final class ChatService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ChatService.internal_static_pb_GetAllChatMessagesRequest_descriptor;
+      return pb.ChatService.internal_static_pb_GetAllChatMessagesRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ChatService.internal_static_pb_GetAllChatMessagesRequest_fieldAccessorTable
+      return pb.ChatService.internal_static_pb_GetAllChatMessagesRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              GetAllChatMessagesRequest.class, Builder.class);
+              pb.ChatService.GetAllChatMessagesRequest.class, pb.ChatService.GetAllChatMessagesRequest.Builder.class);
     }
 
     public static final int ROOM_ID_FIELD_NUMBER = 1;
@@ -2766,13 +2766,13 @@ public final class ChatService {
      * <code>int32 room_id = 1;</code>
      * @return The roomId.
      */
-    @Override
+    @java.lang.Override
     public int getRoomId() {
       return roomId_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2782,7 +2782,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (roomId_ != 0) {
@@ -2791,7 +2791,7 @@ public final class ChatService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2806,15 +2806,15 @@ public final class ChatService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof GetAllChatMessagesRequest)) {
+      if (!(obj instanceof pb.ChatService.GetAllChatMessagesRequest)) {
         return super.equals(obj);
       }
-      GetAllChatMessagesRequest other = (GetAllChatMessagesRequest) obj;
+      pb.ChatService.GetAllChatMessagesRequest other = (pb.ChatService.GetAllChatMessagesRequest) obj;
 
       if (getRoomId()
           != other.getRoomId()) return false;
@@ -2822,7 +2822,7 @@ public final class ChatService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2836,44 +2836,44 @@ public final class ChatService {
       return hash;
     }
 
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GetAllChatMessagesRequest parseFrom(byte[] data)
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static GetAllChatMessagesRequest parseFrom(java.io.InputStream input)
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2881,26 +2881,26 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static GetAllChatMessagesRequest parseDelimitedFrom(java.io.InputStream input)
+    public static pb.ChatService.GetAllChatMessagesRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static GetAllChatMessagesRequest parseDelimitedFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static GetAllChatMessagesRequest parseFrom(
+    public static pb.ChatService.GetAllChatMessagesRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2908,23 +2908,23 @@ public final class ChatService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(GetAllChatMessagesRequest prototype) {
+    public static Builder newBuilder(pb.ChatService.GetAllChatMessagesRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2934,18 +2934,18 @@ public final class ChatService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.GetAllChatMessagesRequest)
-        GetAllChatMessagesRequestOrBuilder {
+        pb.ChatService.GetAllChatMessagesRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ChatService.internal_static_pb_GetAllChatMessagesRequest_descriptor;
+        return pb.ChatService.internal_static_pb_GetAllChatMessagesRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ChatService.internal_static_pb_GetAllChatMessagesRequest_fieldAccessorTable
+        return pb.ChatService.internal_static_pb_GetAllChatMessagesRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                GetAllChatMessagesRequest.class, Builder.class);
+                pb.ChatService.GetAllChatMessagesRequest.class, pb.ChatService.GetAllChatMessagesRequest.Builder.class);
       }
 
       // Construct using pb.ChatService.GetAllChatMessagesRequest.newBuilder()
@@ -2954,11 +2954,11 @@ public final class ChatService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -2966,53 +2966,53 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ChatService.internal_static_pb_GetAllChatMessagesRequest_descriptor;
+        return pb.ChatService.internal_static_pb_GetAllChatMessagesRequest_descriptor;
       }
 
-      @Override
-      public GetAllChatMessagesRequest getDefaultInstanceForType() {
-        return GetAllChatMessagesRequest.getDefaultInstance();
+      @java.lang.Override
+      public pb.ChatService.GetAllChatMessagesRequest getDefaultInstanceForType() {
+        return pb.ChatService.GetAllChatMessagesRequest.getDefaultInstance();
       }
 
-      @Override
-      public GetAllChatMessagesRequest build() {
-        GetAllChatMessagesRequest result = buildPartial();
+      @java.lang.Override
+      public pb.ChatService.GetAllChatMessagesRequest build() {
+        pb.ChatService.GetAllChatMessagesRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public GetAllChatMessagesRequest buildPartial() {
-        GetAllChatMessagesRequest result = new GetAllChatMessagesRequest(this);
+      @java.lang.Override
+      public pb.ChatService.GetAllChatMessagesRequest buildPartial() {
+        pb.ChatService.GetAllChatMessagesRequest result = new pb.ChatService.GetAllChatMessagesRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(GetAllChatMessagesRequest result) {
+      private void buildPartial0(pb.ChatService.GetAllChatMessagesRequest result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.roomId_ = roomId_;
         }
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof GetAllChatMessagesRequest) {
-          return mergeFrom((GetAllChatMessagesRequest)other);
+        if (other instanceof pb.ChatService.GetAllChatMessagesRequest) {
+          return mergeFrom((pb.ChatService.GetAllChatMessagesRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(GetAllChatMessagesRequest other) {
-        if (other == GetAllChatMessagesRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.ChatService.GetAllChatMessagesRequest other) {
+        if (other == pb.ChatService.GetAllChatMessagesRequest.getDefaultInstance()) return this;
         if (other.getRoomId() != 0) {
           setRoomId(other.getRoomId());
         }
@@ -3021,18 +3021,18 @@ public final class ChatService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -3069,7 +3069,7 @@ public final class ChatService {
        * <code>int32 room_id = 1;</code>
        * @return The roomId.
        */
-      @Override
+      @java.lang.Override
       public int getRoomId() {
         return roomId_;
       }
@@ -3100,9 +3100,9 @@ public final class ChatService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.GetAllChatMessagesRequest)
-    private static final GetAllChatMessagesRequest DEFAULT_INSTANCE;
+    private static final pb.ChatService.GetAllChatMessagesRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ChatService.GetAllChatMessagesRequest();
+      DEFAULT_INSTANCE = new pb.ChatService.GetAllChatMessagesRequest();
     }
 
     public static pb.ChatService.GetAllChatMessagesRequest getDefaultInstance() {

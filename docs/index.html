@@ -8,10 +8,72 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+
+    <style>
+      iframe {
+        border: none;
+      }
+      .main {
+        display: flex;
+        flex-flow: row;
+        height: 100%;
+      }
+
+      .main #left {
+        width: 150px;
+      }
+
+      .header {
+        background-color: #1b1b1b;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        color: white;
+        border-right: 1px solid white;
+      }
+
+      .left .body {
+        display: flex; 
+        flex-flow: column;
+      }
+
+      .left .active {
+        background-color: tomato;
+        color: white;
+      }
+
+      .body > div {
+        border-radius: 10px;
+
+        padding: 10px 10px;
+        cursor: pointer;
+      }
+
+      .body > div:hover {
+        background-color: papayawhip;
+        color: black !important;
+      }
+
+      .main #swagger-ui {
+        flex-grow: 1;
+      }
+    </style>
   </head>
 
-  <body>
+  <body style="position: absolute; width: 100%; height: 100%;">
+    <div class="main">
+
+      <div id="left">
+        <div class="header">
+          List
+        </div>
+        <div id="body" class="body">
+        
+        </div>
+      </div>
+      
     <div id="swagger-ui"></div>
+    </div>
     <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
     <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
     <script src="./swagger-initializer.js" charset="UTF-8"> </script>

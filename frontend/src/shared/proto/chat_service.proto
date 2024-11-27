@@ -1,0 +1,60 @@
+syntax= "proto3";
+package pb;
+option go_package = "com.de";
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "proto/utils.proto";
+
+message ChatMessage {
+    string username = 1  [(validate.rules).string.email = true];
+    string message = 2 [(validate.rules).string.min_len = 1];
+}
+
+message SendChatMessageRequest {
+  int32 room_id = 1;
+  ChatMessage chat_message = 2 [(validate.rules).message.required = true];
+}
+
+message StartChatRequest {
+    repeated string usernames = 1 [(validate.rules).repeated.items.string.email = true];
+}
+
+message StartChatResponse {
+    int32 chat_room_id = 1;
+    repeated ChatMessage messages = 2;
+}
+
+message GetAllChatMessagesRequest {
+  int32 room_id = 1;
+}
+
+message GetAllChatMessagesResponse {
+  repeated ChatMessage messages = 1;
+}
+
+
+  service ChatApiService {
+    // Start chat with one or multiple users
+    rpc StartChat(StartChatRequest) returns (StartChatResponse) {
+      option (google.api.http) = {
+        post: "/api/v3/chat"
+        body: "*"
+      };
+    };
+
+    // Send chat message to a chat room
+    rpc SendChatMessage(SendChatMessageRequest) returns (Empty) {
+      option (google.api.http) = {
+        post: "/api/v3/chat/{room_id}"
+        body: "*"
+      };
+    };
+
+        // Load all chat messages
+        rpc getAllChatMessages(GetAllChatMessagesRequest) returns (GetAllChatMessagesResponse) {
+          option (google.api.http) = {
+            get: "/api/v3/chat/{room_id}"
+          };
+        };
+  
+  }

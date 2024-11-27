@@ -33,7 +33,7 @@ public final class AuthService {
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
-    String getUsername();
+    java.lang.String getUsername();
     /**
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
@@ -45,7 +45,7 @@ public final class AuthService {
      * <code>string password = 2;</code>
      * @return The password.
      */
-    String getPassword();
+    java.lang.String getPassword();
     /**
      * <code>string password = 2;</code>
      * @return The bytes for password.
@@ -81,33 +81,33 @@ public final class AuthService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AuthService.internal_static_pb_LoginRequest_descriptor;
+      return pb.AuthService.internal_static_pb_LoginRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AuthService.internal_static_pb_LoginRequest_fieldAccessorTable
+      return pb.AuthService.internal_static_pb_LoginRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LoginRequest.class, Builder.class);
+              pb.AuthService.LoginRequest.class, pb.AuthService.LoginRequest.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile Object username_ = "";
+    private volatile java.lang.Object username_ = "";
     /**
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
-    @Override
-    public String getUsername() {
-      Object ref = username_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         username_ = s;
         return s;
       }
@@ -116,14 +116,14 @@ public final class AuthService {
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUsernameBytes() {
-      Object ref = username_;
-      if (ref instanceof String) {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         username_ = b;
         return b;
       } else {
@@ -133,20 +133,20 @@ public final class AuthService {
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile Object password_ = "";
+    private volatile java.lang.Object password_ = "";
     /**
      * <code>string password = 2;</code>
      * @return The password.
      */
-    @Override
-    public String getPassword() {
-      Object ref = password_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         password_ = s;
         return s;
       }
@@ -155,14 +155,14 @@ public final class AuthService {
      * <code>string password = 2;</code>
      * @return The bytes for password.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPasswordBytes() {
-      Object ref = password_;
-      if (ref instanceof String) {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         password_ = b;
         return b;
       } else {
@@ -171,7 +171,7 @@ public final class AuthService {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -181,7 +181,7 @@ public final class AuthService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
@@ -193,7 +193,7 @@ public final class AuthService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -210,15 +210,15 @@ public final class AuthService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof LoginRequest)) {
+      if (!(obj instanceof pb.AuthService.LoginRequest)) {
         return super.equals(obj);
       }
-      LoginRequest other = (LoginRequest) obj;
+      pb.AuthService.LoginRequest other = (pb.AuthService.LoginRequest) obj;
 
       if (!getUsername()
           .equals(other.getUsername())) return false;
@@ -228,7 +228,7 @@ public final class AuthService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -244,44 +244,44 @@ public final class AuthService {
       return hash;
     }
 
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LoginRequest parseFrom(byte[] data)
+    public static pb.AuthService.LoginRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LoginRequest parseFrom(java.io.InputStream input)
+    public static pb.AuthService.LoginRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -289,26 +289,26 @@ public final class AuthService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static LoginRequest parseDelimitedFrom(java.io.InputStream input)
+    public static pb.AuthService.LoginRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static LoginRequest parseDelimitedFrom(
+    public static pb.AuthService.LoginRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static LoginRequest parseFrom(
+    public static pb.AuthService.LoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -316,23 +316,23 @@ public final class AuthService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(LoginRequest prototype) {
+    public static Builder newBuilder(pb.AuthService.LoginRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -342,18 +342,18 @@ public final class AuthService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.LoginRequest)
-        LoginRequestOrBuilder {
+        pb.AuthService.LoginRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return AuthService.internal_static_pb_LoginRequest_descriptor;
+        return pb.AuthService.internal_static_pb_LoginRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return AuthService.internal_static_pb_LoginRequest_fieldAccessorTable
+        return pb.AuthService.internal_static_pb_LoginRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LoginRequest.class, Builder.class);
+                pb.AuthService.LoginRequest.class, pb.AuthService.LoginRequest.Builder.class);
       }
 
       // Construct using pb.AuthService.LoginRequest.newBuilder()
@@ -362,11 +362,11 @@ public final class AuthService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -375,35 +375,35 @@ public final class AuthService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return AuthService.internal_static_pb_LoginRequest_descriptor;
+        return pb.AuthService.internal_static_pb_LoginRequest_descriptor;
       }
 
-      @Override
-      public LoginRequest getDefaultInstanceForType() {
-        return LoginRequest.getDefaultInstance();
+      @java.lang.Override
+      public pb.AuthService.LoginRequest getDefaultInstanceForType() {
+        return pb.AuthService.LoginRequest.getDefaultInstance();
       }
 
-      @Override
-      public LoginRequest build() {
-        LoginRequest result = buildPartial();
+      @java.lang.Override
+      public pb.AuthService.LoginRequest build() {
+        pb.AuthService.LoginRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public LoginRequest buildPartial() {
-        LoginRequest result = new LoginRequest(this);
+      @java.lang.Override
+      public pb.AuthService.LoginRequest buildPartial() {
+        pb.AuthService.LoginRequest result = new pb.AuthService.LoginRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(LoginRequest result) {
+      private void buildPartial0(pb.AuthService.LoginRequest result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.username_ = username_;
@@ -413,18 +413,18 @@ public final class AuthService {
         }
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LoginRequest) {
-          return mergeFrom((LoginRequest)other);
+        if (other instanceof pb.AuthService.LoginRequest) {
+          return mergeFrom((pb.AuthService.LoginRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LoginRequest other) {
-        if (other == LoginRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.AuthService.LoginRequest other) {
+        if (other == pb.AuthService.LoginRequest.getDefaultInstance()) return this;
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
           bitField0_ |= 0x00000001;
@@ -440,18 +440,18 @@ public final class AuthService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -488,21 +488,21 @@ public final class AuthService {
       }
       private int bitField0_;
 
-      private Object username_ = "";
+      private java.lang.Object username_ = "";
       /**
        * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return The username.
        */
-      public String getUsername() {
-        Object ref = username_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           username_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -511,11 +511,11 @@ public final class AuthService {
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
-        Object ref = username_;
+        java.lang.Object ref = username_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           username_ = b;
           return b;
         } else {
@@ -528,7 +528,7 @@ public final class AuthService {
        * @return This builder for chaining.
        */
       public Builder setUsername(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         username_ = value;
         bitField0_ |= 0x00000001;
@@ -560,21 +560,21 @@ public final class AuthService {
         return this;
       }
 
-      private Object password_ = "";
+      private java.lang.Object password_ = "";
       /**
        * <code>string password = 2;</code>
        * @return The password.
        */
-      public String getPassword() {
-        Object ref = password_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           password_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -583,11 +583,11 @@ public final class AuthService {
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
-        Object ref = password_;
+        java.lang.Object ref = password_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           password_ = b;
           return b;
         } else {
@@ -600,7 +600,7 @@ public final class AuthService {
        * @return This builder for chaining.
        */
       public Builder setPassword(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         password_ = value;
         bitField0_ |= 0x00000002;
@@ -636,18 +636,18 @@ public final class AuthService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.LoginRequest)
-    private static final LoginRequest DEFAULT_INSTANCE;
+    private static final pb.AuthService.LoginRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new LoginRequest();
+      DEFAULT_INSTANCE = new pb.AuthService.LoginRequest();
     }
 
-    public static LoginRequest getDefaultInstance() {
+    public static pb.AuthService.LoginRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<LoginRequest>
         PARSER = new com.google.protobuf.AbstractParser<LoginRequest>() {
-      @Override
+      @java.lang.Override
       public LoginRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -671,13 +671,13 @@ public final class AuthService {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<LoginRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public LoginRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.AuthService.LoginRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -691,7 +691,7 @@ public final class AuthService {
      * <code>string token = 1;</code>
      * @return The token.
      */
-    String getToken();
+    java.lang.String getToken();
     /**
      * <code>string token = 1;</code>
      * @return The bytes for token.
@@ -726,33 +726,33 @@ public final class AuthService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AuthService.internal_static_pb_LoginResponse_descriptor;
+      return pb.AuthService.internal_static_pb_LoginResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AuthService.internal_static_pb_LoginResponse_fieldAccessorTable
+      return pb.AuthService.internal_static_pb_LoginResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LoginResponse.class, Builder.class);
+              pb.AuthService.LoginResponse.class, pb.AuthService.LoginResponse.Builder.class);
     }
 
     public static final int TOKEN_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile Object token_ = "";
+    private volatile java.lang.Object token_ = "";
     /**
      * <code>string token = 1;</code>
      * @return The token.
      */
-    @Override
-    public String getToken() {
-      Object ref = token_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         token_ = s;
         return s;
       }
@@ -761,14 +761,14 @@ public final class AuthService {
      * <code>string token = 1;</code>
      * @return The bytes for token.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTokenBytes() {
-      Object ref = token_;
-      if (ref instanceof String) {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         token_ = b;
         return b;
       } else {
@@ -777,7 +777,7 @@ public final class AuthService {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -787,7 +787,7 @@ public final class AuthService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(token_)) {
@@ -796,7 +796,7 @@ public final class AuthService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -810,15 +810,15 @@ public final class AuthService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof LoginResponse)) {
+      if (!(obj instanceof pb.AuthService.LoginResponse)) {
         return super.equals(obj);
       }
-      LoginResponse other = (LoginResponse) obj;
+      pb.AuthService.LoginResponse other = (pb.AuthService.LoginResponse) obj;
 
       if (!getToken()
           .equals(other.getToken())) return false;
@@ -826,7 +826,7 @@ public final class AuthService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -840,44 +840,44 @@ public final class AuthService {
       return hash;
     }
 
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LoginResponse parseFrom(byte[] data)
+    public static pb.AuthService.LoginResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LoginResponse parseFrom(java.io.InputStream input)
+    public static pb.AuthService.LoginResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -885,26 +885,26 @@ public final class AuthService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static LoginResponse parseDelimitedFrom(java.io.InputStream input)
+    public static pb.AuthService.LoginResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static LoginResponse parseDelimitedFrom(
+    public static pb.AuthService.LoginResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static LoginResponse parseFrom(
+    public static pb.AuthService.LoginResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -912,23 +912,23 @@ public final class AuthService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(LoginResponse prototype) {
+    public static Builder newBuilder(pb.AuthService.LoginResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -938,18 +938,18 @@ public final class AuthService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.LoginResponse)
-        LoginResponseOrBuilder {
+        pb.AuthService.LoginResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return AuthService.internal_static_pb_LoginResponse_descriptor;
+        return pb.AuthService.internal_static_pb_LoginResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return AuthService.internal_static_pb_LoginResponse_fieldAccessorTable
+        return pb.AuthService.internal_static_pb_LoginResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LoginResponse.class, Builder.class);
+                pb.AuthService.LoginResponse.class, pb.AuthService.LoginResponse.Builder.class);
       }
 
       // Construct using pb.AuthService.LoginResponse.newBuilder()
@@ -958,11 +958,11 @@ public final class AuthService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -970,53 +970,53 @@ public final class AuthService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return AuthService.internal_static_pb_LoginResponse_descriptor;
+        return pb.AuthService.internal_static_pb_LoginResponse_descriptor;
       }
 
-      @Override
-      public LoginResponse getDefaultInstanceForType() {
-        return LoginResponse.getDefaultInstance();
+      @java.lang.Override
+      public pb.AuthService.LoginResponse getDefaultInstanceForType() {
+        return pb.AuthService.LoginResponse.getDefaultInstance();
       }
 
-      @Override
-      public LoginResponse build() {
-        LoginResponse result = buildPartial();
+      @java.lang.Override
+      public pb.AuthService.LoginResponse build() {
+        pb.AuthService.LoginResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public LoginResponse buildPartial() {
-        LoginResponse result = new LoginResponse(this);
+      @java.lang.Override
+      public pb.AuthService.LoginResponse buildPartial() {
+        pb.AuthService.LoginResponse result = new pb.AuthService.LoginResponse(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(LoginResponse result) {
+      private void buildPartial0(pb.AuthService.LoginResponse result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.token_ = token_;
         }
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LoginResponse) {
-          return mergeFrom((LoginResponse)other);
+        if (other instanceof pb.AuthService.LoginResponse) {
+          return mergeFrom((pb.AuthService.LoginResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LoginResponse other) {
-        if (other == LoginResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.AuthService.LoginResponse other) {
+        if (other == pb.AuthService.LoginResponse.getDefaultInstance()) return this;
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
           bitField0_ |= 0x00000001;
@@ -1027,18 +1027,18 @@ public final class AuthService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -1070,21 +1070,21 @@ public final class AuthService {
       }
       private int bitField0_;
 
-      private Object token_ = "";
+      private java.lang.Object token_ = "";
       /**
        * <code>string token = 1;</code>
        * @return The token.
        */
-      public String getToken() {
-        Object ref = token_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           token_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1093,11 +1093,11 @@ public final class AuthService {
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
-        Object ref = token_;
+        java.lang.Object ref = token_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           token_ = b;
           return b;
         } else {
@@ -1110,7 +1110,7 @@ public final class AuthService {
        * @return This builder for chaining.
        */
       public Builder setToken(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         token_ = value;
         bitField0_ |= 0x00000001;
@@ -1146,18 +1146,18 @@ public final class AuthService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.LoginResponse)
-    private static final LoginResponse DEFAULT_INSTANCE;
+    private static final pb.AuthService.LoginResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new LoginResponse();
+      DEFAULT_INSTANCE = new pb.AuthService.LoginResponse();
     }
 
-    public static LoginResponse getDefaultInstance() {
+    public static pb.AuthService.LoginResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<LoginResponse>
         PARSER = new com.google.protobuf.AbstractParser<LoginResponse>() {
-      @Override
+      @java.lang.Override
       public LoginResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1181,13 +1181,13 @@ public final class AuthService {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<LoginResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public LoginResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.AuthService.LoginResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1201,7 +1201,7 @@ public final class AuthService {
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
-    String getUsername();
+    java.lang.String getUsername();
     /**
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
@@ -1213,7 +1213,7 @@ public final class AuthService {
      * <code>string password = 2;</code>
      * @return The password.
      */
-    String getPassword();
+    java.lang.String getPassword();
     /**
      * <code>string password = 2;</code>
      * @return The bytes for password.
@@ -1225,7 +1225,7 @@ public final class AuthService {
      * <code>string full_name = 3;</code>
      * @return The fullName.
      */
-    String getFullName();
+    java.lang.String getFullName();
     /**
      * <code>string full_name = 3;</code>
      * @return The bytes for fullName.
@@ -1262,33 +1262,33 @@ public final class AuthService {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return AuthService.internal_static_pb_RegisterRequest_descriptor;
+      return pb.AuthService.internal_static_pb_RegisterRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return AuthService.internal_static_pb_RegisterRequest_fieldAccessorTable
+      return pb.AuthService.internal_static_pb_RegisterRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RegisterRequest.class, Builder.class);
+              pb.AuthService.RegisterRequest.class, pb.AuthService.RegisterRequest.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile Object username_ = "";
+    private volatile java.lang.Object username_ = "";
     /**
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The username.
      */
-    @Override
-    public String getUsername() {
-      Object ref = username_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         username_ = s;
         return s;
       }
@@ -1297,14 +1297,14 @@ public final class AuthService {
      * <code>string username = 1 [(.validate.rules) = { ... }</code>
      * @return The bytes for username.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUsernameBytes() {
-      Object ref = username_;
-      if (ref instanceof String) {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         username_ = b;
         return b;
       } else {
@@ -1314,20 +1314,20 @@ public final class AuthService {
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
-    private volatile Object password_ = "";
+    private volatile java.lang.Object password_ = "";
     /**
      * <code>string password = 2;</code>
      * @return The password.
      */
-    @Override
-    public String getPassword() {
-      Object ref = password_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         password_ = s;
         return s;
       }
@@ -1336,14 +1336,14 @@ public final class AuthService {
      * <code>string password = 2;</code>
      * @return The bytes for password.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPasswordBytes() {
-      Object ref = password_;
-      if (ref instanceof String) {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         password_ = b;
         return b;
       } else {
@@ -1353,20 +1353,20 @@ public final class AuthService {
 
     public static final int FULL_NAME_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
-    private volatile Object fullName_ = "";
+    private volatile java.lang.Object fullName_ = "";
     /**
      * <code>string full_name = 3;</code>
      * @return The fullName.
      */
-    @Override
-    public String getFullName() {
-      Object ref = fullName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getFullName() {
+      java.lang.Object ref = fullName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         fullName_ = s;
         return s;
       }
@@ -1375,14 +1375,14 @@ public final class AuthService {
      * <code>string full_name = 3;</code>
      * @return The bytes for fullName.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getFullNameBytes() {
-      Object ref = fullName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = fullName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         fullName_ = b;
         return b;
       } else {
@@ -1391,7 +1391,7 @@ public final class AuthService {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1401,7 +1401,7 @@ public final class AuthService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
@@ -1416,7 +1416,7 @@ public final class AuthService {
       getUnknownFields().writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1436,15 +1436,15 @@ public final class AuthService {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof RegisterRequest)) {
+      if (!(obj instanceof pb.AuthService.RegisterRequest)) {
         return super.equals(obj);
       }
-      RegisterRequest other = (RegisterRequest) obj;
+      pb.AuthService.RegisterRequest other = (pb.AuthService.RegisterRequest) obj;
 
       if (!getUsername()
           .equals(other.getUsername())) return false;
@@ -1456,7 +1456,7 @@ public final class AuthService {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1474,44 +1474,44 @@ public final class AuthService {
       return hash;
     }
 
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static RegisterRequest parseFrom(byte[] data)
+    public static pb.AuthService.RegisterRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static RegisterRequest parseFrom(java.io.InputStream input)
+    public static pb.AuthService.RegisterRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1519,26 +1519,26 @@ public final class AuthService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static RegisterRequest parseDelimitedFrom(java.io.InputStream input)
+    public static pb.AuthService.RegisterRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static RegisterRequest parseDelimitedFrom(
+    public static pb.AuthService.RegisterRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static RegisterRequest parseFrom(
+    public static pb.AuthService.RegisterRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1546,23 +1546,23 @@ public final class AuthService {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(RegisterRequest prototype) {
+    public static Builder newBuilder(pb.AuthService.RegisterRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1572,18 +1572,18 @@ public final class AuthService {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:pb.RegisterRequest)
-        RegisterRequestOrBuilder {
+        pb.AuthService.RegisterRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return AuthService.internal_static_pb_RegisterRequest_descriptor;
+        return pb.AuthService.internal_static_pb_RegisterRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return AuthService.internal_static_pb_RegisterRequest_fieldAccessorTable
+        return pb.AuthService.internal_static_pb_RegisterRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                RegisterRequest.class, Builder.class);
+                pb.AuthService.RegisterRequest.class, pb.AuthService.RegisterRequest.Builder.class);
       }
 
       // Construct using pb.AuthService.RegisterRequest.newBuilder()
@@ -1592,11 +1592,11 @@ public final class AuthService {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
@@ -1606,35 +1606,35 @@ public final class AuthService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return AuthService.internal_static_pb_RegisterRequest_descriptor;
+        return pb.AuthService.internal_static_pb_RegisterRequest_descriptor;
       }
 
-      @Override
-      public RegisterRequest getDefaultInstanceForType() {
-        return RegisterRequest.getDefaultInstance();
+      @java.lang.Override
+      public pb.AuthService.RegisterRequest getDefaultInstanceForType() {
+        return pb.AuthService.RegisterRequest.getDefaultInstance();
       }
 
-      @Override
-      public RegisterRequest build() {
-        RegisterRequest result = buildPartial();
+      @java.lang.Override
+      public pb.AuthService.RegisterRequest build() {
+        pb.AuthService.RegisterRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public RegisterRequest buildPartial() {
-        RegisterRequest result = new RegisterRequest(this);
+      @java.lang.Override
+      public pb.AuthService.RegisterRequest buildPartial() {
+        pb.AuthService.RegisterRequest result = new pb.AuthService.RegisterRequest(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(RegisterRequest result) {
+      private void buildPartial0(pb.AuthService.RegisterRequest result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.username_ = username_;
@@ -1647,18 +1647,18 @@ public final class AuthService {
         }
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof RegisterRequest) {
-          return mergeFrom((RegisterRequest)other);
+        if (other instanceof pb.AuthService.RegisterRequest) {
+          return mergeFrom((pb.AuthService.RegisterRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(RegisterRequest other) {
-        if (other == RegisterRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(pb.AuthService.RegisterRequest other) {
+        if (other == pb.AuthService.RegisterRequest.getDefaultInstance()) return this;
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
           bitField0_ |= 0x00000001;
@@ -1679,18 +1679,18 @@ public final class AuthService {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         try {
           boolean done = false;
@@ -1732,21 +1732,21 @@ public final class AuthService {
       }
       private int bitField0_;
 
-      private Object username_ = "";
+      private java.lang.Object username_ = "";
       /**
        * <code>string username = 1 [(.validate.rules) = { ... }</code>
        * @return The username.
        */
-      public String getUsername() {
-        Object ref = username_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           username_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1755,11 +1755,11 @@ public final class AuthService {
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
-        Object ref = username_;
+        java.lang.Object ref = username_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           username_ = b;
           return b;
         } else {
@@ -1772,7 +1772,7 @@ public final class AuthService {
        * @return This builder for chaining.
        */
       public Builder setUsername(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         username_ = value;
         bitField0_ |= 0x00000001;
@@ -1804,21 +1804,21 @@ public final class AuthService {
         return this;
       }
 
-      private Object password_ = "";
+      private java.lang.Object password_ = "";
       /**
        * <code>string password = 2;</code>
        * @return The password.
        */
-      public String getPassword() {
-        Object ref = password_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           password_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1827,11 +1827,11 @@ public final class AuthService {
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
-        Object ref = password_;
+        java.lang.Object ref = password_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           password_ = b;
           return b;
         } else {
@@ -1844,7 +1844,7 @@ public final class AuthService {
        * @return This builder for chaining.
        */
       public Builder setPassword(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         password_ = value;
         bitField0_ |= 0x00000002;
@@ -1876,21 +1876,21 @@ public final class AuthService {
         return this;
       }
 
-      private Object fullName_ = "";
+      private java.lang.Object fullName_ = "";
       /**
        * <code>string full_name = 3;</code>
        * @return The fullName.
        */
-      public String getFullName() {
-        Object ref = fullName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFullName() {
+        java.lang.Object ref = fullName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           fullName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1899,11 +1899,11 @@ public final class AuthService {
        */
       public com.google.protobuf.ByteString
           getFullNameBytes() {
-        Object ref = fullName_;
+        java.lang.Object ref = fullName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           fullName_ = b;
           return b;
         } else {
@@ -1916,7 +1916,7 @@ public final class AuthService {
        * @return This builder for chaining.
        */
       public Builder setFullName(
-          String value) {
+          java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         fullName_ = value;
         bitField0_ |= 0x00000004;
@@ -1952,18 +1952,18 @@ public final class AuthService {
     }
 
     // @@protoc_insertion_point(class_scope:pb.RegisterRequest)
-    private static final RegisterRequest DEFAULT_INSTANCE;
+    private static final pb.AuthService.RegisterRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new RegisterRequest();
+      DEFAULT_INSTANCE = new pb.AuthService.RegisterRequest();
     }
 
-    public static RegisterRequest getDefaultInstance() {
+    public static pb.AuthService.RegisterRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<RegisterRequest>
         PARSER = new com.google.protobuf.AbstractParser<RegisterRequest>() {
-      @Override
+      @java.lang.Override
       public RegisterRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1987,13 +1987,13 @@ public final class AuthService {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<RegisterRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public RegisterRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public pb.AuthService.RegisterRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2022,7 +2022,7 @@ public final class AuthService {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\030proto/auth_service.proto\022\002pb\032\034google/a" +
       "pi/annotations.proto\032\027validate/validate." +
       "proto\";\n\014LoginRequest\022\031\n\010username\030\001 \001(\tB" +
@@ -2047,19 +2047,19 @@ public final class AuthService {
     internal_static_pb_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_LoginRequest_descriptor,
-        new String[] { "Username", "Password", });
+        new java.lang.String[] { "Username", "Password", });
     internal_static_pb_LoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_pb_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_LoginResponse_descriptor,
-        new String[] { "Token", });
+        new java.lang.String[] { "Token", });
     internal_static_pb_RegisterRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_pb_RegisterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_RegisterRequest_descriptor,
-        new String[] { "Username", "Password", "FullName", });
+        new java.lang.String[] { "Username", "Password", "FullName", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.api.AnnotationsProto.getDescriptor();
     io.envoyproxy.pgv.validate.Validate.getDescriptor();
