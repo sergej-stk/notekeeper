@@ -9,9 +9,9 @@ public class ChatServiceValidator {
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		
 		if (clazz.equals(pb.ChatService.ChatMessage.class)) return new ChatMessageValidator();
-		if (clazz.equals(pb.ChatService.SendChatMessageRequest.class)) return new SendChatMessageRequestValidator();
 		if (clazz.equals(pb.ChatService.StartChatRequest.class)) return new StartChatRequestValidator();
 		if (clazz.equals(pb.ChatService.StartChatResponse.class)) return new StartChatResponseValidator();
+		if (clazz.equals(pb.ChatService.SendChatMessageRequest.class)) return new SendChatMessageRequestValidator();
 		if (clazz.equals(pb.ChatService.GetAllChatMessagesRequest.class)) return new GetAllChatMessagesRequestValidator();
 		if (clazz.equals(pb.ChatService.GetAllChatMessagesResponse.class)) return new GetAllChatMessagesResponseValidator();
 		return null;
@@ -38,26 +38,6 @@ public class ChatServiceValidator {
 			io.envoyproxy.pgv.StringValidation.email(".pb.ChatMessage.username", proto.getUsername());
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".pb.ChatMessage.message", proto.getMessage(), 1);
-	
-	
-	}
-}
-/**
-	 * Validates {@code SendChatMessageRequest} protobuf objects.
-	 */
-	public static class SendChatMessageRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<pb.ChatService.SendChatMessageRequest> {
-		
-	
-		
-	
-	
-	
-
-	public void assertValid(pb.ChatService.SendChatMessageRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
-	// no validation rules for RoomId
-
-	
-			io.envoyproxy.pgv.StringValidation.minLength(".pb.SendChatMessageRequest.message", proto.getMessage(), 1);
 	
 	
 	}
@@ -101,6 +81,26 @@ public class ChatServiceValidator {
 			// Validate messages
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+	
+	
+	}
+}
+/**
+	 * Validates {@code SendChatMessageRequest} protobuf objects.
+	 */
+	public static class SendChatMessageRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<pb.ChatService.SendChatMessageRequest> {
+		
+	
+		
+	
+	
+	
+
+	public void assertValid(pb.ChatService.SendChatMessageRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for RoomId
+
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".pb.SendChatMessageRequest.message", proto.getMessage(), 1);
 	
 	
 	}
