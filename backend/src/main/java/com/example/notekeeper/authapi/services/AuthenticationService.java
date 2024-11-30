@@ -5,8 +5,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.notekeeper.authapi.dtos.LoginUserDto;
-import com.example.notekeeper.authapi.dtos.RegisterUserDto;
 import com.example.notekeeper.authapi.entities.User;
 import com.example.notekeeper.authapi.repositories.UserRepository;
 import com.example.notekeeper.validation.GrpcValidation;

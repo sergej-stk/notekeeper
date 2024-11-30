@@ -23,6 +23,7 @@ import jakarta.persistence.Table;
 @Table(name = "users")
 @Entity
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
@@ -50,7 +51,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-      return null;
+        return null;
     }
 
     @Override
@@ -61,6 +62,10 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return this.email;
+    }
+
+    public List<Friend> getFriends() {
+        return this.friends;
     }
 
     public User setEmail(String value) {

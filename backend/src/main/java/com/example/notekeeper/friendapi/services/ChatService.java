@@ -3,8 +3,12 @@ package com.example.notekeeper.friendapi.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.notekeeper.authapi.services.UserService;
+import com.example.notekeeper.friendapi.entities.Friend;
 import com.example.notekeeper.socket.SocketNamespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.corundumstudio.socketio.SocketIONamespace;
@@ -28,32 +32,60 @@ public class ChatService {
     private final UserRepository userRepository;
     private final ChatRoomRepository chatRoomRepository;
     private final ChatMessageRepository chatMessageRepository;
+    private final FriendService friendService;
 
     @Autowired
-    public ChatService(SocketServer socketServer, UserRepository userRepository, ChatRoomRepository chatRoomRepository, ChatMessageRepository chatMessageRepository) {
+    public ChatService(SocketServer socketServer, UserRepository userRepository, ChatRoomRepository chatRoomRepository, FriendService friendService, ChatMessageRepository chatMessageRepository) {
         this.socketServer = socketServer;
         this.userRepository = userRepository;
         this.chatRoomRepository = chatRoomRepository;
         this.chatMessageRepository = chatMessageRepository;
         this.chatNamespace = this.socketServer.getNamespace("/chat");
+        this.friendService = friendService;
     }
 
     public StartChatResponse startChat(StartChatRequest request) {
-        ChatRoom chatRoom = new ChatRoom();
-        chatRoom.setName("test");
-        List<String> users = request.getUsernamesList();
-        for (String username : users) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = (User) authentication.getPrincipal();
+
+        List<String> usernames = request.getUsernamesList();
+        List<User> users = new ArrayList<>();
+
+        for (String username : usernames) {
             User user = this.userRepository.findByEmail(username).orElse(null);
             if (user == null) {
-                continue;
+                // error
+                return null;
             }
 
+            // check firendship
+            Friend friendship = this.friendService.getFriendship(currentUser, user);
+
+            if (friendship == null) {
+                return null;
+            }
+
+            users.add(user);
+        }
+
+        ChatRoom chatRoom = this.chatRoomRepository.findByUsersIn(users).get(0);
+
+        if (chatRoom == null) {
+            chatRoom = new ChatRoom();
+        }
+
+        for (User user : users) {
+            if (chatRoom.getUsers().contains(user)) {
+                continue;
+            }
             chatRoom.addUser(user);
         }
 
+        chatRoom.setName("test");
+
         chatRoom = this.chatRoomRepository.save(chatRoom);
 
-        for (String username : users) {
+        for (String username : usernames) {
             this.chatNamespace.addUserToRoom(username, chatRoom.getId().toString());
         }
 
@@ -63,23 +95,36 @@ public class ChatService {
     public boolean addChatMessage(Integer id, SendChatMessageRequest request) {
         ChatRoom chatRoom = this.chatRoomRepository.findById(id).orElse(null);
 
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = (User) authentication.getPrincipal();
+
+        if (!chatRoom.getUsers().contains(currentUser)) {
+            // not a user
+            return false;
+        }
+
         if (chatRoom == null) {
             return false;
         }
 
-        this.chatNamespace.getSocketIoNamespace().getRoomOperations(chatRoom.getId().toString()).sendEvent("message", request.getChatMessage().getMessage());
+        pb.ChatService.ChatMessage chatMessage = pb.ChatService.ChatMessage.newBuilder()
+                .setUsername(currentUser.getUsername())
+                .setMessage(request.getMessage())
+                .build();
 
-        ChatMessage chatMessage = new ChatMessage();
-        chatMessage.setText(request.getChatMessage().getMessage());
-        chatMessage.setChatRoom(chatRoom);
-        chatRoom.getChatMessages().add(chatMessage);
+        this.chatNamespace.emitRoom(chatRoom.getId().toString(), "message", chatMessage);
+
+        ChatMessage chatMessageEntity = new ChatMessage();
+        chatMessageEntity.setText(request.getMessage());
+        chatMessageEntity.setChatRoom(chatRoom);
+        chatRoom.getChatMessages().add(chatMessageEntity);
 
         this.chatRoomRepository.save(chatRoom);
         return true;
     }
 
     public GetAllChatMessagesResponse getAllChatMessages(Integer id) {
-       Iterable<ChatMessage> messages = this.chatMessageRepository.findAllByChatRoomId(id).orElse(new ArrayList<>());
+        Iterable<ChatMessage> messages = this.chatMessageRepository.findAllByChatRoomId(id).orElse(new ArrayList<>());
         List<pb.ChatService.ChatMessage> chatMessages = new ArrayList<>();
 
         for (ChatMessage message : messages) {

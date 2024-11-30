@@ -1,0 +1,23 @@
+syntax= "proto3";
+package pb;
+option go_package = "com.de";
+import "google/api/annotations.proto";
+import "proto/utils.proto";
+
+message Me {
+    string username = 1;
+    string fullName = 2;
+}
+
+message GetMeResponse {
+    Me me = 1;
+}
+
+service UserApiService {
+  // get me
+  rpc getMe(Empty) returns (GetMeResponse) {
+    option (google.api.http) = {
+      get: "/api/v3/me"
+    };
+  };
+}

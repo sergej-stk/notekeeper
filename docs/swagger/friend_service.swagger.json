@@ -17,6 +17,27 @@
   ],
   "paths": {
     "/api/v3/friend": {
+      "get": {
+        "summary": "Load all friends",
+        "operationId": "FriendApiService_GetFriends",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbGetFriendListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "FriendApiService"
+        ]
+      },
       "post": {
         "summary": "Send a friend request",
         "operationId": "FriendApiService_AddFriend",
@@ -113,6 +134,29 @@
     },
     "pbEmpty": {
       "type": "object"
+    },
+    "pbFriend": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "accept": {
+          "type": "boolean"
+        }
+      }
+    },
+    "pbGetFriendListResponse": {
+      "type": "object",
+      "properties": {
+        "friends": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pbFriend"
+          }
+        }
+      }
     },
     "protobufAny": {
       "type": "object",

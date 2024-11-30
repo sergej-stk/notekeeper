@@ -27,7 +27,7 @@ public class ChatRoom {
     @Column(nullable = false)
     private Integer id;
 
-    @Column(nullable = false) 
+    @Column(nullable = false)
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL)

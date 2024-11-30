@@ -1,19 +1,9 @@
+import { backendCall, HttpMethod } from "@/backend/Backend";
 import { endpoint } from "@/constants";
-import { useMainStore } from "@/store/mainStore";
 import { AddNoteRequest, Note } from "@/types";
-import axios, { AxiosResponse } from "axios";
 
 export async function loadAllNotes(): Promise<Note[] | null> {
-  const mainStore = useMainStore();
-  const config = {
-    headers: { Authorization: `Bearer ${mainStore.token}` },
-  };
-  let axiosResponse: AxiosResponse | null = null;
-  try {
-    axiosResponse = await axios.get(endpoint, config);
-  } catch (e) {
-    return null;
-  }
+  const axiosResponse = await backendCall(HttpMethod.HTTP_METHOD_GET, endpoint);
 
   if (axiosResponse === null) {
     return null;
@@ -27,16 +17,10 @@ export async function loadAllNotes(): Promise<Note[] | null> {
 }
 
 export async function loadNote(id: number): Promise<Note | null> {
-  const mainStore = useMainStore();
-  const config = {
-    headers: { Authorization: `Bearer ${mainStore.token}` },
-  };
-  let axiosResponse: AxiosResponse | null = null;
-  try {
-    axiosResponse = await axios.get(endpoint + "/" + id, config);
-  } catch (e) {
-    return null;
-  }
+  const axiosResponse = await backendCall(
+    HttpMethod.HTTP_METHOD_GET,
+    endpoint + "/" + id
+  );
 
   if (axiosResponse === null) {
     return null;
@@ -50,16 +34,11 @@ export async function loadNote(id: number): Promise<Note | null> {
 }
 
 export async function addNote(note: AddNoteRequest): Promise<Note | null> {
-  const mainStore = useMainStore();
-  const config = {
-    headers: { Authorization: `Bearer ${mainStore.token}` },
-  };
-  let axiosResponse: AxiosResponse | null = null;
-  try {
-    axiosResponse = await axios.post(endpoint, note, config);
-  } catch (e) {
-    return null;
-  }
+  const axiosResponse = await backendCall(
+    HttpMethod.HTTP_METHOD_POST,
+    endpoint,
+    note
+  );
 
   if (axiosResponse === null) {
     return null;
@@ -73,16 +52,11 @@ export async function addNote(note: AddNoteRequest): Promise<Note | null> {
 }
 
 export async function updateNote(note: Note): Promise<Note | null> {
-  const mainStore = useMainStore();
-  const config = {
-    headers: { Authorization: `Bearer ${mainStore.token}` },
-  };
-  let axiosResponse: AxiosResponse | null = null;
-  try {
-    axiosResponse = await axios.put(endpoint + "/" + note.id, note, config);
-  } catch (e) {
-    return null;
-  }
+  const axiosResponse = await backendCall(
+    HttpMethod.HTTP_METHOD_PUT,
+    endpoint + "/" + note.id,
+    note
+  );
 
   if (axiosResponse === null) {
     return null;
@@ -96,16 +70,10 @@ export async function updateNote(note: Note): Promise<Note | null> {
 }
 
 export async function removeNote(id: number): Promise<boolean> {
-  const mainStore = useMainStore();
-  const config = {
-    headers: { Authorization: `Bearer ${mainStore.token}` },
-  };
-  let axiosResponse: AxiosResponse | null = null;
-  try {
-    axiosResponse = await axios.delete(endpoint + "/" + id, config);
-  } catch (e) {
-    return false;
-  }
+  const axiosResponse = await backendCall(
+    HttpMethod.HTTP_METHOD_DELETE,
+    endpoint + "/" + id
+  );
 
   if (axiosResponse === null) {
     return false;

@@ -1,9 +1,11 @@
-import { authEndpoint } from "@/constants";
+import { backendCall, HttpMethod } from "@/backend/Backend";
+import { authEndpoint, meEndpoint } from "@/constants";
 import {
   LoginResponse,
   LoginRequest,
   RegisterRequest,
 } from "@/shared/gen/ts/proto/auth_service";
+import { GetMeResponse } from "@/shared/gen/ts/proto/user_service";
 import axios, { AxiosResponse } from "axios";
 
 export async function login(
@@ -60,4 +62,21 @@ export async function register(
   }
 
   return true;
+}
+
+export async function getMe(): Promise<GetMeResponse | null> {
+  const axiosResponse = await backendCall(
+    HttpMethod.HTTP_METHOD_GET,
+    meEndpoint
+  );
+
+  if (axiosResponse === null) {
+    return null;
+  }
+
+  if (axiosResponse.status !== 200) {
+    return null;
+  }
+
+  return axiosResponse.data;
 }

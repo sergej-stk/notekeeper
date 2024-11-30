@@ -1,5 +1,7 @@
 package com.example.notekeeper;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +21,8 @@ import com.example.notekeeper.authapi.repositories.UserRepository;
 import com.example.notekeeper.socket.SocketServer;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import pb.ChatService;
+import com.google.protobuf.util.JsonFormat;
 
 @SpringBootApplication
 @Configuration

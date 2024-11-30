@@ -5,6 +5,11 @@ import "google/api/annotations.proto";
 import "validate/validate.proto";
 import "proto/utils.proto";
 
+message Friend {
+  string username = 1;
+  bool accept = 2;
+}
+
 message AddFriendRequest {
   string username = 1 [(validate.rules).string.email = true];
 }
@@ -30,20 +35,31 @@ message RemoveFriendRequest {
     string username = 1 [(validate.rules).string.email = true];
 }
 
-  service FriendApiService {
-    // Send a friend request
-    rpc AddFriend(AddFriendRequest) returns (AddFriendResponse) {
-      option (google.api.http) = {
-        post: "/api/v3/friend"
-        body: "*"
-      };
-    };
+message GetFriendListResponse {
+  repeated Friend friends = 1;
+}
 
-        // answer friend request
-        rpc AnswerFirend(AnswerAddFriendRequest) returns (Empty) {
-          option (google.api.http) = {
-            post: "/api/v3/friend/answer"
-            body: "*"
-          };
-        };
-  }
+service FriendApiService {
+  // Load all friends
+  rpc GetFriends(Empty) returns (GetFriendListResponse) {
+    option (google.api.http) = {
+      get: "/api/v3/friend"
+    };
+  };
+
+  // Send a friend request
+  rpc AddFriend(AddFriendRequest) returns (AddFriendResponse) {
+    option (google.api.http) = {
+      post: "/api/v3/friend"
+      body: "*"
+    };
+  };
+
+  // answer friend request
+  rpc AnswerFirend(AnswerAddFriendRequest) returns (Empty) {
+    option (google.api.http) = {
+      post: "/api/v3/friend/answer"
+      body: "*"
+    };
+  };
+}

@@ -25,6 +25,589 @@ public final class FriendService {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface FriendOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:pb.Friend)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string username = 1;</code>
+     * @return The username.
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>string username = 1;</code>
+     * @return The bytes for username.
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    /**
+     * <code>bool accept = 2;</code>
+     * @return The accept.
+     */
+    boolean getAccept();
+  }
+  /**
+   * Protobuf type {@code pb.Friend}
+   */
+  public static final class Friend extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:pb.Friend)
+      FriendOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 28,
+        /* patch= */ 3,
+        /* suffix= */ "",
+        Friend.class.getName());
+    }
+    // Use Friend.newBuilder() to construct.
+    private Friend(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private Friend() {
+      username_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pb.FriendService.internal_static_pb_Friend_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pb.FriendService.internal_static_pb_Friend_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pb.FriendService.Friend.class, pb.FriendService.Friend.Builder.class);
+    }
+
+    public static final int USERNAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object username_ = "";
+    /**
+     * <code>string username = 1;</code>
+     * @return The username.
+     */
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        username_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string username = 1;</code>
+     * @return The bytes for username.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCEPT_FIELD_NUMBER = 2;
+    private boolean accept_ = false;
+    /**
+     * <code>bool accept = 2;</code>
+     * @return The accept.
+     */
+    @java.lang.Override
+    public boolean getAccept() {
+      return accept_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, username_);
+      }
+      if (accept_ != false) {
+        output.writeBool(2, accept_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, username_);
+      }
+      if (accept_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, accept_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pb.FriendService.Friend)) {
+        return super.equals(obj);
+      }
+      pb.FriendService.Friend other = (pb.FriendService.Friend) obj;
+
+      if (!getUsername()
+          .equals(other.getUsername())) return false;
+      if (getAccept()
+          != other.getAccept()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUsername().hashCode();
+      hash = (37 * hash) + ACCEPT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAccept());
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pb.FriendService.Friend parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.FriendService.Friend parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.FriendService.Friend parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.FriendService.Friend parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.FriendService.Friend parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.FriendService.Friend parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.FriendService.Friend parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.FriendService.Friend parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static pb.FriendService.Friend parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static pb.FriendService.Friend parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pb.FriendService.Friend parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.FriendService.Friend parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pb.FriendService.Friend prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code pb.Friend}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:pb.Friend)
+        pb.FriendService.FriendOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pb.FriendService.internal_static_pb_Friend_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pb.FriendService.internal_static_pb_Friend_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pb.FriendService.Friend.class, pb.FriendService.Friend.Builder.class);
+      }
+
+      // Construct using pb.FriendService.Friend.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        username_ = "";
+        accept_ = false;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pb.FriendService.internal_static_pb_Friend_descriptor;
+      }
+
+      @java.lang.Override
+      public pb.FriendService.Friend getDefaultInstanceForType() {
+        return pb.FriendService.Friend.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pb.FriendService.Friend build() {
+        pb.FriendService.Friend result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pb.FriendService.Friend buildPartial() {
+        pb.FriendService.Friend result = new pb.FriendService.Friend(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(pb.FriendService.Friend result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.username_ = username_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.accept_ = accept_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pb.FriendService.Friend) {
+          return mergeFrom((pb.FriendService.Friend)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pb.FriendService.Friend other) {
+        if (other == pb.FriendService.Friend.getDefaultInstance()) return this;
+        if (!other.getUsername().isEmpty()) {
+          username_ = other.username_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (other.getAccept() != false) {
+          setAccept(other.getAccept());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                username_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                accept_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object username_ = "";
+      /**
+       * <code>string username = 1;</code>
+       * @return The username.
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @return The bytes for username.
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @param value The username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        username_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUsername() {
+        username_ = getDefaultInstance().getUsername();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @param value The bytes for username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        username_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private boolean accept_ ;
+      /**
+       * <code>bool accept = 2;</code>
+       * @return The accept.
+       */
+      @java.lang.Override
+      public boolean getAccept() {
+        return accept_;
+      }
+      /**
+       * <code>bool accept = 2;</code>
+       * @param value The accept to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccept(boolean value) {
+
+        accept_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool accept = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccept() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        accept_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:pb.Friend)
+    }
+
+    // @@protoc_insertion_point(class_scope:pb.Friend)
+    private static final pb.FriendService.Friend DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pb.FriendService.Friend();
+    }
+
+    public static pb.FriendService.Friend getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Friend>
+        PARSER = new com.google.protobuf.AbstractParser<Friend>() {
+      @java.lang.Override
+      public Friend parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Friend> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Friend> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pb.FriendService.Friend getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AddFriendRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:pb.AddFriendRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -3008,6 +3591,751 @@ public final class FriendService {
 
   }
 
+  public interface GetFriendListResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:pb.GetFriendListResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    java.util.List<pb.FriendService.Friend> 
+        getFriendsList();
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    pb.FriendService.Friend getFriends(int index);
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    int getFriendsCount();
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    java.util.List<? extends pb.FriendService.FriendOrBuilder> 
+        getFriendsOrBuilderList();
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    pb.FriendService.FriendOrBuilder getFriendsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code pb.GetFriendListResponse}
+   */
+  public static final class GetFriendListResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:pb.GetFriendListResponse)
+      GetFriendListResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 28,
+        /* patch= */ 3,
+        /* suffix= */ "",
+        GetFriendListResponse.class.getName());
+    }
+    // Use GetFriendListResponse.newBuilder() to construct.
+    private GetFriendListResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFriendListResponse() {
+      friends_ = java.util.Collections.emptyList();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pb.FriendService.internal_static_pb_GetFriendListResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pb.FriendService.internal_static_pb_GetFriendListResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pb.FriendService.GetFriendListResponse.class, pb.FriendService.GetFriendListResponse.Builder.class);
+    }
+
+    public static final int FRIENDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private java.util.List<pb.FriendService.Friend> friends_;
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<pb.FriendService.Friend> getFriendsList() {
+      return friends_;
+    }
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends pb.FriendService.FriendOrBuilder> 
+        getFriendsOrBuilderList() {
+      return friends_;
+    }
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    @java.lang.Override
+    public int getFriendsCount() {
+      return friends_.size();
+    }
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    @java.lang.Override
+    public pb.FriendService.Friend getFriends(int index) {
+      return friends_.get(index);
+    }
+    /**
+     * <code>repeated .pb.Friend friends = 1;</code>
+     */
+    @java.lang.Override
+    public pb.FriendService.FriendOrBuilder getFriendsOrBuilder(
+        int index) {
+      return friends_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < friends_.size(); i++) {
+        output.writeMessage(1, friends_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < friends_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, friends_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pb.FriendService.GetFriendListResponse)) {
+        return super.equals(obj);
+      }
+      pb.FriendService.GetFriendListResponse other = (pb.FriendService.GetFriendListResponse) obj;
+
+      if (!getFriendsList()
+          .equals(other.getFriendsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getFriendsCount() > 0) {
+        hash = (37 * hash) + FRIENDS_FIELD_NUMBER;
+        hash = (53 * hash) + getFriendsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static pb.FriendService.GetFriendListResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static pb.FriendService.GetFriendListResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.FriendService.GetFriendListResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pb.FriendService.GetFriendListResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code pb.GetFriendListResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:pb.GetFriendListResponse)
+        pb.FriendService.GetFriendListResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pb.FriendService.internal_static_pb_GetFriendListResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pb.FriendService.internal_static_pb_GetFriendListResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pb.FriendService.GetFriendListResponse.class, pb.FriendService.GetFriendListResponse.Builder.class);
+      }
+
+      // Construct using pb.FriendService.GetFriendListResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (friendsBuilder_ == null) {
+          friends_ = java.util.Collections.emptyList();
+        } else {
+          friends_ = null;
+          friendsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pb.FriendService.internal_static_pb_GetFriendListResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public pb.FriendService.GetFriendListResponse getDefaultInstanceForType() {
+        return pb.FriendService.GetFriendListResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pb.FriendService.GetFriendListResponse build() {
+        pb.FriendService.GetFriendListResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pb.FriendService.GetFriendListResponse buildPartial() {
+        pb.FriendService.GetFriendListResponse result = new pb.FriendService.GetFriendListResponse(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(pb.FriendService.GetFriendListResponse result) {
+        if (friendsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            friends_ = java.util.Collections.unmodifiableList(friends_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.friends_ = friends_;
+        } else {
+          result.friends_ = friendsBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(pb.FriendService.GetFriendListResponse result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pb.FriendService.GetFriendListResponse) {
+          return mergeFrom((pb.FriendService.GetFriendListResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pb.FriendService.GetFriendListResponse other) {
+        if (other == pb.FriendService.GetFriendListResponse.getDefaultInstance()) return this;
+        if (friendsBuilder_ == null) {
+          if (!other.friends_.isEmpty()) {
+            if (friends_.isEmpty()) {
+              friends_ = other.friends_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureFriendsIsMutable();
+              friends_.addAll(other.friends_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.friends_.isEmpty()) {
+            if (friendsBuilder_.isEmpty()) {
+              friendsBuilder_.dispose();
+              friendsBuilder_ = null;
+              friends_ = other.friends_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              friendsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getFriendsFieldBuilder() : null;
+            } else {
+              friendsBuilder_.addAllMessages(other.friends_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                pb.FriendService.Friend m =
+                    input.readMessage(
+                        pb.FriendService.Friend.parser(),
+                        extensionRegistry);
+                if (friendsBuilder_ == null) {
+                  ensureFriendsIsMutable();
+                  friends_.add(m);
+                } else {
+                  friendsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<pb.FriendService.Friend> friends_ =
+        java.util.Collections.emptyList();
+      private void ensureFriendsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          friends_ = new java.util.ArrayList<pb.FriendService.Friend>(friends_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          pb.FriendService.Friend, pb.FriendService.Friend.Builder, pb.FriendService.FriendOrBuilder> friendsBuilder_;
+
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public java.util.List<pb.FriendService.Friend> getFriendsList() {
+        if (friendsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(friends_);
+        } else {
+          return friendsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public int getFriendsCount() {
+        if (friendsBuilder_ == null) {
+          return friends_.size();
+        } else {
+          return friendsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public pb.FriendService.Friend getFriends(int index) {
+        if (friendsBuilder_ == null) {
+          return friends_.get(index);
+        } else {
+          return friendsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder setFriends(
+          int index, pb.FriendService.Friend value) {
+        if (friendsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFriendsIsMutable();
+          friends_.set(index, value);
+          onChanged();
+        } else {
+          friendsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder setFriends(
+          int index, pb.FriendService.Friend.Builder builderForValue) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          friendsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder addFriends(pb.FriendService.Friend value) {
+        if (friendsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFriendsIsMutable();
+          friends_.add(value);
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder addFriends(
+          int index, pb.FriendService.Friend value) {
+        if (friendsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFriendsIsMutable();
+          friends_.add(index, value);
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder addFriends(
+          pb.FriendService.Friend.Builder builderForValue) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.add(builderForValue.build());
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder addFriends(
+          int index, pb.FriendService.Friend.Builder builderForValue) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder addAllFriends(
+          java.lang.Iterable<? extends pb.FriendService.Friend> values) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, friends_);
+          onChanged();
+        } else {
+          friendsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder clearFriends() {
+        if (friendsBuilder_ == null) {
+          friends_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          friendsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public Builder removeFriends(int index) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.remove(index);
+          onChanged();
+        } else {
+          friendsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public pb.FriendService.Friend.Builder getFriendsBuilder(
+          int index) {
+        return getFriendsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public pb.FriendService.FriendOrBuilder getFriendsOrBuilder(
+          int index) {
+        if (friendsBuilder_ == null) {
+          return friends_.get(index);  } else {
+          return friendsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public java.util.List<? extends pb.FriendService.FriendOrBuilder> 
+           getFriendsOrBuilderList() {
+        if (friendsBuilder_ != null) {
+          return friendsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(friends_);
+        }
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public pb.FriendService.Friend.Builder addFriendsBuilder() {
+        return getFriendsFieldBuilder().addBuilder(
+            pb.FriendService.Friend.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public pb.FriendService.Friend.Builder addFriendsBuilder(
+          int index) {
+        return getFriendsFieldBuilder().addBuilder(
+            index, pb.FriendService.Friend.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .pb.Friend friends = 1;</code>
+       */
+      public java.util.List<pb.FriendService.Friend.Builder> 
+           getFriendsBuilderList() {
+        return getFriendsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          pb.FriendService.Friend, pb.FriendService.Friend.Builder, pb.FriendService.FriendOrBuilder> 
+          getFriendsFieldBuilder() {
+        if (friendsBuilder_ == null) {
+          friendsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              pb.FriendService.Friend, pb.FriendService.Friend.Builder, pb.FriendService.FriendOrBuilder>(
+                  friends_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          friends_ = null;
+        }
+        return friendsBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:pb.GetFriendListResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:pb.GetFriendListResponse)
+    private static final pb.FriendService.GetFriendListResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pb.FriendService.GetFriendListResponse();
+    }
+
+    public static pb.FriendService.GetFriendListResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFriendListResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetFriendListResponse>() {
+      @java.lang.Override
+      public GetFriendListResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFriendListResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetFriendListResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pb.FriendService.GetFriendListResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_pb_Friend_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_pb_Friend_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_pb_AddFriendRequest_descriptor;
   private static final 
@@ -3038,6 +4366,11 @@ public final class FriendService {
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_pb_RemoveFriendRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_pb_GetFriendListResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_pb_GetFriendListResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3049,20 +4382,24 @@ public final class FriendService {
     java.lang.String[] descriptorData = {
       "\n\032proto/friend_service.proto\022\002pb\032\034google" +
       "/api/annotations.proto\032\027validate/validat" +
-      "e.proto\032\021proto/utils.proto\"-\n\020AddFriendR" +
-      "equest\022\031\n\010username\030\001 \001(\tB\007\372B\004r\002`\001\"$\n\021Add" +
-      "FriendResponse\022\017\n\007success\030\001 \001(\010\"C\n\026Answe" +
-      "rAddFriendRequest\022\031\n\010username\030\001 \001(\tB\007\372B\004" +
-      "r\002`\001\022\016\n\006accept\030\002 \001(\010\"3\n\026CheckFriendshipR" +
-      "equest\022\031\n\010username\030\001 \001(\tB\007\372B\004r\002`\001\")\n\027Che" +
-      "ckFriendshipResponse\022\016\n\006status\030\001 \001(\010\"0\n\023" +
-      "RemoveFriendRequest\022\031\n\010username\030\001 \001(\tB\007\372" +
-      "B\004r\002`\0012\300\001\n\020FriendApiService\022S\n\tAddFriend" +
-      "\022\024.pb.AddFriendRequest\032\025.pb.AddFriendRes" +
-      "ponse\"\031\202\323\344\223\002\023\"\016/api/v3/friend:\001*\022W\n\014Answ" +
-      "erFirend\022\032.pb.AnswerAddFriendRequest\032\t.p" +
-      "b.Empty\" \202\323\344\223\002\032\"\025/api/v3/friend/answer:\001" +
-      "*B\010Z\006com.deb\006proto3"
+      "e.proto\032\021proto/utils.proto\"*\n\006Friend\022\020\n\010" +
+      "username\030\001 \001(\t\022\016\n\006accept\030\002 \001(\010\"-\n\020AddFri" +
+      "endRequest\022\031\n\010username\030\001 \001(\tB\007\372B\004r\002`\001\"$\n" +
+      "\021AddFriendResponse\022\017\n\007success\030\001 \001(\010\"C\n\026A" +
+      "nswerAddFriendRequest\022\031\n\010username\030\001 \001(\tB" +
+      "\007\372B\004r\002`\001\022\016\n\006accept\030\002 \001(\010\"3\n\026CheckFriends" +
+      "hipRequest\022\031\n\010username\030\001 \001(\tB\007\372B\004r\002`\001\")\n" +
+      "\027CheckFriendshipResponse\022\016\n\006status\030\001 \001(\010" +
+      "\"0\n\023RemoveFriendRequest\022\031\n\010username\030\001 \001(" +
+      "\tB\007\372B\004r\002`\001\"4\n\025GetFriendListResponse\022\033\n\007f" +
+      "riends\030\001 \003(\0132\n.pb.Friend2\214\002\n\020FriendApiSe" +
+      "rvice\022J\n\nGetFriends\022\t.pb.Empty\032\031.pb.GetF" +
+      "riendListResponse\"\026\202\323\344\223\002\020\022\016/api/v3/frien" +
+      "d\022S\n\tAddFriend\022\024.pb.AddFriendRequest\032\025.p" +
+      "b.AddFriendResponse\"\031\202\323\344\223\002\023\"\016/api/v3/fri" +
+      "end:\001*\022W\n\014AnswerFirend\022\032.pb.AnswerAddFri" +
+      "endRequest\032\t.pb.Empty\" \202\323\344\223\002\032\"\025/api/v3/f" +
+      "riend/answer:\001*B\010Z\006com.deb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3071,42 +4408,54 @@ public final class FriendService {
           io.envoyproxy.pgv.validate.Validate.getDescriptor(),
           pb.Utils.getDescriptor(),
         });
-    internal_static_pb_AddFriendRequest_descriptor =
+    internal_static_pb_Friend_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_pb_Friend_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_pb_Friend_descriptor,
+        new java.lang.String[] { "Username", "Accept", });
+    internal_static_pb_AddFriendRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_pb_AddFriendRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_AddFriendRequest_descriptor,
         new java.lang.String[] { "Username", });
     internal_static_pb_AddFriendResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_pb_AddFriendResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_AddFriendResponse_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_pb_AnswerAddFriendRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_pb_AnswerAddFriendRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_AnswerAddFriendRequest_descriptor,
         new java.lang.String[] { "Username", "Accept", });
     internal_static_pb_CheckFriendshipRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_pb_CheckFriendshipRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_CheckFriendshipRequest_descriptor,
         new java.lang.String[] { "Username", });
     internal_static_pb_CheckFriendshipResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_pb_CheckFriendshipResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_CheckFriendshipResponse_descriptor,
         new java.lang.String[] { "Status", });
     internal_static_pb_RemoveFriendRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_pb_RemoveFriendRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_RemoveFriendRequest_descriptor,
         new java.lang.String[] { "Username", });
+    internal_static_pb_GetFriendListResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_pb_GetFriendListResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_pb_GetFriendListResponse_descriptor,
+        new java.lang.String[] { "Friends", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.api.AnnotationsProto.getDescriptor();
     io.envoyproxy.pgv.validate.Validate.getDescriptor();
