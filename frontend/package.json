@@ -21,7 +21,7 @@
     "socket.io-server": "^1.0.0-b",
     "typescript": "^5.6.3",
     "vue": "^3.2.13",
-    "vue-i18n": "^10.0.4",
+    "vue-i18n": "^10.0.5",
     "vue-router": "^4.0.3",
     "vuetify-pro-tiptap": "^2.5.4"
   },
