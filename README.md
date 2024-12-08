@@ -6,35 +6,9 @@
 
 NoteKeeper is a SpringBoot REST API designed for managing notes. It provides endpoints for creating, editing, deleting, and retrieving notes. The project also includes a Vue.js-based frontend, offering a user-friendly interface to interact with the API.
 
-![Frontend](/res-readme/Frontend.png)
+![Frontend](/assets/preview/frontend.png)
 
-## API Reference
-
-#### Get all items
-
-```http
-  GET /v3/notes
-```
-
-#### Get item
-
-```http
-  GET /v3/notes/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `integer` | **Required**. Id of item to fetch |
-
-#### Delete item
-
-```http
-  GET /v3/notes/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `integer` | **Required**. Id of item to delete |
+[API Reference](https://sergej-stk.github.io/notekeeper/)
 
 ## Run Locally (Linux)
 
