@@ -111,13 +111,13 @@ jobs:
           tags: ghcr.io/sergej-stk/notekeeper:latest
           labels: ${{ steps.meta.outputs.labels }}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
+        uses: actions/attest-build-provenance@v2
         with:
           subject-name: ghcr.io/sergej-stk/notekeeper
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
+        uses: actions/attest-build-provenance@v2
         with:
           subject-name: ghcr.io/sergej-stk/notekeeper
           subject-digest: ${{ steps.latestPush.outputs.digest }}
