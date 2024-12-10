@@ -23,7 +23,7 @@ const isLoggedIn = computed(() => {
 <template>
   <v-app :theme="mainStore.theme">
     <v-app-bar :elevation="2">
-      <v-app-bar-title>Application Bar</v-app-bar-title>
+      <v-app-bar-title>Notekeeper</v-app-bar-title>
       <template v-slot:append v-if="isLoggedIn">
         <v-btn icon="mdi-theme-light-dark" @click="toggleTheme"></v-btn>
         <v-btn icon="mdi-account">
