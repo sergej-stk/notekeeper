@@ -54,7 +54,7 @@ const hasChanges = computed(() => {
   <v-card class="mb-4">
     <v-card-title>
       <div class="d-flex flex-row justify-space-between">
-        <div class="mb-2">Anaonym {{ $d(props.note.timestamp, "long") }}</div>
+        <div class="mb-2">{{ props.note.user }} {{ $d(props.note.timestamp, "long") }}</div>
         <div class="d-flex flex-row">
           <v-icon icon="mdi-check-bold" v-if="editing" @click="performSave" />
           <v-icon icon="mdi-pencil" v-if="!editing" @click="performEdit" />
