@@ -1,5 +1,6 @@
 export type Note = {
   id: number;
+  user: number;
   text: string;
   timestamp: number;
 };
@@ -10,5 +11,6 @@ export type User = {
 };
 
 export type AddNoteRequest = {
+  user: number;
   text: string;
 };
