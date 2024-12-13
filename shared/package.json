@@ -1,4 +1,5 @@
 {
+  "name": "shared",
   "type": "module",
   "scripts": {
     "gen": "npm run proto && npm run swagger && npm run swagger:prepare && npm run copy",

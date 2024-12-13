@@ -1,11 +1,14 @@
-import { backendCall, HttpMethod } from "@/backend/Backend";
-import { authEndpoint, meEndpoint } from "@/constants";
+import { backendBlobCall, backendCall, HttpMethod } from "@/backend/Backend";
+import { authEndpoint, meEndpoint, userEndpoint } from "@/constants";
 import {
   LoginResponse,
   LoginRequest,
   RegisterRequest,
 } from "@/shared/gen/ts/proto/auth_service";
-import { GetMeResponse } from "@/shared/gen/ts/proto/user_service";
+import {
+  GetMeResponse,
+  GetUserResponse,
+} from "@/shared/gen/ts/proto/user_service";
 import axios, { AxiosResponse } from "axios";
 
 export async function login(
@@ -68,6 +71,42 @@ export async function getMe(): Promise<GetMeResponse | null> {
   const axiosResponse = await backendCall(
     HttpMethod.HTTP_METHOD_GET,
     meEndpoint
+  );
+
+  if (axiosResponse === null) {
+    return null;
+  }
+
+  if (axiosResponse.status !== 200) {
+    return null;
+  }
+
+  return axiosResponse.data;
+}
+
+export async function getUser(
+  username: string
+): Promise<GetUserResponse | null> {
+  const axiosResponse = await backendCall(
+    HttpMethod.HTTP_METHOD_GET,
+    userEndpoint + username
+  );
+
+  if (axiosResponse === null) {
+    return null;
+  }
+
+  if (axiosResponse.status !== 200) {
+    return null;
+  }
+
+  return axiosResponse.data;
+}
+
+export async function getUserPicture(username: string) {
+  const axiosResponse = await backendBlobCall(
+    HttpMethod.HTTP_METHOD_GET,
+    userEndpoint + username + "/picture"
   );
 
   if (axiosResponse === null) {

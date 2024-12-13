@@ -44,3 +44,39 @@ export async function backendCall(
 
   return response;
 }
+
+export async function backendBlobCall(
+  httpMethod: HttpMethod,
+  url: string,
+  body?: object
+): Promise<AxiosResponse<any, any> | null> {
+  const mainStore = useMainStore();
+
+  let response = null;
+
+  try {
+    response = await axios({
+      method: httpMethod.toString(),
+      headers:
+        mainStore.token !== null
+          ? { Authorization: `Bearer ${mainStore.token}` }
+          : undefined,
+      url,
+      responseType: "blob",
+      data: body,
+    });
+  } catch (e) {
+    response = null;
+  }
+
+  if (response === null) {
+    return null;
+  }
+
+  if (response.status === HttpStatusCode.Unauthorized) {
+    mainStore.logout();
+    return null;
+  }
+
+  return response;
+}

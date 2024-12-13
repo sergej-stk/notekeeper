@@ -13,11 +13,31 @@ message GetMeResponse {
     Me me = 1;
 }
 
+message User {
+    string username = 1;
+    string fullName = 2;
+}
+
+message GetUserRequest {
+    string username = 1;
+}
+
+message GetUserResponse {
+    User user = 1;
+}
+
 service UserApiService {
   // get me
   rpc getMe(Empty) returns (GetMeResponse) {
     option (google.api.http) = {
       get: "/api/v3/me"
     };
-  };
+  }
+
+  // get me
+  rpc getUser(GetUserRequest) returns (GetUserResponse) {
+      option (google.api.http) = {
+         get: "/api/v3/users/{username}"
+        };
+    };
 }

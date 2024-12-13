@@ -1253,6 +1253,1744 @@ public final class UserService {
 
   }
 
+  public interface UserOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:pb.User)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string username = 1;</code>
+     * @return The username.
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>string username = 1;</code>
+     * @return The bytes for username.
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    /**
+     * <code>string fullName = 2;</code>
+     * @return The fullName.
+     */
+    java.lang.String getFullName();
+    /**
+     * <code>string fullName = 2;</code>
+     * @return The bytes for fullName.
+     */
+    com.google.protobuf.ByteString
+        getFullNameBytes();
+  }
+  /**
+   * Protobuf type {@code pb.User}
+   */
+  public static final class User extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:pb.User)
+      UserOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 28,
+        /* patch= */ 3,
+        /* suffix= */ "",
+        User.class.getName());
+    }
+    // Use User.newBuilder() to construct.
+    private User(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private User() {
+      username_ = "";
+      fullName_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pb.UserService.internal_static_pb_User_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pb.UserService.internal_static_pb_User_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pb.UserService.User.class, pb.UserService.User.Builder.class);
+    }
+
+    public static final int USERNAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object username_ = "";
+    /**
+     * <code>string username = 1;</code>
+     * @return The username.
+     */
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        username_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string username = 1;</code>
+     * @return The bytes for username.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FULLNAME_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fullName_ = "";
+    /**
+     * <code>string fullName = 2;</code>
+     * @return The fullName.
+     */
+    @java.lang.Override
+    public java.lang.String getFullName() {
+      java.lang.Object ref = fullName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fullName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string fullName = 2;</code>
+     * @return The bytes for fullName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFullNameBytes() {
+      java.lang.Object ref = fullName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fullName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, username_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fullName_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, fullName_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, username_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fullName_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, fullName_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pb.UserService.User)) {
+        return super.equals(obj);
+      }
+      pb.UserService.User other = (pb.UserService.User) obj;
+
+      if (!getUsername()
+          .equals(other.getUsername())) return false;
+      if (!getFullName()
+          .equals(other.getFullName())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUsername().hashCode();
+      hash = (37 * hash) + FULLNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFullName().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pb.UserService.User parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.User parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.User parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.User parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.User parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.User parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.User parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.UserService.User parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static pb.UserService.User parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static pb.UserService.User parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pb.UserService.User parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.UserService.User parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pb.UserService.User prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code pb.User}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:pb.User)
+        pb.UserService.UserOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pb.UserService.internal_static_pb_User_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pb.UserService.internal_static_pb_User_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pb.UserService.User.class, pb.UserService.User.Builder.class);
+      }
+
+      // Construct using pb.UserService.User.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        username_ = "";
+        fullName_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pb.UserService.internal_static_pb_User_descriptor;
+      }
+
+      @java.lang.Override
+      public pb.UserService.User getDefaultInstanceForType() {
+        return pb.UserService.User.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pb.UserService.User build() {
+        pb.UserService.User result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pb.UserService.User buildPartial() {
+        pb.UserService.User result = new pb.UserService.User(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(pb.UserService.User result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.username_ = username_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.fullName_ = fullName_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pb.UserService.User) {
+          return mergeFrom((pb.UserService.User)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pb.UserService.User other) {
+        if (other == pb.UserService.User.getDefaultInstance()) return this;
+        if (!other.getUsername().isEmpty()) {
+          username_ = other.username_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getFullName().isEmpty()) {
+          fullName_ = other.fullName_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                username_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                fullName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object username_ = "";
+      /**
+       * <code>string username = 1;</code>
+       * @return The username.
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @return The bytes for username.
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @param value The username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        username_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUsername() {
+        username_ = getDefaultInstance().getUsername();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @param value The bytes for username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        username_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fullName_ = "";
+      /**
+       * <code>string fullName = 2;</code>
+       * @return The fullName.
+       */
+      public java.lang.String getFullName() {
+        java.lang.Object ref = fullName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fullName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string fullName = 2;</code>
+       * @return The bytes for fullName.
+       */
+      public com.google.protobuf.ByteString
+          getFullNameBytes() {
+        java.lang.Object ref = fullName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fullName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string fullName = 2;</code>
+       * @param value The fullName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFullName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        fullName_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fullName = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFullName() {
+        fullName_ = getDefaultInstance().getFullName();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fullName = 2;</code>
+       * @param value The bytes for fullName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFullNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        fullName_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:pb.User)
+    }
+
+    // @@protoc_insertion_point(class_scope:pb.User)
+    private static final pb.UserService.User DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pb.UserService.User();
+    }
+
+    public static pb.UserService.User getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<User>
+        PARSER = new com.google.protobuf.AbstractParser<User>() {
+      @java.lang.Override
+      public User parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<User> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<User> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pb.UserService.User getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetUserRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:pb.GetUserRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string username = 1;</code>
+     * @return The username.
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>string username = 1;</code>
+     * @return The bytes for username.
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+  }
+  /**
+   * Protobuf type {@code pb.GetUserRequest}
+   */
+  public static final class GetUserRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:pb.GetUserRequest)
+      GetUserRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 28,
+        /* patch= */ 3,
+        /* suffix= */ "",
+        GetUserRequest.class.getName());
+    }
+    // Use GetUserRequest.newBuilder() to construct.
+    private GetUserRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserRequest() {
+      username_ = "";
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pb.UserService.internal_static_pb_GetUserRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pb.UserService.internal_static_pb_GetUserRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pb.UserService.GetUserRequest.class, pb.UserService.GetUserRequest.Builder.class);
+    }
+
+    public static final int USERNAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object username_ = "";
+    /**
+     * <code>string username = 1;</code>
+     * @return The username.
+     */
+    @java.lang.Override
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        username_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string username = 1;</code>
+     * @return The bytes for username.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, username_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, username_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pb.UserService.GetUserRequest)) {
+        return super.equals(obj);
+      }
+      pb.UserService.GetUserRequest other = (pb.UserService.GetUserRequest) obj;
+
+      if (!getUsername()
+          .equals(other.getUsername())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUsername().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pb.UserService.GetUserRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static pb.UserService.GetUserRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static pb.UserService.GetUserRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.UserService.GetUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pb.UserService.GetUserRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code pb.GetUserRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:pb.GetUserRequest)
+        pb.UserService.GetUserRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pb.UserService.internal_static_pb_GetUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pb.UserService.internal_static_pb_GetUserRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pb.UserService.GetUserRequest.class, pb.UserService.GetUserRequest.Builder.class);
+      }
+
+      // Construct using pb.UserService.GetUserRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        username_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pb.UserService.internal_static_pb_GetUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public pb.UserService.GetUserRequest getDefaultInstanceForType() {
+        return pb.UserService.GetUserRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pb.UserService.GetUserRequest build() {
+        pb.UserService.GetUserRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pb.UserService.GetUserRequest buildPartial() {
+        pb.UserService.GetUserRequest result = new pb.UserService.GetUserRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(pb.UserService.GetUserRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.username_ = username_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pb.UserService.GetUserRequest) {
+          return mergeFrom((pb.UserService.GetUserRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pb.UserService.GetUserRequest other) {
+        if (other == pb.UserService.GetUserRequest.getDefaultInstance()) return this;
+        if (!other.getUsername().isEmpty()) {
+          username_ = other.username_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                username_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object username_ = "";
+      /**
+       * <code>string username = 1;</code>
+       * @return The username.
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @return The bytes for username.
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @param value The username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        username_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUsername() {
+        username_ = getDefaultInstance().getUsername();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string username = 1;</code>
+       * @param value The bytes for username to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        username_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:pb.GetUserRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:pb.GetUserRequest)
+    private static final pb.UserService.GetUserRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pb.UserService.GetUserRequest();
+    }
+
+    public static pb.UserService.GetUserRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserRequest>() {
+      @java.lang.Override
+      public GetUserRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pb.UserService.GetUserRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetUserResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:pb.GetUserResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.pb.User user = 1;</code>
+     * @return Whether the user field is set.
+     */
+    boolean hasUser();
+    /**
+     * <code>.pb.User user = 1;</code>
+     * @return The user.
+     */
+    pb.UserService.User getUser();
+    /**
+     * <code>.pb.User user = 1;</code>
+     */
+    pb.UserService.UserOrBuilder getUserOrBuilder();
+  }
+  /**
+   * Protobuf type {@code pb.GetUserResponse}
+   */
+  public static final class GetUserResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:pb.GetUserResponse)
+      GetUserResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 28,
+        /* patch= */ 3,
+        /* suffix= */ "",
+        GetUserResponse.class.getName());
+    }
+    // Use GetUserResponse.newBuilder() to construct.
+    private GetUserResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserResponse() {
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return pb.UserService.internal_static_pb_GetUserResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return pb.UserService.internal_static_pb_GetUserResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              pb.UserService.GetUserResponse.class, pb.UserService.GetUserResponse.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int USER_FIELD_NUMBER = 1;
+    private pb.UserService.User user_;
+    /**
+     * <code>.pb.User user = 1;</code>
+     * @return Whether the user field is set.
+     */
+    @java.lang.Override
+    public boolean hasUser() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.pb.User user = 1;</code>
+     * @return The user.
+     */
+    @java.lang.Override
+    public pb.UserService.User getUser() {
+      return user_ == null ? pb.UserService.User.getDefaultInstance() : user_;
+    }
+    /**
+     * <code>.pb.User user = 1;</code>
+     */
+    @java.lang.Override
+    public pb.UserService.UserOrBuilder getUserOrBuilder() {
+      return user_ == null ? pb.UserService.User.getDefaultInstance() : user_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(1, getUser());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getUser());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof pb.UserService.GetUserResponse)) {
+        return super.equals(obj);
+      }
+      pb.UserService.GetUserResponse other = (pb.UserService.GetUserResponse) obj;
+
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser()
+            .equals(other.getUser())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static pb.UserService.GetUserResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static pb.UserService.GetUserResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static pb.UserService.GetUserResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static pb.UserService.GetUserResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(pb.UserService.GetUserResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code pb.GetUserResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:pb.GetUserResponse)
+        pb.UserService.GetUserResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return pb.UserService.internal_static_pb_GetUserResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return pb.UserService.internal_static_pb_GetUserResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                pb.UserService.GetUserResponse.class, pb.UserService.GetUserResponse.Builder.class);
+      }
+
+      // Construct using pb.UserService.GetUserResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage
+                .alwaysUseFieldBuilders) {
+          getUserFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        user_ = null;
+        if (userBuilder_ != null) {
+          userBuilder_.dispose();
+          userBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return pb.UserService.internal_static_pb_GetUserResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public pb.UserService.GetUserResponse getDefaultInstanceForType() {
+        return pb.UserService.GetUserResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public pb.UserService.GetUserResponse build() {
+        pb.UserService.GetUserResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public pb.UserService.GetUserResponse buildPartial() {
+        pb.UserService.GetUserResponse result = new pb.UserService.GetUserResponse(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(pb.UserService.GetUserResponse result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.user_ = userBuilder_ == null
+              ? user_
+              : userBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof pb.UserService.GetUserResponse) {
+          return mergeFrom((pb.UserService.GetUserResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(pb.UserService.GetUserResponse other) {
+        if (other == pb.UserService.GetUserResponse.getDefaultInstance()) return this;
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getUserFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private pb.UserService.User user_;
+      private com.google.protobuf.SingleFieldBuilder<
+          pb.UserService.User, pb.UserService.User.Builder, pb.UserService.UserOrBuilder> userBuilder_;
+      /**
+       * <code>.pb.User user = 1;</code>
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       * @return The user.
+       */
+      public pb.UserService.User getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? pb.UserService.User.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       */
+      public Builder setUser(pb.UserService.User value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+        } else {
+          userBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       */
+      public Builder setUser(
+          pb.UserService.User.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       */
+      public Builder mergeUser(pb.UserService.User value) {
+        if (userBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            user_ != null &&
+            user_ != pb.UserService.User.getDefaultInstance()) {
+            getUserBuilder().mergeFrom(value);
+          } else {
+            user_ = value;
+          }
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+        if (user_ != null) {
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       */
+      public Builder clearUser() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        user_ = null;
+        if (userBuilder_ != null) {
+          userBuilder_.dispose();
+          userBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       */
+      public pb.UserService.User.Builder getUserBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       */
+      public pb.UserService.UserOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              pb.UserService.User.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <code>.pb.User user = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          pb.UserService.User, pb.UserService.User.Builder, pb.UserService.UserOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              pb.UserService.User, pb.UserService.User.Builder, pb.UserService.UserOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:pb.GetUserResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:pb.GetUserResponse)
+    private static final pb.UserService.GetUserResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new pb.UserService.GetUserResponse();
+    }
+
+    public static pb.UserService.GetUserResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserResponse>() {
+      @java.lang.Override
+      public GetUserResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public pb.UserService.GetUserResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_pb_Me_descriptor;
   private static final 
@@ -1263,6 +3001,21 @@ public final class UserService {
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_pb_GetMeResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_pb_User_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_pb_User_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_pb_GetUserRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_pb_GetUserRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_pb_GetUserResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_pb_GetUserResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1273,18 +3026,22 @@ public final class UserService {
   static {
     java.lang.String[] descriptorData = {
       "\n\030proto/user_service.proto\022\002pb\032\034google/a" +
-      "pi/annotations.proto\032\027validate/validate." +
-      "proto\032\021proto/utils.proto\"(\n\002Me\022\020\n\010userna" +
-      "me\030\001 \001(\t\022\020\n\010fullName\030\002 \001(\t\"#\n\rGetMeRespo" +
-      "nse\022\022\n\002me\030\001 \001(\0132\006.pb.Me2K\n\016UserApiServic" +
-      "e\0229\n\005getMe\022\t.pb.Empty\032\021.pb.GetMeResponse" +
-      "\"\022\202\323\344\223\002\014\022\n/api/v3/meB\010Z\006com.deb\006proto3"
+      "pi/annotations.proto\032\021proto/utils.proto\"" +
+      "(\n\002Me\022\020\n\010username\030\001 \001(\t\022\020\n\010fullName\030\002 \001(" +
+      "\t\"#\n\rGetMeResponse\022\022\n\002me\030\001 \001(\0132\006.pb.Me\"*" +
+      "\n\004User\022\020\n\010username\030\001 \001(\t\022\020\n\010fullName\030\002 \001" +
+      "(\t\"\"\n\016GetUserRequest\022\020\n\010username\030\001 \001(\t\")" +
+      "\n\017GetUserResponse\022\026\n\004user\030\001 \001(\0132\010.pb.Use" +
+      "r2\241\001\n\016UserApiService\0229\n\005getMe\022\t.pb.Empty" +
+      "\032\021.pb.GetMeResponse\"\022\202\323\344\223\002\014\022\n/api/v3/me\022" +
+      "T\n\007getUser\022\022.pb.GetUserRequest\032\023.pb.GetU" +
+      "serResponse\" \202\323\344\223\002\032\022\030/api/v3/users/{user" +
+      "name}B\010Z\006com.deb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
-          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
           pb.Utils.getDescriptor(),
         });
     internal_static_pb_Me_descriptor =
@@ -1299,9 +3056,26 @@ public final class UserService {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_pb_GetMeResponse_descriptor,
         new java.lang.String[] { "Me", });
+    internal_static_pb_User_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_pb_User_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_pb_User_descriptor,
+        new java.lang.String[] { "Username", "FullName", });
+    internal_static_pb_GetUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_pb_GetUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_pb_GetUserRequest_descriptor,
+        new java.lang.String[] { "Username", });
+    internal_static_pb_GetUserResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_pb_GetUserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_pb_GetUserResponse_descriptor,
+        new java.lang.String[] { "User", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.api.AnnotationsProto.getDescriptor();
-    io.envoyproxy.pgv.validate.Validate.getDescriptor();
     pb.Utils.getDescriptor();
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();

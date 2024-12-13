@@ -3,21 +3,15 @@ package com.example.notekeeper.modules;
 import java.io.IOException;
 import java.util.List;
 
+import com.example.notekeeper.authapi.entities.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 import com.corundumstudio.socketio.HandshakeData;
 import com.corundumstudio.socketio.SocketIONamespace;
@@ -45,7 +39,7 @@ public class NoteController {
     public NoteController(NoteService service, SocketServer server) {
         this.service = service;
 
-        Note note = new Note();
+        /*Note note = new Note();
         note.headline = "head";
         note.text = "text";
 
@@ -56,7 +50,7 @@ public class NoteController {
         note.text = "text";
 
         this.service.post(note);
-
+*/
         this.namespace = server.getNamespace("/notes").getSocketIoNamespace();
         //this.namespace.addConnectListener(onConnected());
         // this.namespace.addDisconnectListener(onDisconnected());
@@ -86,8 +80,8 @@ public class NoteController {
     }*/
     @GetMapping
     @CrossOrigin
-    public ResponseEntity<List<Note>> getAll() {
-        return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
+    public @ResponseBody pb.NoteService.GetAllNotesResponse getAll() {
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
@@ -100,9 +94,11 @@ public class NoteController {
     @PostMapping
     @CrossOrigin
     public void post(@RequestBody PostRequestBody note, HttpServletRequest request, HttpServletResponse response) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = (User) authentication.getPrincipal();
         try {
             System.out.println("post data+: " + note.toString());
-            Note result = service.post(Note.noteFromBody(note));
+            Note result = service.post(Note.noteFromBody(note, currentUser));
             String requestUrl = request.getRequestURL().toString();
             this.namespace.getBroadcastOperations().sendEvent("addNote", result);
             response.setHeader("location", requestUrl + "/" + result.id);
@@ -117,7 +113,10 @@ public class NoteController {
     @PutMapping("/{id}")
     @CrossOrigin
     public ResponseEntity<Note> put(@PathVariable int id, @RequestBody PostRequestBody note) {
-        Note result = service.put(id, Note.noteFromBody(note));
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = (User) authentication.getPrincipal();
+
+        Note result = service.put(id, Note.noteFromBody(note, currentUser));
         this.namespace.getBroadcastOperations().sendEvent("editNote", result);
         return result == null ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(result, HttpStatus.CREATED);
     }

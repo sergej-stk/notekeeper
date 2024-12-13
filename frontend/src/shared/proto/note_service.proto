@@ -1,0 +1,27 @@
+syntax= "proto3";
+package pb;
+option go_package = "com.de";
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "proto/utils.proto";
+
+message Note {
+  int32 id = 1;
+  string username = 2;
+  string timestamp = 3;
+  string text = 4;
+}
+
+message GetAllNotesResponse {
+  repeated Note notes = 1;
+}
+
+  service NoteApiService {
+    // load all notes
+    rpc getAllNotes(Empty) returns (GetAllNotesResponse) {
+      option (google.api.http) = {
+        get: "/api/v3/notes"
+      };
+    };
+
+  }

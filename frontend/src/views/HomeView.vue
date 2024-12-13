@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { loadAllNotes, addNote } from "@/middleware/NotesManager";
 import { useMainStore } from "@/store/mainStore";
-import { Note } from "@/types";
 import { io } from "socket.io-client";
 import { ref, onMounted, computed } from "vue";
 import { VuetifyTiptap } from "vuetify-pro-tiptap";
 import NoteElement from "@/components/NoteElement.vue";
+import { Note } from "@/shared/gen/ts/proto/note_service";
 
 const notes = ref<Note[]>([]);
 
@@ -47,7 +47,7 @@ async function loadNotes() {
   if (allNotes === null) {
     return;
   }
-  notes.value = allNotes;
+  notes.value = allNotes.notes;
 }
 
 async function performSave() {

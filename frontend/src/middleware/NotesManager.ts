@@ -1,8 +1,9 @@
 import { backendCall, HttpMethod } from "@/backend/Backend";
 import { endpoint } from "@/constants";
+import { GetAllNotesResponse } from "@/shared/gen/ts/proto/note_service";
 import { AddNoteRequest, Note } from "@/types";
 
-export async function loadAllNotes(): Promise<Note[] | null> {
+export async function loadAllNotes(): Promise<GetAllNotesResponse | null> {
   const axiosResponse = await backendCall(HttpMethod.HTTP_METHOD_GET, endpoint);
 
   if (axiosResponse === null) {
