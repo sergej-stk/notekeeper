@@ -1,12 +1,16 @@
-import { User } from "@/types";
+import { getUser } from "@/middleware/UserManager";
+import { User } from "@/shared/gen/ts/proto/user_service";
+import { User as OldUser } from "@/types";
 import { defineStore } from "pinia";
 import { Router } from "vue-router";
 
 type MainStore = {
   theme: "light" | "dark";
-  user: User | null;
+  user: OldUser | null;
   token: string | null;
   router: Router | null;
+  selectingUser: boolean;
+  selectedUser: User | null;
 };
 
 export const useMainStore = defineStore("mainStore", {
@@ -16,6 +20,8 @@ export const useMainStore = defineStore("mainStore", {
       user: null,
       token: null,
       router: null,
+      selectingUser: false,
+      selectedUser: null,
     };
   },
   actions: {
@@ -25,6 +31,11 @@ export const useMainStore = defineStore("mainStore", {
         username: token,
       };
       this.token = token;
+    },
+    async selectUser(username: string) {
+      this.selectingUser = true;
+      const response = await getUser(username);
+      this.selectedUser = response?.user ?? null;
     },
     logout() {
       this.token = null;

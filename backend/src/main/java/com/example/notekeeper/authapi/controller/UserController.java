@@ -1,20 +1,28 @@
 package com.example.notekeeper.authapi.controller;
 
-import java.util.List;
-
+import com.example.notekeeper.authapi.entities.User;
+import com.example.notekeeper.authapi.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.example.notekeeper.authapi.entities.User;
-import com.example.notekeeper.authapi.services.UserService;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 @RequestMapping("/api/v3/users")
 @RestController
 public class UserController {
+
+    @Value("${file.upload-dir}")
+    private String uploadDir;
 
     private final UserService userService;
 
@@ -22,26 +30,40 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/me")
-    public ResponseEntity<User> authenticatedUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User currentUser = (User) authentication.getPrincipal();
+    @GetMapping("/{username}")
+    public @ResponseBody pb.UserService.GetUserResponse getUser(@PathVariable String username) {
+        User user = userService.getUser(username);
 
-        return ResponseEntity.ok(currentUser);
+        if (user == null) {
+            return null;
+        }
+
+        return pb.UserService.GetUserResponse
+                .newBuilder()
+                .setUser(
+                        pb.UserService.User
+                                .newBuilder()
+                                .setFullName(user.getFullName())
+                                .setUsername(user.getUsername())
+                                .build())
+                .build();
     }
 
-    @GetMapping("/me/settings")
-    public ResponseEntity<List<User>> getSettings() {
-        List<User> users = userService.allUsers();
+    @GetMapping("/{username}/picture")
+    public ResponseEntity<Resource> getUserPicture(@PathVariable String username) {
+        try {
+            Path filePath = Paths.get(uploadDir).resolve(username);
+            Resource resource = new UrlResource(filePath.toUri());
 
-        return ResponseEntity.ok(users);
+            if (resource.exists()) {
+                return ResponseEntity.ok()
+                        .contentType(MediaType.IMAGE_JPEG)
+                        .body(resource);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (MalformedURLException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
-
-    @GetMapping
-    public ResponseEntity<List<User>> allUsers() {
-        List<User> users = userService.allUsers();
-
-        return ResponseEntity.ok(users);
-    }
-
 }

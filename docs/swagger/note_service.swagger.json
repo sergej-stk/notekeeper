@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "proto/user_service.proto",
+    "title": "proto/note_service.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "UserApiService"
+      "name": "NoteApiService"
     }
   ],
   "consumes": [
@@ -16,15 +16,15 @@
     "application/json"
   ],
   "paths": {
-    "/api/v3/me": {
+    "/api/v3/notes": {
       "get": {
-        "summary": "get me",
-        "operationId": "UserApiService_getMe",
+        "summary": "load all notes",
+        "operationId": "NoteApiService_getAllNotes",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/pbGetMeResponse"
+              "$ref": "#/definitions/pbGetAllNotesResponse"
             }
           },
           "default": {
@@ -35,77 +35,38 @@
           }
         },
         "tags": [
-          "UserApiService"
-        ]
-      }
-    },
-    "/api/v3/users/{username}": {
-      "get": {
-        "summary": "get me",
-        "operationId": "UserApiService_getUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/pbGetUserResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "UserApiService"
+          "NoteApiService"
         ]
       }
     }
   },
   "definitions": {
-    "pbGetMeResponse": {
+    "pbGetAllNotesResponse": {
       "type": "object",
       "properties": {
-        "me": {
-          "$ref": "#/definitions/pbMe"
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/pbNote"
+          }
         }
       }
     },
-    "pbGetUserResponse": {
+    "pbNote": {
       "type": "object",
       "properties": {
-        "user": {
-          "$ref": "#/definitions/pbUser"
-        }
-      }
-    },
-    "pbMe": {
-      "type": "object",
-      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
         "username": {
           "type": "string"
         },
-        "fullName": {
-          "type": "string"
-        }
-      }
-    },
-    "pbUser": {
-      "type": "object",
-      "properties": {
-        "username": {
+        "timestamp": {
           "type": "string"
         },
-        "fullName": {
+        "text": {
           "type": "string"
         }
       }

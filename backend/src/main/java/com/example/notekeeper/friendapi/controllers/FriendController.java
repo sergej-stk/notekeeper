@@ -17,11 +17,15 @@ import com.example.notekeeper.friendapi.entities.Friend;
 import com.example.notekeeper.friendapi.repositories.FriendRepository;
 import com.example.notekeeper.validation.GrpcValidation;
 
+import pb.FriendService;
 import pb.FriendService.AddFriendRequest;
 import pb.FriendService.AddFriendResponse;
 import pb.FriendService.AnswerAddFriendRequest;
 import pb.FriendServiceValidator.AddFriendRequestValidator;
 import pb.FriendServiceValidator.AnswerAddFriendRequestValidator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/api/v3/friend")
 @RestController
@@ -77,5 +81,27 @@ public class FriendController {
         friend.setAccapted(answerAddFriendRequest.getAccept());
         this.friendRepository.save(friend);
         return true; 
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @CrossOrigin
+    public @ResponseBody FriendService.GetFriendListResponse getFriends() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = (User) authentication.getPrincipal();
+        List<Friend> dbFriends = this.friendRepository.findByUserOrTarget(currentUser);
+
+        if (dbFriends == null) {
+            return null;
+        }
+
+        List<FriendService.Friend> friends = new ArrayList<>();
+
+        for (Friend friend : dbFriends) {
+            String friendUsername = friend.getOther(currentUser).getUsername();
+
+            friends.add(FriendService.Friend.newBuilder().setUsername(friendUsername).setAccept(friend.getAccepted()).build());
+        }
+
+        return FriendService.GetFriendListResponse.newBuilder().addAllFriends(friends).build();
     }
 }

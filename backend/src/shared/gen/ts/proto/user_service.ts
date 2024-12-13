@@ -34,6 +34,37 @@ export interface GetMeResponse {
      */
     me?: Me;
 }
+/**
+ * @generated from protobuf message pb.User
+ */
+export interface User {
+    /**
+     * @generated from protobuf field: string username = 1;
+     */
+    username: string;
+    /**
+     * @generated from protobuf field: string fullName = 2;
+     */
+    fullName: string;
+}
+/**
+ * @generated from protobuf message pb.GetUserRequest
+ */
+export interface GetUserRequest {
+    /**
+     * @generated from protobuf field: string username = 1;
+     */
+    username: string;
+}
+/**
+ * @generated from protobuf message pb.GetUserResponse
+ */
+export interface GetUserResponse {
+    /**
+     * @generated from protobuf field: pb.User user = 1;
+     */
+    user?: User;
+}
 // @generated message type with reflection information, may provide speed optimized methods
 class Me$Type extends MessageType<Me> {
     constructor() {
@@ -135,9 +166,158 @@ class GetMeResponse$Type extends MessageType<GetMeResponse> {
  * @generated MessageType for protobuf message pb.GetMeResponse
  */
 export const GetMeResponse = new GetMeResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class User$Type extends MessageType<User> {
+    constructor() {
+        super("pb.User", [
+            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "fullName", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<User>): User {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.username = "";
+        message.fullName = "";
+        if (value !== undefined)
+            reflectionMergePartial<User>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: User): User {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string username */ 1:
+                    message.username = reader.string();
+                    break;
+                case /* string fullName */ 2:
+                    message.fullName = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: User, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string username = 1; */
+        if (message.username !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.username);
+        /* string fullName = 2; */
+        if (message.fullName !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.fullName);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message pb.User
+ */
+export const User = new User$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class GetUserRequest$Type extends MessageType<GetUserRequest> {
+    constructor() {
+        super("pb.GetUserRequest", [
+            { no: 1, name: "username", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<GetUserRequest>): GetUserRequest {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.username = "";
+        if (value !== undefined)
+            reflectionMergePartial<GetUserRequest>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: GetUserRequest): GetUserRequest {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string username */ 1:
+                    message.username = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: GetUserRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string username = 1; */
+        if (message.username !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.username);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message pb.GetUserRequest
+ */
+export const GetUserRequest = new GetUserRequest$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class GetUserResponse$Type extends MessageType<GetUserResponse> {
+    constructor() {
+        super("pb.GetUserResponse", [
+            { no: 1, name: "user", kind: "message", T: () => User }
+        ]);
+    }
+    create(value?: PartialMessage<GetUserResponse>): GetUserResponse {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<GetUserResponse>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: GetUserResponse): GetUserResponse {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* pb.User user */ 1:
+                    message.user = User.internalBinaryRead(reader, reader.uint32(), options, message.user);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: GetUserResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* pb.User user = 1; */
+        if (message.user)
+            User.internalBinaryWrite(message.user, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message pb.GetUserResponse
+ */
+export const GetUserResponse = new GetUserResponse$Type();
 /**
  * @generated ServiceType for protobuf service pb.UserApiService
  */
 export const UserApiService = new ServiceType("pb.UserApiService", [
-    { name: "getMe", options: { "google.api.http": { get: "/api/v3/me" } }, I: Empty, O: GetMeResponse }
+    { name: "getMe", options: { "google.api.http": { get: "/api/v3/me" } }, I: Empty, O: GetMeResponse },
+    { name: "getUser", options: { "google.api.http": { get: "/api/v3/users/{username}" } }, I: GetUserRequest, O: GetUserResponse }
 ]);
