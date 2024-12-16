@@ -78,6 +78,10 @@ public class User implements UserDetails {
         return this;
     }
 
+    public String getFullName() {
+        return this.fullName;
+    }
+
     public User setFullName(String value) {
         this.fullName = value;
         return this;

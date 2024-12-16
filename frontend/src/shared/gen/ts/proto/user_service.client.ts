@@ -4,6 +4,8 @@
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
 import { UserApiService } from "./user_service";
+import type { GetUserResponse } from "./user_service";
+import type { GetUserRequest } from "./user_service";
 import { stackIntercept } from "@protobuf-ts/runtime-rpc";
 import type { GetMeResponse } from "./user_service";
 import type { Empty } from "./utils";
@@ -14,11 +16,17 @@ import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
  */
 export interface IUserApiServiceClient {
     /**
-     * get
+     * get me
      *
      * @generated from protobuf rpc: getMe(pb.Empty) returns (pb.GetMeResponse);
      */
     getMe(input: Empty, options?: RpcOptions): UnaryCall<Empty, GetMeResponse>;
+    /**
+     * get me
+     *
+     * @generated from protobuf rpc: getUser(pb.GetUserRequest) returns (pb.GetUserResponse);
+     */
+    getUser(input: GetUserRequest, options?: RpcOptions): UnaryCall<GetUserRequest, GetUserResponse>;
 }
 /**
  * @generated from protobuf service pb.UserApiService
@@ -30,12 +38,21 @@ export class UserApiServiceClient implements IUserApiServiceClient, ServiceInfo 
     constructor(private readonly _transport: RpcTransport) {
     }
     /**
-     * get
+     * get me
      *
      * @generated from protobuf rpc: getMe(pb.Empty) returns (pb.GetMeResponse);
      */
     getMe(input: Empty, options?: RpcOptions): UnaryCall<Empty, GetMeResponse> {
         const method = this.methods[0], opt = this._transport.mergeOptions(options);
         return stackIntercept<Empty, GetMeResponse>("unary", this._transport, method, opt, input);
+    }
+    /**
+     * get me
+     *
+     * @generated from protobuf rpc: getUser(pb.GetUserRequest) returns (pb.GetUserResponse);
+     */
+    getUser(input: GetUserRequest, options?: RpcOptions): UnaryCall<GetUserRequest, GetUserResponse> {
+        const method = this.methods[1], opt = this._transport.mergeOptions(options);
+        return stackIntercept<GetUserRequest, GetUserResponse>("unary", this._transport, method, opt, input);
     }
 }

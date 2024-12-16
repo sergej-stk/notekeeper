@@ -1,9 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { Note } from "@/types";
 import { computed, defineProps, ref } from "vue";
 import ConfirmDialog from "./dialogs/ConfirmDialog.vue";
 import { removeNote, updateNote } from "@/middleware/NotesManager";
+import { Note } from "@/shared/gen/ts/proto/note_service";
+import { useMainStore } from "@/store/mainStore";
 
 const props = defineProps<{ note: Note }>();
 
@@ -38,7 +39,11 @@ function stopEditing() {
 function performSave() {
   const newNote = { ...props.note };
   newNote.text = editValue.value;
-  updateNote(newNote);
+  updateNote({
+    id: newNote.id,
+    text: newNote.text,
+    timestamp: 0,
+  });
   stopEditing();
 }
 
@@ -49,12 +54,21 @@ function performResetEditing() {
 const hasChanges = computed(() => {
   return props.note.text !== editValue.value;
 });
+
+function selectUser(username: string) {
+  void useMainStore().selectUser(username);
+}
 </script>
 <template>
   <v-card class="mb-4">
     <v-card-title>
       <div class="d-flex flex-row justify-space-between">
-        <div class="mb-2">Anaonym {{ $d(props.note.timestamp, "long") }}</div>
+        <div class="mb-2">
+          <span class="username" @click="selectUser(props.note.username)">{{
+            props.note.username
+          }}</span>
+          {{ $d(new Date(props.note.timestamp), "long") }}
+        </div>
         <div class="d-flex flex-row">
           <v-icon icon="mdi-check-bold" v-if="editing" @click="performSave" />
           <v-icon icon="mdi-pencil" v-if="!editing" @click="performEdit" />
@@ -95,5 +109,9 @@ div {
 }
 div[contenteditable="true"] {
   outline: 1px solid black;
+}
+
+.username {
+  cursor: pointer;
 }
 </style>

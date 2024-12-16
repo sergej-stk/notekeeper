@@ -51,8 +51,19 @@ public class Friend {
     this.target = target;
    }
 
+   public User getOther(User user) {
+       if (this.user == user) {
+           return this.target;
+       }
+       return this.user;
+   }
+
    public void setAccapted(Boolean accepted) {
     this.accepted = accepted;
+   }
+
+   public Boolean getAccepted() {
+       return this.accepted;
    }
     // Getters and setters
 }

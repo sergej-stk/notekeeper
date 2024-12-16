@@ -28,10 +28,10 @@ public class NoteService {
     }
 
     public List<Note> find(String string) {
-        List<Note> noteList = this.getAll();
+        Iterable<Note> dbNotes = this.noteRepository.findAll();
         List<Note> foundNotes = new ArrayList<>();
 
-        for (Note note : noteList) {
+        for (Note note : dbNotes) {
             if (!note.text.contains(string)) {
                 continue;
             }
@@ -41,9 +41,23 @@ public class NoteService {
         return foundNotes;
     }
 
-    public List<Note> getAll()
+    public pb.NoteService.GetAllNotesResponse getAll()
     {
-        return (List<Note>) this.noteRepository.findAll();
+        Iterable<Note> dbNotes = this.noteRepository.findAll();
+
+        List<pb.NoteService.Note> notes = new ArrayList<>();
+
+        for (Note note : dbNotes) {
+            notes.add(pb.NoteService.Note
+                    .newBuilder()
+                            .setText(note.text)
+                            .setTimestamp(note.timestamp.toString())
+                            .setUsername(note.user.getUsername())
+                            .setId(note.getId())
+                    .build());
+        }
+
+        return pb.NoteService.GetAllNotesResponse.newBuilder().addAllNotes(notes).build();
     }
 
     public Note put(int id, Note node) {
