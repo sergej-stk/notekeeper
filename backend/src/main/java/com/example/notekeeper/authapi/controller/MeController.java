@@ -43,7 +43,6 @@ public class MeController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = (User) authentication.getPrincipal();
         try {
-            // Save the file to the directory
             String filePath = saveImage(file, currentUser.getUsername());
             return ResponseEntity.ok("Image uploaded successfully: " + filePath);
         } catch (IOException e) {
