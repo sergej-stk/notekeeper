@@ -1,0 +1,65 @@
+syntax= "proto3";
+package pb;
+option go_package = "com.de";
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "proto/utils.proto";
+
+message Friend {
+  string username = 1;
+  bool accept = 2;
+}
+
+message AddFriendRequest {
+  string username = 1 [(validate.rules).string.email = true];
+}
+
+message AddFriendResponse {
+  bool success = 1;
+}
+
+message AnswerAddFriendRequest {
+  string username = 1 [(validate.rules).string.email = true];
+  bool accept = 2;
+}
+
+message CheckFriendshipRequest {
+  string username = 1 [(validate.rules).string.email = true];
+}
+
+message CheckFriendshipResponse {
+  bool status = 1;
+}
+
+message RemoveFriendRequest {
+    string username = 1 [(validate.rules).string.email = true];
+}
+
+message GetFriendListResponse {
+  repeated Friend friends = 1;
+}
+
+service FriendApiService {
+  // Load all friends
+  rpc GetFriends(Empty) returns (GetFriendListResponse) {
+    option (google.api.http) = {
+      get: "/api/v3/friend"
+    };
+  };
+
+  // Send a friend request
+  rpc AddFriend(AddFriendRequest) returns (AddFriendResponse) {
+    option (google.api.http) = {
+      post: "/api/v3/friend"
+      body: "*"
+    };
+  };
+
+  // answer friend request
+  rpc AnswerFirend(AnswerAddFriendRequest) returns (Empty) {
+    option (google.api.http) = {
+      post: "/api/v3/friend/answer"
+      body: "*"
+    };
+  };
+}
