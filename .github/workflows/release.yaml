@@ -45,7 +45,7 @@ jobs:
 
       # Archive the JAR file as an artifact
       - name: Upload JAR file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: springboot-app
           path: backend/target/*.jar
