@@ -14,7 +14,7 @@ jobs:
     steps:
     # Checkout the code from your repository
     - name: Check out repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     # Set up Java 21
     - name: Set up JDK 21
